@@ -1,7 +1,13 @@
-import React from "react";
+import React from 'react';
+import BackButton from '../components/BackButton';
 
 function OrderCheck() {
-  return <div>OrderCheck</div>;
+  return (
+    <div>
+      <div>OrderCheck</div>
+      <BackButton>이전으로</BackButton>
+    </div>
+  );
 }
 
 export default OrderCheck;

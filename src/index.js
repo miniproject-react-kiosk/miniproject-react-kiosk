@@ -23,21 +23,21 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: 'Menu/:takeOutId', element: <Menu /> },
 
-      { path: 'Menu/:takeOutId/OrderCheck', element: <OrderCheck /> },
+      { path: 'Menu/OrderChoice/:takeOutId', element: <OrderChoice /> },
       {
-        path: 'Menu/:takeOutId/OrderCheck/OrderChoice',
-        element: <OrderChoice />,
+        path: 'Menu/OrderChoice/OrderCheck/:takeOutId',
+        element: <OrderCheck />,
       },
       {
-        path: 'Menu/:takeOutId/OrderCheck/OrderComplete',
+        path: 'Menu/OrderChoice/OrderComplete/:takeOutId',
         element: <OrderComplete />,
       },
       {
-        path: 'Menu/:takeOutId/OrderCheck/MembershipSignUp',
+        path: 'Menu/OrderChoice/MembershipSignUp/:takeOutId',
         element: <MembershipSignUp />,
       },
       {
-        path: 'Menu/:takeOutId/OrderCheck/MembershipSignUp/MembershipLogin',
+        path: 'Menu/OrderChoice/MembershipLogin/:takeOutId',
         element: <MembershipLogin />,
       },
     ],
