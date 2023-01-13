@@ -8,14 +8,14 @@ function Home() {
       <h1>Home</h1>
       <div
         onClick={() => {
-          navigate(`/Menu:0`);
+          navigate(`/Menu`);
         }}
       >
         포장
       </div>
       <div
         onClick={() => {
-          navigate('/Menu:1');
+          navigate('/Menu');
         }}
       >
         매장
