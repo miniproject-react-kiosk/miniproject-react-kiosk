@@ -6,11 +6,11 @@ function Home() {
   const navigate = useNavigate();
   const place = [
     {
-      takeOutId: 0,
+      takeOutId: 'takeOut',
       takeOut: '포장',
     },
     {
-      takeOutId: 1,
+      takeOutId: 'NoneTakeOut',
       takeOut: '매장',
     },
   ];
