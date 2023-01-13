@@ -21,7 +21,9 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { index: true, element: <Home /> },
-      { path: 'Menu', element: <Menu /> },
+      { path: 'Menu:0', element: <Menu /> },
+      { path: 'Menu:1', element: <Menu /> },
+
       { path: 'OrderCheck', element: <OrderCheck /> },
       { path: 'OrderChoice', element: <OrderChoice /> },
       { path: 'OrderComplete', element: <OrderComplete /> },
