@@ -13,7 +13,6 @@ const StAll = styled.div`
   padding: 0px 20px 0px 20px;
   margin-top: 20px;
   height: 30px;
-  z-index: 6;
 `;
 const StBox = styled.div`
   width: 50px;
