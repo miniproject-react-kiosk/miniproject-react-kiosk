@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+//1번페이지
 
 function Home() {
   // 포장 , 매장  id값

@@ -1,10 +1,12 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import BackButton from '../components/BackButton';
+//2번페이지
 
 function Menu() {
   const navigate = useNavigate();
   const param = useParams();
+
   //FIXME: console.log 나중에 지울것..
   console.log(param);
   return (
