@@ -21,7 +21,7 @@ const StBoxs = styled.div`
 `;
 
 const StBox = styled.div`
-  background-color: #fde6e6;
+  background-color: #cdcdcd92;
   border: solid 2px white;
   border-radius: 5vw;
   width: 30vw;
@@ -33,7 +33,7 @@ const StBox = styled.div`
 
   cursor: pointer;
   &:hover {
-    background-color: #f3dc0c;
+    background-color: #ffe600e2;
     transition: all 300ms ease;
     /* transform: rotate(-30deg) scale(1.2); */
   }
@@ -61,6 +61,20 @@ const StBoxText = styled.div`
   font-family: "NanumSquareRoundBold";
 `;
 
+const StHeader = styled.div`
+  background-color: #ffe600e2;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+`;
+
+const StTitle = styled.h1`
+  text-align: center;
+  font-family: "MorningBreezeBold";
+  margin-top: 15px;
+  color: #2a2a2a;
+`;
 //1번페이지
 
 function Home() {
@@ -80,7 +94,12 @@ function Home() {
   ];
   return (
     <StAll>
-      <div>Logo</div>
+      {/* <div>Logo</div> */}
+      <StHeader>
+        <StTitle>MY KIOSK!</StTitle>
+        {/* <BackButton>이전으로</BackButton> */}
+        {/* <img src="/img/logo.png"></img> */}
+      </StHeader>
       <StBoxs>
         {place.map((e) => {
           return (

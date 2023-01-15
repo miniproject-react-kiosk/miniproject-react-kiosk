@@ -21,7 +21,7 @@ const StBoxs = styled.div`
 `;
 
 const StBox = styled.div`
-  background-color: #fde6e6;
+  background-color: #cdcdcd92;
   border: solid 2px white;
   border-radius: 5vw;
   width: 30vw;
@@ -34,7 +34,7 @@ const StBox = styled.div`
 
   cursor: pointer;
   &:hover {
-    background-color: #f3dc0c;
+    background-color: #ffe600e2;
     transition: all 300ms ease;
   }
 

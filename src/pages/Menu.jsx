@@ -246,17 +246,19 @@ const StBuyOrResetBox = styled.div`
 
 const StBuyButton = styled.div`
   position: absolute;
-  right: 0px;
+  right: 0%;
   width: 400px;
   height: 20px;
+  justify-content: space-between;
   font-family: "NanumSquareRoundBold";
   /* align-items: baseline; */
 `;
 
 const StResetButton = styled.div`
   position: absolute;
-  left: 0px;
+  right: 30%;
   width: 400px;
   height: 20px;
+  justify-content: space-between;
   font-family: "NanumSquareRoundBold";
 `;
