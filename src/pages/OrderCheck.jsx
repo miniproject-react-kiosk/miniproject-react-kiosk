@@ -23,7 +23,7 @@ const StBox1 = styled.div`
   background-color: #fde6e6;
   border: solid 2px white;
   border-radius: 5vw;
-  width: 60vw;
+  width: 80vw;
   height: 45vh;
   display: flex;
   justify-content: center;
@@ -35,7 +35,7 @@ const StBox2 = styled.div`
   background-color: #fde6e6;
   border: solid 2px white;
   border-radius: 5vw;
-  width: 60vw;
+  width: 80vw;
   height: 45vh;
   display: flex;
   flex-direction: column;
@@ -59,7 +59,8 @@ const StBox3 = styled.div`
   background-color: #fde6e6;
   border: solid 2px white;
   border-radius: 5vw;
-  width: 60vw;
+  width: 80vw;
+
   height: 45vh;
   display: flex;
   flex-direction: column;
