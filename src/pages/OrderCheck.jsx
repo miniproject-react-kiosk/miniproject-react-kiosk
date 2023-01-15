@@ -1,7 +1,9 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import BackButton from "../components/BackButton";
-import BackHomeButton from "../components/BackHomeButton";
+// import BackHomeButton from "../components/BackHomeButton";
+import { BiHome } from "react-icons/bi";
+import { BsCreditCard } from "react-icons/bs";
 import styled from "styled-components";
 
 function OrderCheck() {
@@ -26,11 +28,11 @@ function OrderCheck() {
               type="button"
               class="btn btn-outline-light btn-lg"
               onClick={() => {
-                navigate(-1);
+                navigate("/");
               }}
             >
               {" "}
-              취소하기
+              <BiHome className="BackHomeButton" /> 홈으로 돌아가기
             </button>
           </div>
         </StResetButton>
@@ -46,7 +48,7 @@ function OrderCheck() {
               }}
             >
               {" "}
-              결제하기
+              <BsCreditCard className="Buy" /> 결제하기
             </button>
           </div>
         </StBuyButton>

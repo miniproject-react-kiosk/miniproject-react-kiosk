@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 // import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.css";
 import styled from "styled-components";
+import { BsCartCheck } from "react-icons/bs";
+import { BiUndo } from "react-icons/bi";
 
 //2번페이지
 
@@ -167,7 +169,7 @@ function Menu() {
                 }}
               >
                 {" "}
-                취소하기
+                <BiUndo className="Undo" /> 취소하기
               </button>
             </div>
           </StResetButton>
@@ -183,7 +185,7 @@ function Menu() {
                 }}
               >
                 {" "}
-                주문하기
+                <BsCartCheck className="Order" /> 주문하기
               </button>
             </div>
           </StBuyButton>
