@@ -7,22 +7,11 @@ import { BiRestaurant } from 'react-icons/bi';
 const StAll = styled.div`
   text-align: center;
   max-width: 1200px;
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0; */
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-  /* display: -webkit-flex;
-  -webkit-align-item: center;
-  -webkit-justify-content: center; */
 `;
 
 const StBoxs = styled.div`
   position: absolute;
-  top: 0;
+  top: 50px;
   left: 0;
   right: 0;
   bottom: 0;
