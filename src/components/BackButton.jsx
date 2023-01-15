@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { BsBackspace } from "react-icons/bs";
+
 import styled from "styled-components";
 
 function BackButton() {
@@ -8,7 +9,7 @@ function BackButton() {
 
   return (
     <div>
-      {/* 백버튼 수정 테스트 */}
+      {/* BackButton 수정 */}
       <StBackButtonContainer>
         <div class="d-grid gap-2 col-1 mx-auto">
           <button
