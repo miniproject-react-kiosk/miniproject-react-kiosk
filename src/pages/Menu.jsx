@@ -229,6 +229,7 @@ const StCardText = styled.p`
 
 const StCartBox = styled.div`
   /* border: 2px solid #343333; */
+  border-radius: 10px;
   background-color: #3d3d3d97;
   position: fixed;
   bottom: 0;
@@ -238,6 +239,7 @@ const StCartBox = styled.div`
 
 const StBuyOrResetBox = styled.div`
   background-color: #3d3d3d61;
+  border-radius: 10px;
   position: fixed;
   bottom: 0;
   width: 100%;
