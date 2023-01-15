@@ -18,7 +18,7 @@ function Menu() {
     <div>
       <StHeader>
         <StTitle>MENU</StTitle>
-        <BackButton>이전으로</BackButton>
+        {/* <BackButton>이전으로</BackButton> */}
         {/* <img src="/img/logo.png"></img> */}
       </StHeader>
       {/* 메뉴추가 */}
@@ -153,14 +153,25 @@ function Menu() {
       </StMenuContainer>
       <StCartBox>
         <div>장바구니 자리</div>
-        <button
-          onClick={() => {
-            navigate(`/Menu/OrderChoice/${param.takeOutId}`);
-          }}
-        >
-          {" "}
-          주문하기
-        </button>
+
+        <StBuyOrResetBox>
+          <div>결제창 자리</div>
+
+          <StBuyButton>
+            <div class="d-grid gap-2 col-10 mx-auto">
+              <button
+                type="button"
+                class="btn btn-outline-light btn-lg"
+                onClick={() => {
+                  navigate(`/Menu/OrderChoice/${param.takeOutId}`);
+                }}
+              >
+                {" "}
+                주문하기
+              </button>
+            </div>
+          </StBuyButton>
+        </StBuyOrResetBox>
       </StCartBox>
     </div>
   );
@@ -207,5 +218,22 @@ const StCartBox = styled.div`
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 280px;
+  height: 300px;
+`;
+
+const StBuyOrResetBox = styled.div`
+  background-color: #3d3d3d61;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+`;
+
+const StBuyButton = styled.div`
+  position: absolute;
+  right: 0px;
+  width: 400px;
+  height: 20px;
+  font-family: "NanumSquareRoundBold";
+  /* align-items: baseline; */
 `;
