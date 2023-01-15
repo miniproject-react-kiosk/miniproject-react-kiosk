@@ -3,8 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 // import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.css";
 import styled from "styled-components";
-import BackButton from "../components/BackButton";
-// import { Card } from "react-bootstrap";
 
 //2번페이지
 
@@ -157,6 +155,23 @@ function Menu() {
         <StBuyOrResetBox>
           <div>결제창 자리</div>
 
+          {/* 취소하기 버튼 */}
+          <StResetButton>
+            <div class="d-grid gap-2 col-10 mx-auto">
+              <button
+                type="button"
+                class="btn btn-outline-light btn-lg"
+                onClick={() => {
+                  navigate(-1);
+                }}
+              >
+                {" "}
+                취소하기
+              </button>
+            </div>
+          </StResetButton>
+
+          {/* 결제하기 버튼 */}
           <StBuyButton>
             <div class="d-grid gap-2 col-10 mx-auto">
               <button
@@ -236,4 +251,12 @@ const StBuyButton = styled.div`
   height: 20px;
   font-family: "NanumSquareRoundBold";
   /* align-items: baseline; */
+`;
+
+const StResetButton = styled.div`
+  position: absolute;
+  left: 0px;
+  width: 400px;
+  height: 20px;
+  font-family: "NanumSquareRoundBold";
 `;
