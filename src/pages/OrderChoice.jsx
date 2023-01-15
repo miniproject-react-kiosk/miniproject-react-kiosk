@@ -6,7 +6,6 @@ import styled from 'styled-components';
 const StAll = styled.div`
   text-align: center;
   max-width: 1200px;
-  z-index: 2;
 `;
 
 const StBoxs = styled.div`

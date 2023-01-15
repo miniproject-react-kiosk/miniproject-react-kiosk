@@ -34,6 +34,14 @@ const StBox = styled.div`
     background-color: #f3dc0c;
     transition: all 300ms ease;
   }
+  &:hover .text {
+    transition: all 400ms ease;
+    transform: rotate(-10deg) scale(1.1);
+  }
+`;
+
+const StBoxText = styled.div`
+  font-size: 3vw;
 `;
 
 function MembershipLogin() {
@@ -48,22 +56,21 @@ function MembershipLogin() {
             <input />
           </div>
 
-          <button
+          <StBoxText
+            className='text'
             onClick={() => {
               navigate(`/Menu/OrderChoice/OrderComplete/${param.takeOutId}`);
             }}
           >
-            멤버쉽 로그인하기(전화번호입력)
-          </button>
+            멤버쉽 로그인하기
+          </StBoxText>
         </StBox>
-        <StBox>
-          <button
-            onClick={() => {
-              navigate(`/Menu/OrderChoice/MembershipSignUp/${param.takeOutId}`);
-            }}
-          >
-            멤버쉽 회원가입하기(전화번호중복체크기능^^)
-          </button>
+        <StBox
+          onClick={() => {
+            navigate(`/Menu/OrderChoice/MembershipSignUp/${param.takeOutId}`);
+          }}
+        >
+          <StBoxText className='text'>멤버쉽 회원가입하기</StBoxText>
         </StBox>
       </StBoxs>
     </div>
