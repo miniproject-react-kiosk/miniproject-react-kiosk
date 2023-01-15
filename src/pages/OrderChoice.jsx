@@ -1,7 +1,7 @@
-import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import BackButton from '../components/BackButton';
-import styled from 'styled-components';
+import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import BackButton from "../components/BackButton";
+import styled from "styled-components";
 
 const StAll = styled.div`
   text-align: center;
@@ -46,6 +46,7 @@ const StBox = styled.div`
 
 const StBoxText = styled.div`
   font-size: 3vw;
+  font-family: "NanumSquareRoundBold";
 `;
 
 //3번페이지
@@ -58,7 +59,7 @@ function OrderChoice() {
 
   return (
     <div>
-      <BackButton className='backButton' />
+      <BackButton className="backButton" />
 
       <StAll>
         <StBoxs>
@@ -67,7 +68,7 @@ function OrderChoice() {
               navigate(`/Menu/OrderChoice/MembershipLogin/${param.takeOutId}`);
             }}
           >
-            <StBoxText className='text'>
+            <StBoxText className="text">
               멤버쉽으로
               <br />
               주문하기
@@ -78,7 +79,7 @@ function OrderChoice() {
               navigate(`/Menu/OrderChoice/OrderCheck/${param.takeOutId}`);
             }}
           >
-            <StBoxText className='text'>
+            <StBoxText className="text">
               비회원으로
               <br />
               주문하기
