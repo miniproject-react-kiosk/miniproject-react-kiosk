@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import styled from "styled-components";
 import { BsCartCheck } from "react-icons/bs";
 import { BiUndo } from "react-icons/bi";
+import AddCart from "../components/AddCart";
 
 //2번페이지
 
@@ -44,6 +45,10 @@ function Menu() {
                     치킨 버거!
                   </p>
                 </StCardText>
+                <StAddCartButton>
+                  {" "}
+                  <AddCart />
+                </StAddCartButton>
               </div>
             </div>
           </div>
@@ -64,6 +69,10 @@ function Menu() {
                     50년 넘게 전 세계인의 입맛을 사로 잡은 버거의 대명사.
                   </p>
                 </StCardText>
+                <StAddCartButton>
+                  {" "}
+                  <AddCart />
+                </StAddCartButton>
               </div>
             </div>
           </div>
@@ -85,6 +94,10 @@ function Menu() {
                     화끈하게!
                   </p>
                 </StCardText>
+                <StAddCartButton>
+                  {" "}
+                  <AddCart />
+                </StAddCartButton>
               </div>
             </div>
           </div>
@@ -105,6 +118,10 @@ function Menu() {
                     아라비아따 소스를 더해 강렬하게 재탄생한 맥치킨 모짜렐라!
                   </p>
                 </StCardText>
+                <StAddCartButton>
+                  {" "}
+                  <AddCart />
+                </StAddCartButton>
               </div>
             </div>
           </div>
@@ -125,6 +142,10 @@ function Menu() {
                     어니언까지! 1955년의 맛을 담은 영원한 오리지널 버거
                   </p>
                 </StCardText>
+                <StAddCartButton>
+                  {" "}
+                  <AddCart />
+                </StAddCartButton>
               </div>
             </div>
           </div>
@@ -147,6 +168,10 @@ function Menu() {
                     치즈, 마요네즈를 더한 프리미엄 버거.
                   </p>
                 </StCardText>
+                <StAddCartButton>
+                  {" "}
+                  <AddCart />
+                </StAddCartButton>
               </div>
             </div>
           </div>
@@ -266,4 +291,9 @@ const StResetButton = styled.div`
   height: 20px;
   justify-content: space-between;
   font-family: "NanumSquareRoundBold";
+`;
+
+const StAddCartButton = styled.div`
+  width: 560px;
+  margin: auto;
 `;
