@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const StAll = styled.div`
   /* background-color: yellow; */
   text-align: center;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   display: flex;
   align-items: center;
   justify-content: space-between;
