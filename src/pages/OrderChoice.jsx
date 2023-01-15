@@ -69,7 +69,7 @@ function OrderChoice() {
             }}
           >
             <StBoxText className="text">
-              멤버쉽으로
+              멤버십으로
               <br />
               주문하기
             </StBoxText>

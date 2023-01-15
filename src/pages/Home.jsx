@@ -1,8 +1,8 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import { HiOutlineShoppingBag } from 'react-icons/hi';
-import { BiRestaurant } from 'react-icons/bi';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { HiOutlineShoppingBag } from "react-icons/hi";
+import { BiRestaurant } from "react-icons/bi";
 
 const StAll = styled.div`
   text-align: center;
@@ -49,7 +49,7 @@ const StBoxImg = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 8vw;
+  font-size: 10vw;
   /* transform: rotate(-30deg) scale(1.2); */
 `;
 const StBoxText = styled.div`
@@ -57,7 +57,8 @@ const StBoxText = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 4vw;
+  font-size: 3vw;
+  font-family: "NanumSquareRoundBold";
 `;
 
 //1번페이지
@@ -67,13 +68,13 @@ function Home() {
   const navigate = useNavigate();
   const place = [
     {
-      takeOutId: 'takeOut',
-      takeOut: '포장',
+      takeOutId: "takeOut",
+      takeOut: "포장",
       img: <HiOutlineShoppingBag />,
     },
     {
-      takeOutId: 'NoneTakeOut',
-      takeOut: '매장',
+      takeOutId: "NoneTakeOut",
+      takeOut: "매장",
       img: <BiRestaurant />,
     },
   ];
@@ -88,7 +89,7 @@ function Home() {
                 navigate(`/Menu/${e.takeOutId}`);
               }}
             >
-              <StBoxImg className='img'>{e.img}</StBoxImg>
+              <StBoxImg className="img">{e.img}</StBoxImg>
               <StBoxText>{e.takeOut}</StBoxText>
               {/* 포장 or 매장 */}
             </StBox>
