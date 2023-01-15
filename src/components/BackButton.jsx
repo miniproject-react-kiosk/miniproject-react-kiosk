@@ -12,10 +12,10 @@ const StAll = styled.div`
   justify-content: space-between;
   padding: 0px 20px 0px 20px;
   margin-top: 20px;
-  height: 30px;
+  /* height: 30px; */
 `;
 const StBox = styled.div`
-  width: 50px;
+  width: 40px;
   height: 30px;
   line-height: 30px;
   /* border: solid gray 1px; */
@@ -30,10 +30,10 @@ const StBackButton = styled.div`
     background-color: #f3dc0c;
     transition: all 300ms ease;
   }
-  &:hover .BackButton {
+  /* &:hover .BackButton {
     transition: all 300ms ease;
     transform: rotate(5deg) scale(1.1);
-  }
+  } */
 `;
 
 export default function BackButton() {
