@@ -19,6 +19,7 @@ function Menu() {
         {/* <BackButton>이전으로</BackButton> */}
         {/* <img src="/img/logo.png"></img> */}
       </StHeader>
+
       {/* 메뉴추가 */}
       <StMenuContainer>
         <div class="row row-cols-1 row-cols-md-5 g-4">
