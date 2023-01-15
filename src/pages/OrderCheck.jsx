@@ -80,7 +80,7 @@ function OrderCheck() {
 
           <div>your order</div>
           <StBox2 className='box2'>
-            <div>주문을 확인 해주세요.</div>
+            <div>주문을 확인 해주세요.주문을 확인 해주세요.</div>
             <div>주문을 확인 해주세요.</div>
             <div>주문을 확인 해주세요.</div>
             <div>주문을 확인 해주세요.</div>
