@@ -16,16 +16,11 @@ function Menu() {
   console.log(param);
   return (
     <div>
-      <div>Menu</div>
-      <BackButton>이전으로</BackButton>
-      <button
-        onClick={() => {
-          navigate(`/Menu/OrderChoice/${param.takeOutId}`);
-        }}
-      >
-        {" "}
-        주문하기
-      </button>
+      <StHeader>
+        <StTitle>MENU</StTitle>
+        <BackButton>이전으로</BackButton>
+        {/* <img src="/img/logo.png"></img> */}
+      </StHeader>
       {/* 메뉴추가 */}
       <StMenuContainer>
         <div class="row row-cols-1 row-cols-md-5 g-4">
@@ -45,7 +40,7 @@ function Menu() {
                   <p class="card-text">
                     100% 통닭다리살 겉바속촉 케이준 치킨 패티, 촉촉한 포테이토
                     브리오쉬 번, 스페셜 스모키 소스가 선사하는 놀랍도록 새로운
-                    맛의 치킨 버거!
+                    치킨 버거!
                   </p>
                 </StCardText>
               </div>
@@ -158,6 +153,14 @@ function Menu() {
       </StMenuContainer>
       <StCartBox>
         <div>장바구니 자리</div>
+        <button
+          onClick={() => {
+            navigate(`/Menu/OrderChoice/${param.takeOutId}`);
+          }}
+        >
+          {" "}
+          주문하기
+        </button>
       </StCartBox>
     </div>
   );
@@ -165,8 +168,24 @@ function Menu() {
 
 export default Menu;
 
+const StHeader = styled.div`
+  background-color: #ffe600e2;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+`;
+
+const StTitle = styled.h1`
+  text-align: center;
+  font-family: "MorningBreezeBold";
+  margin-top: 15px;
+  color: #2a2a2a;
+`;
+
 const StMenuContainer = styled.p`
-  padding: 30px;
+  padding: 35px;
+  margin-top: 60px;
 `;
 
 const StCardTitle = styled.p`
@@ -188,5 +207,5 @@ const StCartBox = styled.div`
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 240px;
+  height: 280px;
 `;

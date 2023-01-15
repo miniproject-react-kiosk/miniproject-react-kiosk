@@ -1,7 +1,7 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { BsBackspace } from 'react-icons/bs';
-import styled from 'styled-components';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { BsBackspace } from "react-icons/bs";
+import styled from "styled-components";
 
 const StAll = styled.div`
   /* background-color: yellow; */
@@ -36,19 +36,28 @@ const StBackButton = styled.div`
   }
 `;
 
+// const StLogo = styled.image`
+//   position: left;
+//   width: 100%;
+//   height: 280px;
+// `;
+
 export default function BackButton() {
   const navigate = useNavigate();
 
   return (
     <StAll>
-      <div>Logo</div>
+      {/* <div>Logo</div> */}
+      {/* <StLogo>
+        <img src="/img/logo.png"></img>
+      </StLogo> */}
       <StBox>
         <StBackButton
           onClick={() => {
             navigate(-1);
           }}
         >
-          <BsBackspace className='BackButton' />
+          <BsBackspace className="BackButton" />
         </StBackButton>
       </StBox>
     </StAll>
