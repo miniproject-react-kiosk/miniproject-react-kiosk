@@ -1,12 +1,12 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { BsBackspace } from 'react-icons/bs';
-import styled from 'styled-components';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { BsBackspace } from "react-icons/bs";
+import styled from "styled-components";
 
 const StAll = styled.div`
   /* background-color: yellow; */
   text-align: center;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -48,7 +48,7 @@ export default function BackButton() {
             navigate(-1);
           }}
         >
-          <BsBackspace className='BackButton' />
+          <BsBackspace className="BackButton" />
         </StBackButton>
       </StBox>
     </StAll>

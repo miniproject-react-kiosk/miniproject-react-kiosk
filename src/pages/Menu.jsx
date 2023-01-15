@@ -140,7 +140,7 @@ function Menu() {
         <div class="col">
           <div class="card h-100">
             <img
-              src="https://www.mcdonalds.co.kr/upload/product/pcfile/1599119647587.png"
+              src="https://www.mcdonalds.co.kr/upload/product/pcfile/1583727707216.png"
               class="card-img-top"
               alt="..."
             ></img>
