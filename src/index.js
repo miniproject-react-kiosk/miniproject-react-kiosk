@@ -21,12 +21,25 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { index: true, element: <Home /> },
-      { path: 'Menu', element: <Menu /> },
-      { path: 'OrderCheck', element: <OrderCheck /> },
-      { path: 'OrderChoice', element: <OrderChoice /> },
-      { path: 'OrderComplete', element: <OrderComplete /> },
-      { path: 'MembershipSignUp', element: <MembershipSignUp /> },
-      { path: 'MembershipLogin', element: <MembershipLogin /> },
+      { path: 'Menu/:takeOutId', element: <Menu /> },
+
+      { path: 'Menu/OrderChoice/:takeOutId', element: <OrderChoice /> },
+      {
+        path: 'Menu/OrderChoice/OrderCheck/:takeOutId',
+        element: <OrderCheck />,
+      },
+      {
+        path: 'Menu/OrderChoice/OrderComplete/:takeOutId',
+        element: <OrderComplete />,
+      },
+      {
+        path: 'Menu/OrderChoice/MembershipSignUp/:takeOutId',
+        element: <MembershipSignUp />,
+      },
+      {
+        path: 'Menu/OrderChoice/MembershipLogin/:takeOutId',
+        element: <MembershipLogin />,
+      },
     ],
   },
 ]);
