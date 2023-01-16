@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import BackButton from "../components/BackButton";
-// import styled from "styled-components";
+// import PhoneNumberForm from "../components/PhoneNumberForm";
 
 function MembershipLogin() {
   const navigate = useNavigate();
@@ -15,6 +15,8 @@ function MembershipLogin() {
       </StHeader>
       <StContentsBox>
         <div>
+          <div>{/* <PhoneNumberForm>전화번호 입력</PhoneNumberForm> */}</div>
+
           <button
             onClick={() => {
               navigate(`/Menu/OrderChoice/OrderComplete/${param.takeOutId}`);
@@ -23,16 +25,22 @@ function MembershipLogin() {
             멤버쉽 로그인하기(전화번호입력)
           </button>
         </div>
-        <div>
+      </StContentsBox>
+
+      <StSignButton>
+        <div class="d-grid gap-2 col-10 mx-auto">
           <button
+            type="button"
+            class="btn btn-outline-secondary btn-lg"
             onClick={() => {
               navigate(`/Menu/OrderChoice/MembershipSignUp/${param.takeOutId}`);
             }}
           >
-            멤버쉽 회원가입하기(전화번호중복체크기능^^)
+            {" "}
+            멤버십 가입하기
           </button>
         </div>
-      </StContentsBox>
+      </StSignButton>
     </div>
   );
 }
@@ -64,4 +72,14 @@ const StContentsBox = styled.div`
   margin-top: 10%;
   width: 80%;
   height: 150px;
+`;
+
+const StSignButton = styled.div`
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  margin-top: 15%;
+  width: 25vw;
+  height: 20px;
+  font-family: "NanumSquareRoundBold";
 `;

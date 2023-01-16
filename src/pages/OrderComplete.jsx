@@ -10,7 +10,7 @@ function OrderComplete() {
     <div>
       <StContainerBox>
         <StHeader>
-          <StTitle>ENJOY YOUR MEAL!</StTitle>
+          <StTitle>🍔 ENJOY YOUR MEAL! 🍟</StTitle>
         </StHeader>
 
         <div>

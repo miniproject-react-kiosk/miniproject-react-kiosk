@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-// import BackButton from "../components/BackButton";
-// import BackHomeButton from "../components/BackHomeButton";
 import { BiHome } from "react-icons/bi";
 import { BsCreditCard } from "react-icons/bs";
+import BackButton from "../components/BackButton";
+// import BackHomeButton from "../components/BackHomeButton";
 import styled from "styled-components";
 
 // const StAll = styled.div`
@@ -79,10 +79,7 @@ function OrderCheck() {
       <StHeader>
         <StTitle>✔️ Order Check ✔️</StTitle>
       </StHeader>
-
-      {/* <div>
-        <BackHomeButton />
-      </div> */}
+      <BackButton>이전으로</BackButton>
 
       <StBuyOrResetBox>
         {/* 취소하기 버튼 */}
@@ -122,29 +119,6 @@ function OrderCheck() {
     //           <div>your order</div>
     //           <StBox2 className='box2'>
     //             <div>주문을 확인 해주세요.주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
     //             <div>주문을 확인 해주세요.</div>
     //             <div>주문을 확인 해주세요.</div>
     //             <div>주문을 확인 해주세요.</div>
