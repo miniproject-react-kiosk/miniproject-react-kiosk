@@ -4,6 +4,8 @@ import { RiDeleteBin5Line } from 'react-icons/ri';
 
 export default function CartList() {
   const [num, setNum] = useState(1);
+
+  //FIXME: useSelector 하면 없앨부분
   const [menus, setMenus] = useState({
     menu: '맥날1',
     price: 1000,
@@ -28,7 +30,7 @@ export default function CartList() {
           >
             -
           </StCartListControlBox>
-          <StCartListControlBox2> num = {num}</StCartListControlBox2>
+          <StCartListControlBox2> {num}</StCartListControlBox2>
           <StCartListControlBox
             onClick={() => {
               setNum(num + 1);

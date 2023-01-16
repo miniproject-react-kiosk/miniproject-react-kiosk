@@ -33,6 +33,11 @@ function Menu() {
       <StCartBox>
         <div>
           <CartList />
+          <CartList />
+          <CartList />
+          <CartList />
+          <CartList />
+          <CartList />
         </div>
 
         <StBuyOrResetBox>

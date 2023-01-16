@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { useState, useEffect } from "react";
+import React from 'react';
+import styled from 'styled-components';
+import { useState, useEffect } from 'react';
 
 // function PhoneNumberInput () {
 // const handlePress = (e) => {
@@ -27,9 +27,9 @@ import { useState, useEffect } from "react";
 
 function PhoneNumberForm() {
   const [values, setValues] = useState({
-    nameValue: "",
-    numberValue: "",
-    contentValue: "",
+    nameValue: '',
+    numberValue: '',
+    contentValue: '',
   });
 
   const { nameValue, numberValue, contentValue } = values;
@@ -46,14 +46,14 @@ function PhoneNumberForm() {
   useEffect(() => {
     if (numberValue.length === 11) {
       setValues({
-        numberValue: numberValue.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3"),
+        numberValue: numberValue.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3'),
       });
     } else if (numberValue.length === 13) {
       setValues({
         numberValue: numberValue
           //하이픈이 입력되면 공백으로 변경되고 하이픈이 다시 생성됨
-          .replace(/-/g, "")
-          .replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3"),
+          .replace(/-/g, '')
+          .replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3'),
       });
     }
   }, [numberValue]);
@@ -63,24 +63,24 @@ function PhoneNumberForm() {
       <ContentBox>
         <div>Name</div>
         <ContentInput
-          name="nameValue"
-          value={nameValue || ""}
+          name='nameValue'
+          value={nameValue || ''}
           onChange={handleNumber}
         />
       </ContentBox>
       <ContentBox>
         <div>Phone Number</div>
         <ContentInput
-          name="numberValue"
-          value={numberValue || ""}
+          name='numberValue'
+          value={numberValue || ''}
           onChange={handleNumber}
         />
       </ContentBox>
       <ContentBox>
         <div>Content</div>
         <ContentInput
-          name="contentValue"
-          value={contentValue || ""}
+          name='contentValue'
+          value={contentValue || ''}
           onChange={handleNumber}
         />
       </ContentBox>
