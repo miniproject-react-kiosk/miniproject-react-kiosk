@@ -3,80 +3,26 @@
     {
       "id": 1,
       "menu": "메뉴1",
-      "explanation": "내용1",
-      "price": 1000
+      "price": 1000,
+      "count": 1
     },
     {
       "id": 2,
       "menu": "메뉴2",
-      "explanation": "내용2",
-      "price": 2000
+      "price": 2000,
+      "count": 1
     },
     {
       "id": 3,
       "menu": "메뉴3",
-      "explanation": "내용3",
-      "price": 3000
+      "price": 3000,
+      "count": 1
     },
     {
       "id": 4,
       "menu": "메뉴4",
-      "explanation": "내용4",
-      "price": 4000
-    },
-    {
-      "id": 5,
-      "menu": "메뉴5",
-      "explanation": "내용5",
-      "price": 5000
-    },
-    {
-      "id": 6,
-      "menu": "메뉴6",
-      "explanation": "내용6",
-      "price": 6000
-    },
-    {
-      "id": 7,
-      "menu": "메뉴7",
-      "explanation": "내용7",
-      "price": 7000
-    },
-    {
-      "id": 8,
-      "menu": "메뉴8",
-      "explanation": "내용8",
-      "price": 8000
-    },
-    {
-      "id": 9,
-      "menu": "메뉴9",
-      "explanation": "내용9",
-      "price": 9000
-    },
-    {
-      "id": 10,
-      "menu": "메뉴10",
-      "explanation": "내용10",
-      "price": 10000
-    },
-    {
-      "id": 11,
-      "menu": "메뉴11",
-      "explanation": "내용11",
-      "price": 11000
-    },
-    {
-      "id": 12,
-      "menu": "메뉴12",
-      "explanation": "내용12",
-      "price": 12000
-    },
-    {
-      "id": 13,
-      "menu": "메뉴13",
-      "explanation": "내용13",
-      "price": 13000
+      "price": 4000,
+      "count": 1
     }
   ]
 }

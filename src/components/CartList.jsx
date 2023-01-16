@@ -1,49 +1,57 @@
-import React, { useState } from 'react';
 import styled from 'styled-components';
 import { RiDeleteBin5Line } from 'react-icons/ri';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteCart } from '../redux/modules/menuListSlice';
 
 export default function CartList() {
-  const [num, setNum] = useState(1);
+  const globaladdCart = useSelector((state) => state.menuList.menuList);
+  const dispatch = useDispatch();
+  const handledDelete = (id) => {
+    dispatch(deleteCart(id));
+  };
 
-  //FIXME: useSelector 하면 없앨부분
-  const [menus, setMenus] = useState({
-    menu: '맥날1',
-    price: 1000,
-  });
   return (
     <div>
-      <StCartList>
-        <StCartListMenu>
-          <h2>{menus.menu}</h2> <div>{menus.price * num}</div>
-        </StCartListMenu>
+      {globaladdCart?.map((menu) => (
+        <div key={menu.id}>
+          <StCartList>
+            <StCartListMenu>
+              <h2>{menu.menu}</h2> <div>{menu.price * menu.count}</div>
+            </StCartListMenu>
 
-        <StCartListControl>
-          <StCartListControlBox
-            onClick={() => {
-              if (num === 0) {
-                //FIXME:  0 밑으로 갈때는 삭제하는 함수를 반환하게끔.. 만들기!
-                setNum(num);
-              } else {
-                setNum(num - 1);
-              }
-            }}
-          >
-            -
-          </StCartListControlBox>
-          <StCartListControlBox2> {num}</StCartListControlBox2>
-          <StCartListControlBox
-            onClick={() => {
-              setNum(num + 1);
-            }}
-          >
-            +
-          </StCartListControlBox>
-        </StCartListControl>
+            <StCartListControl>
+              <StCartListControlBox
+                onClick={() => {
+                  if (menu.count === 0) {
+                    //FIXME:  0 밑으로 갈때는 삭제하는 함수를 반환하게끔.. 만들기!
+                    menu.count = 0;
+                  } else {
+                    menu.count = menu.count - 1;
+                  }
+                }}
+              >
+                -
+              </StCartListControlBox>
+              <StCartListControlBox2> {menu.count}</StCartListControlBox2>
+              <StCartListControlBox
+                onClick={() => {
+                  menu.count = menu.count + 1;
+                }}
+              >
+                +
+              </StCartListControlBox>
+            </StCartListControl>
 
-        <StCartListDelete>
-          <RiDeleteBin5Line />
-        </StCartListDelete>
-      </StCartList>
+            <StCartListDelete
+              onClick={() => {
+                handledDelete(menu.id);
+              }}
+            >
+              <RiDeleteBin5Line />
+            </StCartListDelete>
+          </StCartList>
+        </div>
+      ))}
     </div>
   );
 }

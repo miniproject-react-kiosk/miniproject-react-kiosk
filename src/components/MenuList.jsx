@@ -1,41 +1,21 @@
-import React, { useReducer } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import styled from 'styled-components';
 import AddCart from '../components/AddCart';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BiWon } from 'react-icons/bi';
+import { useDispatch, useSelector } from 'react-redux';
+import { addCart } from '../redux/modules/menuListSlice';
 // import menuListReducer from '../redux/modules/menuListReducer';
 
 export default function MenuList() {
   //조회...
+  const dispatch = useDispatch();
   const [menuLists, setMenuLists] = useState(null);
 
-  //버튼 클릭시 추가 기능..
-  // const [menuList, dispatch] = useReducer(menuListReducer, [
-  //   { menu: '맥날1', price: 1000 },
-  //   { menu: '맥날2', price: 2000 },
-  //   { menu: '맥날3', price: 3000 },
-  //   { menu: '맥날4', price: 4000 },
-  // ]);
-
-  const [cartList, setCartList] = useState([
-    { menu: '맥날1', price: 1000 },
-    { menu: '맥날2', price: 2000 },
-    { menu: '맥날3', price: 3000 },
-    { menu: '맥날4', price: 4000 },
-  ]);
-
   const handleAdd = (e) => {
-    console.log(e);
-
-    // setCartList([...cartList, e]);
-    // console.log(cartList);
-
-    // const menu = 1;
-    // const price = 1;
-
-    // dispatch({ type: 'added', cartList });
+    dispatch(addCart(e));
+    // console.log(e);
   };
 
   const fetchTodos = async () => {
@@ -54,7 +34,7 @@ export default function MenuList() {
       {menuLists?.map((menuList) => {
         // console.log(menuList);
         return (
-          <div>
+          <div key={menuList.id}>
             <div class='col'>
               <div class='card h-40'>
                 <img

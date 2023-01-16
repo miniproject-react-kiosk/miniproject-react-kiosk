@@ -8,11 +8,18 @@ import { BiUndo } from 'react-icons/bi';
 // import BackButton from "../components/BackButton";
 import MenuList from '../components/MenuList';
 import CartList from '../components/CartList';
+import { useSelector } from 'react-redux';
 //2번페이지
 
 function Menu() {
   const navigate = useNavigate();
   const param = useParams();
+
+  const globaladdCart = useSelector((state) => state.menuList.menuList);
+  let totalprice = 0;
+  for (let i = 0; i < globaladdCart.length; i++) {
+    totalprice = totalprice + globaladdCart[i].price;
+  }
 
   return (
     <div>
@@ -33,17 +40,14 @@ function Menu() {
       <StCartBox>
         <div>
           <CartList />
-          <CartList />
-          <CartList />
-          <CartList />
-          <CartList />
-          <CartList />
         </div>
 
         <StBuyOrResetBox>
           <StCartTotalPrice>
             <div class='d-grid gap-2 col-10 mx-auto'>
-              <div class='btn btn-outline-light btn-lg'>총합</div>
+              <div class='btn btn-outline-light btn-lg'>
+                Total : {totalprice}
+              </div>
             </div>
           </StCartTotalPrice>
 
