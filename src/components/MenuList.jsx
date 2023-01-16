@@ -4,7 +4,7 @@ import AddCart from '../components/AddCart';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BiWon } from 'react-icons/bi';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addCart } from '../redux/modules/menuListSlice';
 // import menuListReducer from '../redux/modules/menuListReducer';
 
