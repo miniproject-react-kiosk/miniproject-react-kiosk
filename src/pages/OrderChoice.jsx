@@ -6,15 +6,15 @@ import styled from 'styled-components';
 const StAll = styled.div`
   text-align: center;
   max-width: 1200px;
-  z-index: 2;
 `;
 
 const StBoxs = styled.div`
-  position: absolute;
+  /* position: absolute;
   top: 50px;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 0; */
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: space-evenly;

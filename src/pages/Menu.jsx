@@ -12,8 +12,6 @@ function Menu() {
   const navigate = useNavigate();
   const param = useParams();
 
-  //FIXME: console.log 나중에 지울것..
-  console.log(param);
   return (
     <div>
       <div>Menu</div>
@@ -140,7 +138,7 @@ function Menu() {
         <div class='col'>
           <div class='card h-100'>
             <img
-              src='https://www.mcdonalds.co.kr/upload/product/pcfile/1583727707216.png'
+              src='https://www.mcdonalds.co.kr/upload/product/pcfile/1599119647587.png'
               class='card-img-top'
               alt='...'
             ></img>
