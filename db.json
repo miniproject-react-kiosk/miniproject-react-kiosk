@@ -1,0 +1,46 @@
+{
+  "MenuList": [
+    {
+      "id": 1,
+      "menu": "메뉴1",
+      "explanation": "내용1",
+      "price": 1000
+    },
+    {
+      "id": 2,
+      "menu": "메뉴2",
+      "explanation": "내용2",
+      "price": 2000
+    },
+    {
+      "id": 3,
+      "menu": "메뉴3",
+      "explanation": "내용3",
+      "price": 3000
+    },
+    {
+      "id": 4,
+      "menu": "메뉴4",
+      "explanation": "내용4",
+      "price": 4000
+    },
+    {
+      "id": 5,
+      "menu": "메뉴5",
+      "explanation": "내용5",
+      "price": 5000
+    },
+    {
+      "id": 6,
+      "menu": "메뉴6",
+      "explanation": "내용6",
+      "price": 6000
+    },
+    {
+      "id": 7,
+      "menu": "메뉴7",
+      "explanation": "내용7",
+      "price": 7000
+    }
+  ]
+}

@@ -7,15 +7,37 @@ import { BiUndo } from 'react-icons/bi';
 
 // import BackButton from "../components/BackButton";
 import MenuList from '../components/MenuList';
-
+import CartList from '../components/CartList';
 //2번페이지
 
 function Menu() {
   const navigate = useNavigate();
   const param = useParams();
 
+  //FIXME:조회 테스트...
+  // const [menuLists, setMenuLists] = useState(null);
+  // const fetchTodos = async () => {
+  //   const { data } = await axios.get('http://localhost:3001/MenuList');
+  //   setMenuLists(data);
+  // };
+  // useEffect(() => {
+  //   fetchTodos();
+  // }, []);
+  // console.log(menuLists);
+
   return (
     <div>
+      {/* FIXME: get방식 테스트
+       {setMenuLists?.map((menuList) => (
+        <div>
+          <div>
+            <span>{menuList.menu}-</span>
+            <span>{menuList.explanation}</span>
+            <div>{menuList.price}</div>
+          </div>
+        </div>
+      ))} */}
+
       <StHeader>
         <StTitle>MENU</StTitle>
         {/* <BackButton>이전으로</BackButton> */}
@@ -26,22 +48,23 @@ function Menu() {
       <StMenuContainer>
         <div class='row row-cols-1 row-cols-md-4 g-4'>
           <MenuList />
-          <MenuList />
-          <MenuList />
-          <MenuList />
-          <MenuList />
-          <MenuList />
-          <MenuList />
-          <MenuList />
-          <MenuList />
-          <MenuList />
-          <MenuList />
-          <MenuList />
-          <MenuList />
         </div>
       </StMenuContainer>
+
+      {/* 장바구니 구역.. */}
       <StCartBox>
-        <div>장바구니 자리</div>
+        <div>
+          <CartList />
+          <CartList />
+          <CartList />
+          <CartList />
+          <CartList />
+          <CartList />
+          <CartList />
+          <CartList />
+          <CartList />
+          <CartList />
+        </div>
 
         <StBuyOrResetBox>
           <div>결제창 자리</div>
@@ -114,10 +137,20 @@ const StCartBox = styled.div`
   bottom: 0;
   width: 100%;
   height: 300px;
+  overflow-y: auto;
+  //   //뭔진모르겠는데 스크롤 숨기는 기능임...
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
 `;
 
 const StBuyOrResetBox = styled.div`
-  background-color: #3d3d3d61;
+  /* background-color: #3d3d3d61; */
+  background-color: #0000005f;
+
   border-radius: 10px;
   position: fixed;
   bottom: 0;

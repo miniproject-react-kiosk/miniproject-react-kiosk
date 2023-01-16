@@ -2,10 +2,36 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import styled from 'styled-components';
 import AddCart from '../components/AddCart';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
 
 export default function MenuList() {
+  //조회...
+  const [menuLists, setMenuLists] = useState(null);
+
+  const fetchTodos = async () => {
+    const { data } = await axios.get('http://localhost:3001/MenuList');
+    setMenuLists(data);
+  };
+
+  useEffect(() => {
+    setMenuLists();
+    fetchTodos();
+  }, []);
+  console.log(menuLists);
   return (
     <div>
+      {/* {menuLists.map((menuList) => (
+        <div>
+          <div>
+            <span>{menuList.menu}</span>
+            <span>{menuList.explanation}</span>
+            <div>{menuList.price}</div>
+          </div>
+        </div>
+      ))} */}
+
       <div class='col'>
         <div class='card h-40'>
           <img
