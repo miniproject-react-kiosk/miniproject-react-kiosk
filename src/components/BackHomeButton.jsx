@@ -1,6 +1,6 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { BiHome } from "react-icons/bi";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { BiHome } from 'react-icons/bi';
 
 export default function BackHomeButton() {
   const navigate = useNavigate();
@@ -8,16 +8,16 @@ export default function BackHomeButton() {
   return (
     <div>
       {/* BackHomeButton 수정 */}
-      <div class="d-grid gap-2 col-1 mx-auto">
+      <div class='d-grid gap-0 col-1 mx-0'>
         <button
-          type="button"
-          class="btn btn-outline-secondary btn-lg"
+          type='button'
+          class='btn btn-outline-secondary btn-lg'
           onClick={() => {
-            navigate("/");
+            navigate('/');
           }}
         >
-          {" "}
-          <BiHome className="BackHomeButton" />
+          {' '}
+          <BiHome className='BackHomeButton' />
         </button>
       </div>
     </div>

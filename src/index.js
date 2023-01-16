@@ -14,6 +14,9 @@ import OrderComplete from './pages/OrderComplete';
 import MembershipSignUp from './pages/MembershipSignUp';
 import MembershipLogin from './pages/MembershipLogin';
 
+import { Provider } from 'react-redux';
+import store from './redux/config/configStore';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -23,10 +26,10 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: 'Menu/:takeOutId', element: <Menu /> },
 
-      { path: 'Menu/OrderChoice/:takeOutId', element: <OrderChoice /> },
+      { path: 'Menu/OrderCheck/:takeOutId', element: <OrderCheck /> },
       {
-        path: 'Menu/OrderChoice/OrderCheck/:takeOutId',
-        element: <OrderCheck />,
+        path: 'Menu/OrderCheck/OrderChoice/:takeOutId',
+        element: <OrderChoice />,
       },
       {
         path: 'Menu/OrderChoice/OrderComplete/:takeOutId',

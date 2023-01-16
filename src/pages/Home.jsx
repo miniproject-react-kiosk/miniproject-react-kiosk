@@ -1,8 +1,8 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import { HiOutlineShoppingBag } from "react-icons/hi";
-import { BiRestaurant } from "react-icons/bi";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { HiOutlineShoppingBag } from 'react-icons/hi';
+import { BiRestaurant } from 'react-icons/bi';
 
 //1번페이지
 
@@ -11,13 +11,13 @@ function Home() {
   const navigate = useNavigate();
   const place = [
     {
-      takeOutId: "takeOut",
-      takeOut: "포장",
+      takeOutId: 'takeOut',
+      takeOut: '포장',
       img: <HiOutlineShoppingBag />,
     },
     {
-      takeOutId: "NoneTakeOut",
-      takeOut: "매장",
+      takeOutId: 'NoneTakeOut',
+      takeOut: '매장',
       img: <BiRestaurant />,
     },
   ];
@@ -37,7 +37,7 @@ function Home() {
                 navigate(`/Menu/${e.takeOutId}`);
               }}
             >
-              <StBoxImg className="img">{e.img}</StBoxImg>
+              <StBoxImg className='img'>{e.img}</StBoxImg>
               <StBoxText>{e.takeOut}</StBoxText>
               {/* 포장 or 매장 */}
             </StBox>
@@ -52,7 +52,6 @@ export default Home;
 
 const StAll = styled.div`
   text-align: center;
-  max-width: 1200px;
 `;
 
 const StBoxs = styled.div`
@@ -105,7 +104,7 @@ const StBoxText = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 3vw;
-  font-family: "NanumSquareRoundBold";
+  font-family: 'NanumSquareRoundBold';
 `;
 
 const StHeader = styled.div`
@@ -118,7 +117,7 @@ const StHeader = styled.div`
 
 const StTitle = styled.h1`
   text-align: center;
-  font-family: "MorningBreezeBold";
+  font-family: 'MorningBreezeBold';
   margin-top: 15px;
   color: #2a2a2a;
 `;
