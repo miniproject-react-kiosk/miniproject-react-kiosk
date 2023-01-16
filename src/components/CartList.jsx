@@ -4,11 +4,15 @@ import { RiDeleteBin5Line } from 'react-icons/ri';
 
 export default function CartList() {
   const [num, setNum] = useState(1);
+  const [menus, setMenus] = useState({
+    menu: '맥날1',
+    price: 1000,
+  });
   return (
     <div>
       <StCartList>
         <StCartListMenu>
-          <h2>메뉴</h2> <div>{1000 * num}</div>
+          <h2>{menus.menu}</h2> <div>{menus.price * num}</div>
         </StCartListMenu>
 
         <StCartListControl>

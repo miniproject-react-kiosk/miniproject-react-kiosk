@@ -14,30 +14,8 @@ function Menu() {
   const navigate = useNavigate();
   const param = useParams();
 
-  //FIXME:조회 테스트...
-  // const [menuLists, setMenuLists] = useState(null);
-  // const fetchTodos = async () => {
-  //   const { data } = await axios.get('http://localhost:3001/MenuList');
-  //   setMenuLists(data);
-  // };
-  // useEffect(() => {
-  //   fetchTodos();
-  // }, []);
-  // console.log(menuLists);
-
   return (
     <div>
-      {/* FIXME: get방식 테스트
-       {setMenuLists?.map((menuList) => (
-        <div>
-          <div>
-            <span>{menuList.menu}-</span>
-            <span>{menuList.explanation}</span>
-            <div>{menuList.price}</div>
-          </div>
-        </div>
-      ))} */}
-
       <StHeader>
         <StTitle>MENU</StTitle>
         {/* <BackButton>이전으로</BackButton> */}
@@ -46,7 +24,7 @@ function Menu() {
 
       {/* 메뉴추가 */}
       <StMenuContainer>
-        <div class='row row-cols-1 row-cols-md-4 g-4'>
+        <div>
           <MenuList />
         </div>
       </StMenuContainer>
@@ -54,15 +32,6 @@ function Menu() {
       {/* 장바구니 구역.. */}
       <StCartBox>
         <div>
-          <CartList />
-          <CartList />
-          <CartList />
-          <CartList />
-          <CartList />
-          <CartList />
-          <CartList />
-          <CartList />
-          <CartList />
           <CartList />
         </div>
 

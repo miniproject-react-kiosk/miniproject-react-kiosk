@@ -14,6 +14,9 @@ import OrderComplete from './pages/OrderComplete';
 import MembershipSignUp from './pages/MembershipSignUp';
 import MembershipLogin from './pages/MembershipLogin';
 
+import { Provider } from 'react-redux';
+import store from './redux/config/configStore';
+
 const router = createBrowserRouter([
   {
     path: '/',
