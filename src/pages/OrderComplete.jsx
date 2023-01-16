@@ -1,15 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import BackHomeButton from "../components/BackHomeButton";
+// import { useNavigate } from 'react-router';
+// import { BiHome } from "react-icons/bi";
 
 function OrderComplete() {
+  // const navigate = useNavigate();
   return (
     <div>
       <StContainerBox>
         <StHeader>
           <StTitle>ENJOY YOUR MEAL!</StTitle>
-          {/* <BackButton>이전으로</BackButton> */}
-          {/* <img src="/img/logo.png"></img> */}
         </StHeader>
 
         <div>
