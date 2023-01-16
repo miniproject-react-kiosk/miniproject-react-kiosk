@@ -17,7 +17,7 @@ function OrderComplete() {
           주문해주셔서 감사합니다. <br></br>
           고객님의 주문이 정상적으로 완료되었습니다. <br></br>
           고객님의 주문 번호는 ${123}번 입니다. <br></br>
-          소요시간은 약 (number)분 입니다. <br></br>
+          소요시간은 약 15분입니다.<br></br>
           주문번호 호출 시 카운터로 방문해주세요.
         </div>
       </StContainerBox>
