@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import BackButton from "../components/BackButton";
-// import PhoneNumberForm from "../components/PhoneNumberForm";
+import PhoneNumberForm from "../components/PhoneNumberForm";
 
 function MembershipLogin() {
   const navigate = useNavigate();
@@ -15,15 +15,17 @@ function MembershipLogin() {
       </StHeader>
       <StContentsBox>
         <div>
-          <div>{/* <PhoneNumberForm>전화번호 입력</PhoneNumberForm> */}</div>
+          <div>
+            <PhoneNumberForm></PhoneNumberForm>
+          </div>
 
-          <button
+          {/* <button
             onClick={() => {
               navigate(`/Menu/OrderChoice/OrderComplete/${param.takeOutId}`);
             }}
           >
             멤버쉽 로그인하기(전화번호입력)
-          </button>
+          </button> */}
         </div>
       </StContentsBox>
 

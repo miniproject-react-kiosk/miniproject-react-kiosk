@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
+// import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.css";
 import styled from "styled-components";
 import { BsCartCheck } from "react-icons/bs";
 import { BiUndo } from "react-icons/bi";
 import AddCart from "../components/AddCart";
-// import BackButton from "../components/BackButton";
 
 //2번페이지
 
@@ -13,6 +13,8 @@ function Menu() {
   const navigate = useNavigate();
   const param = useParams();
 
+  //FIXME: console.log 나중에 지울것..
+  console.log(param);
   return (
     <div>
       <StHeader>
@@ -49,6 +51,7 @@ function Menu() {
               </div>
             </div>
           </div>
+
           <div class="col">
             <div class="card h-90">
               <img
@@ -254,7 +257,7 @@ const StCardText = styled.p`
 
 const StCartBox = styled.div`
   border-radius: 10px;
-  background-color: #3d3d3d97;
+  background-color: #23232399;
   position: fixed;
   bottom: 0;
   width: 100%;
