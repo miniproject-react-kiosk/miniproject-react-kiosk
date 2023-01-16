@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import BackHomeButton from "../components/BackHomeButton";
+import React from 'react';
+import styled from 'styled-components';
+import BackHomeButton from '../components/BackHomeButton';
 // import { useNavigate } from 'react-router';
 // import { BiHome } from "react-icons/bi";
 
@@ -8,22 +8,23 @@ function OrderComplete() {
   // const navigate = useNavigate();
   return (
     <div>
-      <StContainerBox>
-        <StHeader>
-          <StTitle>ENJOY YOUR MEAL!</StTitle>
-        </StHeader>
+      <StHeader>
+        <StTitle>ENJOY YOUR MEAL!</StTitle>
+      </StHeader>
 
-        <div>
+      <StBoxs>
+        <StContainerBox>
           주문해주셔서 감사합니다. <br></br>
           고객님의 주문이 정상적으로 완료되었습니다. <br></br>
           고객님의 주문 번호는 ${123}번 입니다. <br></br>
           소요시간은 약 (number)분 입니다. <br></br>
           주문번호 호출 시 카운터로 방문해주세요.
-        </div>
-      </StContainerBox>
-      <StBackHomeButton>
-        <BackHomeButton />
-      </StBackHomeButton>
+        </StContainerBox>
+
+        <StBackHomeButton>
+          <BackHomeButton />
+        </StBackHomeButton>
+      </StBoxs>
     </div>
   );
 }
@@ -31,19 +32,15 @@ function OrderComplete() {
 export default OrderComplete;
 
 const StContainerBox = styled.div`
-  /* position: absolute; */
-  display: flex;
-  /* margin: auto; */
-  margin-left: 200px;
-  margin-right: 200px;
-  margin-top: 200px;
   justify-content: center;
   border: 3px solid #3d3d3d97;
   border-radius: 10px;
-  padding: 60px 60px;
+  padding: 5vw;
   text-align: center;
-  font-family: "NanumSquareRoundBold";
-  font-size: 16pt;
+  font-family: 'NanumSquareRoundBold';
+  font-size: 2vw;
+  margin-top: 10%;
+  /* flex-basis: 50%; */
 `;
 
 const StHeader = styled.div`
@@ -57,16 +54,20 @@ const StHeader = styled.div`
 
 const StTitle = styled.h1`
   text-align: center;
-  font-family: "MorningBreezeBold";
+  font-family: 'MorningBreezeBold';
   margin-top: 15px;
   color: #2a2a2a;
 `;
 
-const StBackHomeButton = styled.div`
-  position: absolute;
-  right: 0px;
-  left: 0;
-  bottom: 20%;
-  margin: auto;
+const StBoxs = styled.div`
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+`;
+
+const StBackHomeButton = styled.div`
+  margin-top: 2%;
 `;
