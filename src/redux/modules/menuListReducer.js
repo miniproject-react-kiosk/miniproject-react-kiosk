@@ -1,7 +1,9 @@
-export default function personReducer(person, action) {
+export default function menuListReducer(person, action) {
   switch (action.type) {
     case 'updated': {
-      const { prev, current } = action;
+      const prev = action.prev;
+      const current = action.current;
+
       return {
         ...person,
         mentors: person.mentors.map((mentor) => {
