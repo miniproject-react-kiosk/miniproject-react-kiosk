@@ -1,10 +1,10 @@
-import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 // import BackButton from "../components/BackButton";
 // import BackHomeButton from "../components/BackHomeButton";
-import { BiHome } from "react-icons/bi";
-import { BsCreditCard } from "react-icons/bs";
-import styled from "styled-components";
+import { BiHome } from 'react-icons/bi';
+import { BsCreditCard } from 'react-icons/bs';
+import styled from 'styled-components';
 
 // const StAll = styled.div`
 //   text-align: center;
@@ -87,32 +87,32 @@ function OrderCheck() {
       <StBuyOrResetBox>
         {/* 취소하기 버튼 */}
         <StResetButton>
-          <div class="d-grid gap-2 col-10 mx-auto">
+          <div class='d-grid gap-2 col-10 mx-auto'>
             <button
-              type="button"
-              class="btn btn-outline-light btn-lg"
+              type='button'
+              class='btn btn-outline-light btn-lg'
               onClick={() => {
-                navigate("/");
+                navigate('/');
               }}
             >
-              {" "}
-              <BiHome className="BackHomeButton" /> 홈으로 돌아가기
+              {' '}
+              <BiHome className='BackHomeButton' /> 홈으로 돌아가기
             </button>
           </div>
         </StResetButton>
 
         {/* 결제하기 버튼 */}
         <StBuyButton>
-          <div class="d-grid gap-2 col-10 mx-auto">
+          <div class='d-grid gap-2 col-10 mx-auto'>
             <button
-              type="button"
-              class="btn btn-outline-light btn-lg"
+              type='button'
+              class='btn btn-outline-light btn-lg'
               onClick={() => {
-                navigate(`/Menu/OrderChoice/OrderComplete/${param.takeOutId}`);
+                navigate(`/Menu/OrderCheck/OrderChoice/${param.takeOutId}`);
               }}
             >
-              {" "}
-              <BsCreditCard className="Buy" /> 결제하기
+              {' '}
+              <BsCreditCard className='Buy' /> 결제하기
             </button>
           </div>
         </StBuyButton>
@@ -185,7 +185,7 @@ const StHeader = styled.div`
 
 const StTitle = styled.h1`
   text-align: center;
-  font-family: "MorningBreezeBold";
+  font-family: 'MorningBreezeBold';
   margin-top: 15px;
   color: #2a2a2a;
 `;
@@ -206,7 +206,7 @@ const StBuyButton = styled.div`
   width: 400px;
   height: 20px;
   justify-content: space-between;
-  font-family: "NanumSquareRoundBold";
+  font-family: 'NanumSquareRoundBold';
   /* align-items: baseline; */
 `;
 
@@ -217,5 +217,5 @@ const StResetButton = styled.div`
   width: 400px;
   height: 20px;
   justify-content: space-between;
-  font-family: "NanumSquareRoundBold";
+  font-family: 'NanumSquareRoundBold';
 `;

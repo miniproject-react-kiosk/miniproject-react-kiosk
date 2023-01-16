@@ -96,7 +96,7 @@ function Menu() {
                 type='button'
                 class='btn btn-outline-light btn-lg'
                 onClick={() => {
-                  navigate(`/Menu/OrderChoice/${param.takeOutId}`);
+                  navigate(`/Menu/OrderCheck/${param.takeOutId}`);
                 }}
               >
                 {' '}

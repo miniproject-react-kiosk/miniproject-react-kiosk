@@ -1,8 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-
 import { RiDeleteBin5Line } from 'react-icons/ri';
 
+export default function CartList() {
+  const [num, setNum] = useState(1);
+  return (
+    <div>
+      <StCartList>
+        <StCartListMenu>
+          <h2>메뉴</h2> <div>{1000 * num}</div>
+        </StCartListMenu>
+
+        <StCartListControl>
+          <StCartListControlBox
+            onClick={() => {
+              if (num === 0) {
+                //FIXME:  0 밑으로 갈때는 삭제하는 함수를 반환하게끔.. 만들기!
+                setNum(num);
+              } else {
+                setNum(num - 1);
+              }
+            }}
+          >
+            -
+          </StCartListControlBox>
+          <StCartListControlBox2> num = {num}</StCartListControlBox2>
+          <StCartListControlBox
+            onClick={() => {
+              setNum(num + 1);
+            }}
+          >
+            +
+          </StCartListControlBox>
+        </StCartListControl>
+
+        <StCartListDelete>
+          <RiDeleteBin5Line />
+        </StCartListDelete>
+      </StCartList>
+    </div>
+  );
+}
+
+// css 구역
 const StCartList = styled.div`
   display: flex;
   flex-direction: row;
@@ -93,25 +133,3 @@ const StCartListDelete = styled.div`
     /* transform: rotate(-30deg) scale(1.2); */
   }
 `;
-
-export default function CartList() {
-  return (
-    <div>
-      <StCartList>
-        <StCartListMenu>
-          <h2>메뉴</h2> <div>가격</div>
-        </StCartListMenu>
-
-        <StCartListControl>
-          <StCartListControlBox> -</StCartListControlBox>
-          <StCartListControlBox2> 1</StCartListControlBox2>
-          <StCartListControlBox> +</StCartListControlBox>
-        </StCartListControl>
-
-        <StCartListDelete>
-          <RiDeleteBin5Line />
-        </StCartListDelete>
-      </StCartList>
-    </div>
-  );
-}

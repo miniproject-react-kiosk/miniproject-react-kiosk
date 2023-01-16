@@ -23,10 +23,10 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: 'Menu/:takeOutId', element: <Menu /> },
 
-      { path: 'Menu/OrderChoice/:takeOutId', element: <OrderChoice /> },
+      { path: 'Menu/OrderCheck/:takeOutId', element: <OrderCheck /> },
       {
-        path: 'Menu/OrderChoice/OrderCheck/:takeOutId',
-        element: <OrderCheck />,
+        path: 'Menu/OrderCheck/OrderChoice/:takeOutId',
+        element: <OrderChoice />,
       },
       {
         path: 'Menu/OrderChoice/OrderComplete/:takeOutId',

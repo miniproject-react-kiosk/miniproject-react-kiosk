@@ -92,7 +92,7 @@ function OrderChoice() {
           </StBox>
           <StBox
             onClick={() => {
-              navigate(`/Menu/OrderChoice/OrderCheck/${param.takeOutId}`);
+              navigate(`/Menu/OrderChoice/OrderComplete/${param.takeOutId}`);
             }}
           >
             <StBoxText className='text'>
