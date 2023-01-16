@@ -67,7 +67,11 @@ function Menu() {
         </div>
 
         <StBuyOrResetBox>
-          <div>결제창 자리</div>
+          <StCartTotalPrice>
+            <div class='d-grid gap-2 col-10 mx-auto'>
+              <div class='btn btn-outline-light btn-lg'>총합</div>
+            </div>
+          </StCartTotalPrice>
 
           {/* 취소하기 버튼 */}
           <StResetButton>
@@ -156,22 +160,37 @@ const StBuyOrResetBox = styled.div`
   bottom: 0;
   width: 100%;
   height: 100px;
+  display: flex;
+  align-items: center;
 `;
 
-const StBuyButton = styled.div`
-  position: absolute;
+const StCartTotalPrice = styled.div`
+  flex-basis: 50%;
+  /* position: absolute;
   right: 0%;
   width: 25vw;
   height: 20px;
   justify-content: space-between;
-  font-family: 'NanumSquareRoundBold';
+  font-family: 'NanumSquareRoundBold'; */
+`;
+
+const StBuyButton = styled.div`
+  flex-basis: 25%;
+  /* position: absolute;
+  right: 0%;
+  width: 25vw;
+  height: 20px;
+  justify-content: space-between;
+  font-family: 'NanumSquareRoundBold'; */
 `;
 
 const StResetButton = styled.div`
-  position: absolute;
+  flex-basis: 25%;
+
+  /* position: absolute;
   right: 23%;
   width: 25vw;
   height: 20px;
   justify-content: space-between;
-  font-family: 'NanumSquareRoundBold';
+  font-family: 'NanumSquareRoundBold'; */
 `;
