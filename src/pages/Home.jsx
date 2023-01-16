@@ -1,8 +1,54 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import { HiOutlineShoppingBag } from 'react-icons/hi';
-import { BiRestaurant } from 'react-icons/bi';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { HiOutlineShoppingBag } from "react-icons/hi";
+import { BiRestaurant } from "react-icons/bi";
+
+//1번페이지
+
+function Home() {
+  // 포장 , 매장  id값
+  const navigate = useNavigate();
+  const place = [
+    {
+      takeOutId: "takeOut",
+      takeOut: "포장",
+      img: <HiOutlineShoppingBag />,
+    },
+    {
+      takeOutId: "NoneTakeOut",
+      takeOut: "매장",
+      img: <BiRestaurant />,
+    },
+  ];
+  return (
+    <StAll>
+      {/* <div>Logo</div> */}
+      <StHeader>
+        <StTitle>MY KIOSK!</StTitle>
+        {/* <BackButton>이전으로</BackButton> */}
+        {/* <img src="/img/logo.png"></img> */}
+      </StHeader>
+      <StBoxs>
+        {place.map((e) => {
+          return (
+            <StBox
+              onClick={() => {
+                navigate(`/Menu/${e.takeOutId}`);
+              }}
+            >
+              <StBoxImg className="img">{e.img}</StBoxImg>
+              <StBoxText>{e.takeOut}</StBoxText>
+              {/* 포장 or 매장 */}
+            </StBox>
+          );
+        })}
+      </StBoxs>
+    </StAll>
+  );
+}
+
+export default Home;
 
 const StAll = styled.div`
   text-align: center;
@@ -21,7 +67,7 @@ const StBoxs = styled.div`
 `;
 
 const StBox = styled.div`
-  background-color: #fde6e6;
+  background-color: #cdcdcd92;
   border: solid 2px white;
   border-radius: 5vw;
   width: 30vw;
@@ -33,7 +79,7 @@ const StBox = styled.div`
 
   cursor: pointer;
   &:hover {
-    background-color: #f3dc0c;
+    background-color: #ffe600e2;
     transition: all 300ms ease;
     /* transform: rotate(-30deg) scale(1.2); */
   }
@@ -49,7 +95,7 @@ const StBoxImg = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 8vw;
+  font-size: 10vw;
   /* transform: rotate(-30deg) scale(1.2); */
 `;
 const StBoxText = styled.div`
@@ -57,46 +103,21 @@ const StBoxText = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 4vw;
+  font-size: 3vw;
+  font-family: "NanumSquareRoundBold";
 `;
 
-//1번페이지
+const StHeader = styled.div`
+  background-color: #ffe600e2;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+`;
 
-function Home() {
-  // 포장 , 매장  id값
-  const navigate = useNavigate();
-  const place = [
-    {
-      takeOutId: 'takeOut',
-      takeOut: '포장',
-      img: <HiOutlineShoppingBag />,
-    },
-    {
-      takeOutId: 'NoneTakeOut',
-      takeOut: '매장',
-      img: <BiRestaurant />,
-    },
-  ];
-  return (
-    <StAll>
-      <div>Logo</div>
-      <StBoxs>
-        {place.map((e) => {
-          return (
-            <StBox
-              onClick={() => {
-                navigate(`/Menu/${e.takeOutId}`);
-              }}
-            >
-              <StBoxImg className='img'>{e.img}</StBoxImg>
-              <StBoxText>{e.takeOut}</StBoxText>
-              {/* 포장 or 매장 */}
-            </StBox>
-          );
-        })}
-      </StBoxs>
-    </StAll>
-  );
-}
-
-export default Home;
+const StTitle = styled.h1`
+  text-align: center;
+  font-family: "MorningBreezeBold";
+  margin-top: 15px;
+  color: #2a2a2a;
+`;

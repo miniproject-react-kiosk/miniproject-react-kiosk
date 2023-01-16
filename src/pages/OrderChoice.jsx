@@ -1,7 +1,7 @@
-import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import BackButton from '../components/BackButton';
-import styled from 'styled-components';
+import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import BackButton from "../components/BackButton";
+import styled from "styled-components";
 
 const StAll = styled.div`
   text-align: center;
@@ -21,7 +21,7 @@ const StBoxs = styled.div`
 `;
 
 const StBox = styled.div`
-  background-color: #fde6e6;
+  background-color: #cdcdcd92;
   border: solid 2px white;
   border-radius: 5vw;
   width: 30vw;
@@ -34,7 +34,7 @@ const StBox = styled.div`
 
   cursor: pointer;
   &:hover {
-    background-color: #f3dc0c;
+    background-color: #ffe600e2;
     transition: all 300ms ease;
   }
 
@@ -46,6 +46,22 @@ const StBox = styled.div`
 
 const StBoxText = styled.div`
   font-size: 3vw;
+  font-family: "NanumSquareRoundBold";
+`;
+
+const StHeader = styled.div`
+  background-color: #ffe600e2;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+`;
+
+const StTitle = styled.h1`
+  text-align: center;
+  font-family: "MorningBreezeBold";
+  margin-top: 15px;
+  color: #2a2a2a;
 `;
 
 //3번페이지
@@ -58,8 +74,10 @@ function OrderChoice() {
 
   return (
     <div>
-      <BackButton className='backButton' />
-
+      <StHeader>
+        <StTitle>ORDER</StTitle>
+      </StHeader>
+      <BackButton className="backButton" />
       <StAll>
         <StBoxs>
           <StBox
@@ -67,8 +85,8 @@ function OrderChoice() {
               navigate(`/Menu/OrderChoice/MembershipLogin/${param.takeOutId}`);
             }}
           >
-            <StBoxText className='text'>
-              멤버쉽으로
+            <StBoxText className="text">
+              멤버십으로
               <br />
               주문하기
             </StBoxText>
@@ -78,7 +96,7 @@ function OrderChoice() {
               navigate(`/Menu/OrderChoice/OrderCheck/${param.takeOutId}`);
             }}
           >
-            <StBoxText className='text'>
+            <StBoxText className="text">
               비회원으로
               <br />
               주문하기
