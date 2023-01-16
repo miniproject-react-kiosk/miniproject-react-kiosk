@@ -4,6 +4,52 @@ import styled from "styled-components";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { BiRestaurant } from "react-icons/bi";
 
+//1번페이지
+
+function Home() {
+  // 포장 , 매장  id값
+  const navigate = useNavigate();
+  const place = [
+    {
+      takeOutId: "takeOut",
+      takeOut: "포장",
+      img: <HiOutlineShoppingBag />,
+    },
+    {
+      takeOutId: "NoneTakeOut",
+      takeOut: "매장",
+      img: <BiRestaurant />,
+    },
+  ];
+  return (
+    <StAll>
+      {/* <div>Logo</div> */}
+      <StHeader>
+        <StTitle>MY KIOSK!</StTitle>
+        {/* <BackButton>이전으로</BackButton> */}
+        {/* <img src="/img/logo.png"></img> */}
+      </StHeader>
+      <StBoxs>
+        {place.map((e) => {
+          return (
+            <StBox
+              onClick={() => {
+                navigate(`/Menu/${e.takeOutId}`);
+              }}
+            >
+              <StBoxImg className="img">{e.img}</StBoxImg>
+              <StBoxText>{e.takeOut}</StBoxText>
+              {/* 포장 or 매장 */}
+            </StBox>
+          );
+        })}
+      </StBoxs>
+    </StAll>
+  );
+}
+
+export default Home;
+
 const StAll = styled.div`
   text-align: center;
   max-width: 1200px;
@@ -75,48 +121,3 @@ const StTitle = styled.h1`
   margin-top: 15px;
   color: #2a2a2a;
 `;
-//1번페이지
-
-function Home() {
-  // 포장 , 매장  id값
-  const navigate = useNavigate();
-  const place = [
-    {
-      takeOutId: "takeOut",
-      takeOut: "포장",
-      img: <HiOutlineShoppingBag />,
-    },
-    {
-      takeOutId: "NoneTakeOut",
-      takeOut: "매장",
-      img: <BiRestaurant />,
-    },
-  ];
-  return (
-    <StAll>
-      {/* <div>Logo</div> */}
-      <StHeader>
-        <StTitle>MY KIOSK!</StTitle>
-        {/* <BackButton>이전으로</BackButton> */}
-        {/* <img src="/img/logo.png"></img> */}
-      </StHeader>
-      <StBoxs>
-        {place.map((e) => {
-          return (
-            <StBox
-              onClick={() => {
-                navigate(`/Menu/${e.takeOutId}`);
-              }}
-            >
-              <StBoxImg className="img">{e.img}</StBoxImg>
-              <StBoxText>{e.takeOut}</StBoxText>
-              {/* 포장 or 매장 */}
-            </StBox>
-          );
-        })}
-      </StBoxs>
-    </StAll>
-  );
-}
-
-export default Home;

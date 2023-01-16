@@ -44,14 +44,15 @@ function Menu() {
                     브리오쉬 번, 스페셜 스모키 소스가 선사하는 놀랍도록 새로운
                     치킨 버거!
                   </p>
+                  <StAddCartButton>
+                    {" "}
+                    <AddCart />
+                  </StAddCartButton>
                 </StCardText>
-                <StAddCartButton>
-                  {" "}
-                  <AddCart />
-                </StAddCartButton>
               </div>
             </div>
           </div>
+
           <div class="col">
             <div class="card h-90">
               <img
@@ -152,7 +153,7 @@ function Menu() {
           <div class="col">
             <div class="card h-90">
               <img
-                src="https://www.mcdonalds.co.kr/upload/product/pcfile/1599119647587.png"
+                src="https://www.mcdonalds.co.kr/upload/product/pcfile/1583727707216.png"
                 class="card-img-top"
                 alt="..."
               ></img>
@@ -256,7 +257,6 @@ const StCardText = styled.p`
 `;
 
 const StCartBox = styled.div`
-  /* border: 2px solid #343333; */
   border-radius: 10px;
   background-color: #3d3d3d97;
   position: fixed;
@@ -277,23 +277,39 @@ const StBuyOrResetBox = styled.div`
 const StBuyButton = styled.div`
   position: absolute;
   right: 0%;
-  width: 400px;
+  width: 25vw;
   height: 20px;
   justify-content: space-between;
   font-family: "NanumSquareRoundBold";
-  /* align-items: baseline; */
 `;
 
 const StResetButton = styled.div`
   position: absolute;
-  right: 30%;
-  width: 400px;
+  right: 23%;
+  width: 25vw;
   height: 20px;
   justify-content: space-between;
   font-family: "NanumSquareRoundBold";
 `;
 
 const StAddCartButton = styled.div`
-  width: 560px;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  /* position: relative; */
+  /* width: fit-content; */
+  /* margin: auto; */
+  /* width: 20vw; */
+  /* align-items: center; */
 `;
+
+// const StMenuScrollBox = styled.div`
+//   width: 500px;
+//   padding: 20px;
+//   overflow: scroll;
+//   color: #112031;
+//   background: #f0d9ff;
+//   border: 1px solid #000;
+//   /* 가로 스크롤 */
+//   overflow: auto;
+//   white-space: nowrap;
+// `;
