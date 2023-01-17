@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-import { RiDeleteBin5Line } from 'react-icons/ri';
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteCart } from '../redux/modules/menuListSlice';
-import { upButton } from '../redux/modules/menuListSlice';
-import { useState } from 'react';
-import CounterButton from './CounterButton';
+import styled from "styled-components";
+import { RiDeleteBin5Line } from "react-icons/ri";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteCart } from "../redux/modules/menuListSlice";
+import { upButton } from "../redux/modules/menuListSlice";
+import { useState } from "react";
+import CounterButton from "./CounterButton";
 
 export default function CartList() {
   const globaladdCart = useSelector((state) => state.menuList.menuList);
