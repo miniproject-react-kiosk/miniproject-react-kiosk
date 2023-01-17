@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+// 삼항연산자, styled conponent props
+
 function Checkbox({ text }) {
   return (
     <>

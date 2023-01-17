@@ -108,7 +108,8 @@ const StTitle = styled.h1`
   color: #2a2a2a;
 `;
 
-const StMenuContainer = styled.p`
+const StMenuContainer = styled.div`
+  display: flex flex-directio;
   z-index: 0;
   padding: 35px;
   margin-top: 60px;

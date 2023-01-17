@@ -14,6 +14,8 @@ function MembershipLogin() {
     alert("가입 가능한 전화번호입니다.");
     // alert("이미 멤버십 회원입니다.");
   };
+  // 체크박스 useState 만들어서 변경할 함수 만들어 준 뒤, state값과 함술를 체크박스에 넘겨줘서 (props) 그 값과 함수(onClick에 연결) 사용
+  // 넘겨준 값은 체크박스 UI를 state 값에 따라 바뀌게 구현
 
   return (
     <div>
