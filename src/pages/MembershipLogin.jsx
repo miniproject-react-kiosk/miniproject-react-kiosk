@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import BackButton from "../components/BackButton";
@@ -8,12 +7,10 @@ import PhoneNumberForm from "../components/PhoneNumberForm";
 function MembershipLogin() {
   const navigate = useNavigate();
   const param = useParams();
-  const [inputNumber, setInputNumber] = useState("");
-  const onChangeInput = (e) => {
-    setInputNumber(e.target.value);
-  };
-  const onReset = () => {
-    setInputNumber("");
+
+  const handleAction = () => {
+    alert("적립이 완료되었습니다.");
+    // console.log("Handle Action");
   };
 
   return (
@@ -25,22 +22,10 @@ function MembershipLogin() {
       <StContentsBox>
         <div>
           <StPhoneNumberInputBox>
-            <PhoneNumberForm></PhoneNumberForm>
-            <StButton>
-              <button
-                type="button"
-                value={inputNumber}
-                class="btn btn-outline-secondary"
-                onChange={onChangeInput}
-                onClick={() => {
-                  alert("적립이 완료되었습니다.");
-                  onReset();
-                }}
-              >
-                적립하기
-              </button>
-              {/* <button onClick={onReset}>Reset</button> */}
-            </StButton>
+            <PhoneNumberForm
+              handleAction={handleAction}
+              actionTitle="적립하기"
+            ></PhoneNumberForm>
           </StPhoneNumberInputBox>
         </div>
       </StContentsBox>
@@ -134,8 +119,4 @@ const StSignButton = styled.div`
   width: 25vw;
   height: 20px;
   font-family: "NanumSquareRoundBold";
-`;
-
-const StButton = styled.div`
-  margin-left: 10px;
 `;
