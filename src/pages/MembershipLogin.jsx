@@ -1,7 +1,7 @@
-import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import styled from "styled-components";
-import BackButton from "../components/BackButton";
+import React from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import styled from 'styled-components';
+import BackButton from '../components/BackButton';
 // import PhoneNumberForm from "../components/PhoneNumberForm";
 
 function MembershipLogin() {
@@ -28,15 +28,15 @@ function MembershipLogin() {
       </StContentsBox>
 
       <StSignButton>
-        <div class="d-grid gap-2 col-10 mx-auto">
+        <div class='d-grid gap-2 col-10 mx-auto'>
           <button
-            type="button"
-            class="btn btn-outline-secondary btn-lg"
+            type='button'
+            class='btn btn-outline-secondary btn-lg'
             onClick={() => {
               navigate(`/Menu/OrderChoice/MembershipSignUp/${param.takeOutId}`);
             }}
           >
-            {" "}
+            {' '}
             멤버십 가입하기
           </button>
         </div>
@@ -57,7 +57,7 @@ const StHeader = styled.div`
 
 const StTitle = styled.h1`
   text-align: center;
-  font-family: "MorningBreezeBold";
+  font-family: 'MorningBreezeBold';
   margin-top: 15px;
   color: #2a2a2a;
 `;
@@ -81,5 +81,5 @@ const StSignButton = styled.div`
   margin-top: 15%;
   width: 25vw;
   height: 20px;
-  font-family: "NanumSquareRoundBold";
+  font-family: 'NanumSquareRoundBold';
 `;

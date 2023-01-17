@@ -29,6 +29,14 @@ const menuListSlice = createSlice({
         ),
       };
     },
+    // upButton: (state, action) => {
+    //   return {
+    //     ...state,
+    //     menuList: state.menuList.filter(
+    //       (menuList) => menuList.id !== action.payload
+    //     ),
+    //   };
+    // },
   },
 });
 
