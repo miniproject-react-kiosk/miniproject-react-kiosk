@@ -33,7 +33,7 @@ const menuListSlice = createSlice({
 });
 
 // #4. 익스포트하기
-export const { addCart, deleteCart } = menuListSlice.actions;
+export const { addCart, deleteCart, upButton } = menuListSlice.actions;
 export default menuListSlice.reducer;
 
 // import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";

@@ -2,10 +2,31 @@ import styled from 'styled-components';
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteCart } from '../redux/modules/menuListSlice';
-
+import { upButton } from '../redux/modules/menuListSlice';
+import { useState } from 'react';
 export default function CartList() {
   const globaladdCart = useSelector((state) => state.menuList.menuList);
   const dispatch = useDispatch();
+
+  // +버튼 기능
+  const [amount, setAmount] = useState(1);
+
+  // const increaseamount = (id) => {
+  //   setAmount(amount + 1);
+  // };
+
+  // const increaseamount = (id) => {
+  //   setNum(
+  //     num.map((item) => {
+  //       if (item.id === id) {
+  //         return { ...item, amount: item.amount + 1 };
+  //       }
+  //       return item;
+  //     })
+  //   );
+  // };
+
+  //삭제 기능
   const handledDelete = (id) => {
     dispatch(deleteCart(id));
   };
@@ -16,26 +37,28 @@ export default function CartList() {
         <div key={menu.id}>
           <StCartList>
             <StCartListMenu>
-              <h2>{menu.menu}</h2> <div>{menu.price * menu.count}</div>
+              <h2>{menu.menu}</h2> <div>{menu.price * amount}</div>
             </StCartListMenu>
 
             <StCartListControl>
               <StCartListControlBox
                 onClick={() => {
-                  if (menu.count === 0) {
+                  if (amount <= 0) {
                     //FIXME:  0 밑으로 갈때는 삭제하는 함수를 반환하게끔.. 만들기!
-                    menu.count = 0;
+                    {
+                      dispatch(deleteCart(menu.id));
+                    }
                   } else {
-                    menu.count = menu.count - 1;
+                    setAmount((amount) => amount - 1);
                   }
                 }}
               >
                 -
               </StCartListControlBox>
-              <StCartListControlBox2> {menu.count}</StCartListControlBox2>
+              <StCartListControlBox2> {amount}</StCartListControlBox2>
               <StCartListControlBox
                 onClick={() => {
-                  menu.count = menu.count + 1;
+                  setAmount((amount) => amount + 1);
                 }}
               >
                 +

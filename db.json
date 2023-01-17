@@ -4,25 +4,25 @@
       "id": 1,
       "menu": "메뉴1",
       "price": 1000,
-      "count": 1
+      "amount": 1
     },
     {
       "id": 2,
       "menu": "메뉴2",
       "price": 2000,
-      "count": 1
+      "amount": 1
     },
     {
       "id": 3,
       "menu": "메뉴3",
       "price": 3000,
-      "count": 1
+      "amount": 1
     },
     {
       "id": 4,
       "menu": "메뉴4",
       "price": 4000,
-      "count": 1
+      "amount": 1
     }
   ]
 }

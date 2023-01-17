@@ -13,6 +13,7 @@ export default function MenuList() {
   const dispatch = useDispatch();
   const [menuLists, setMenuLists] = useState(null);
 
+  //추가버튼 기능...
   const handleAdd = (e) => {
     dispatch(addCart(e));
     // console.log(e);
