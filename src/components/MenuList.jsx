@@ -14,14 +14,16 @@ export default function MenuList() {
   const [menuLists, setMenuLists] = useState(null);
 
   //추가버튼 기능...
-  const handleAdd = (e) => {
-    dispatch(addCart(e));
+  const handleAdd = (menu) => {
+    dispatch(addCart(menu));
     // console.log(e);
   };
 
   const fetchTodos = async () => {
-    const { data } = await axios.get('http://13.209.12.254/store/menus');
-    console.log(data);
+    //const { data } = await axios.get('http://13.209.12.254/store/menus');
+
+    const { data } = await axios.get('http://localhost:3001/MenuList');
+
     setMenuLists(data);
   };
 

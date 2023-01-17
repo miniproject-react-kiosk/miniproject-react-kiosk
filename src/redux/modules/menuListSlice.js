@@ -29,14 +29,21 @@ const menuListSlice = createSlice({
         ),
       };
     },
-    // upButton: (state, action) => {
-    //   return {
-    //     ...state,
-    //     menuList: state.menuList.filter(
-    //       (menuList) => menuList.id !== action.payload
-    //     ),
-    //   };
-    // },
+    upButton: (state, action) => {
+      return {
+        ...state,
+        menuList: state.menuList.map((menu) => {
+          if (menu.id === action.payload) {
+            let a = 1;
+            console.log(menu.amount);
+            a = menu.amount + a;
+            console.log(a);
+            // console.log(menu);
+            return a;
+          }
+        }),
+      };
+    },
   },
 });
 
