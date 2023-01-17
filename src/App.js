@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import "./App.css";
 import React, { Component } from "react";
-import PhoneNumberForm from "./components/PhoneNumberForm";
+// import PhoneNumberForm from "./components/PhoneNumberForm";
 // import Router from "./shared/Router";
 
 // function App() {
@@ -19,7 +19,7 @@ class App extends Component {
         <div>
           <>{<Outlet />}</>;
         </div>
-        <PhoneNumberForm onCreate={this.handleCreate} />
+        {/* <PhoneNumberForm onCreate={this.handleCreate} /> */}
       </div>
     );
   }

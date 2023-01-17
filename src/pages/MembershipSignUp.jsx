@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import BackButton from "../components/BackButton";
+import PhoneNumberForm from "../components/PhoneNumberForm";
 
 function MembershipLogin() {
   const navigate = useNavigate();
@@ -14,25 +15,21 @@ function MembershipLogin() {
       </StHeader>
       <StContentsBox>
         <div>
-          전화번호를 입력해주세요. <br></br>
-          {/* <button
-            onClick={() => {
-              navigate(`/Menu/OrderChoice/OrderComplete/${param.takeOutId}`);
-            }}
-          >
-            멤버쉽 회원가입하기(전화번호중복체크기능^^)
-          </button> */}
-          <StButton>
-            <button
-              type="button"
-              class="btn btn-outline-secondary"
-              onClick={() => {
-                // 중복 체크 기능 넣기
-              }}
-            >
-              중복 체크하기
-            </button>
-          </StButton>
+          <StPhoneNumberInputBox>
+            <PhoneNumberForm></PhoneNumberForm>
+            <StButton>
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                onClick={() => {
+                  // 중복 체크 기능 넣기
+                  alert("가입 가능한 전화번호입니다.");
+                }}
+              >
+                중복 체크하기
+              </button>
+            </StButton>
+          </StPhoneNumberInputBox>
         </div>
       </StContentsBox>
 
@@ -42,6 +39,7 @@ function MembershipLogin() {
             type="button"
             class="btn btn-outline-secondary btn-lg"
             onClick={() => {
+              alert("회원가입이 완료되었습니다.");
               navigate(`/Menu/OrderChoice/OrderComplete/${param.takeOutId}`);
             }}
           >
@@ -74,28 +72,31 @@ const StTitle = styled.h1`
 const StContentsBox = styled.div`
   border: 3px solid #5a5a5aa6;
   border-radius: 12px;
-  display: flex;
-  padding: 50px 50px;
+  /* display: flex; */
+  padding: 30px 30px;
   margin: auto;
   justify-content: center;
-  text-align: center;
-  margin-top: 10%;
-  width: 80%;
-  height: 150px;
-  font-family: "NanumSquareRoundBold";
+  margin-top: 15%;
+  width: 60%;
+  height: 160px;
+`;
+
+const StPhoneNumberInputBox = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
 `;
 
 const StSignButton = styled.div`
   display: flex;
   margin: auto;
   justify-content: center;
-  margin-top: 15%;
+  margin-top: 3%;
   width: 25vw;
   height: 20px;
   font-family: "NanumSquareRoundBold";
 `;
 
 const StButton = styled.div`
-  padding-left: 10px;
-  /* margin-left: 20px; */
+  margin-left: 10px;
 `;
