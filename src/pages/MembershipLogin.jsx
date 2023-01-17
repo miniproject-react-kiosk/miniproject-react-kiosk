@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import BackButton from "../components/BackButton";
@@ -7,6 +8,14 @@ import PhoneNumberForm from "../components/PhoneNumberForm";
 function MembershipLogin() {
   const navigate = useNavigate();
   const param = useParams();
+  const [inputNumber, setInputNumber] = useState("");
+  const onChangeInput = (e) => {
+    setInputNumber(e.target.value);
+  };
+  const onReset = () => {
+    setInputNumber("");
+  };
+
   return (
     <div>
       <StHeader>
@@ -15,17 +24,23 @@ function MembershipLogin() {
       </StHeader>
       <StContentsBox>
         <div>
-          <div>
+          <StPhoneNumberIntutBox>
             <PhoneNumberForm></PhoneNumberForm>
-          </div>
-
-          {/* <button
-            onClick={() => {
-              navigate(`/Menu/OrderChoice/OrderComplete/${param.takeOutId}`);
-            }}
-          >
-            멤버쉽 로그인하기(전화번호입력)
-          </button> */}
+            <StButton>
+              <button
+                type="button"
+                value={inputNumber}
+                class="btn btn-outline-secondary"
+                onChange={onChangeInput}
+                onClick={(onReset) => {
+                  alert("적립이 완료되었습니다.");
+                }}
+              >
+                적립하기
+              </button>
+              {/* <button onClick={onReset}>Reset</button> */}
+            </StButton>
+          </StPhoneNumberIntutBox>
         </div>
       </StContentsBox>
 
@@ -67,21 +82,30 @@ const StTitle = styled.h1`
 const StContentsBox = styled.div`
   border: 3px solid #5a5a5aa6;
   border-radius: 12px;
-  display: flex;
-  padding: 50px 50px;
+  /* display: flex; */
+  padding: 30px 30px;
   margin: auto;
   justify-content: center;
-  margin-top: 10%;
-  width: 80%;
-  height: 150px;
+  margin-top: 15%;
+  width: 70%;
+  height: 160px;
+`;
+const StPhoneNumberIntutBox = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
 `;
 
 const StSignButton = styled.div`
   display: flex;
   margin: auto;
   justify-content: center;
-  margin-top: 15%;
+  margin-top: 5%;
   width: 25vw;
   height: 20px;
   font-family: "NanumSquareRoundBold";
+`;
+
+const StButton = styled.div`
+  margin-left: 10px;
 `;
