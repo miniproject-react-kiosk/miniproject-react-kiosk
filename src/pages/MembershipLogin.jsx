@@ -24,7 +24,7 @@ function MembershipLogin() {
       </StHeader>
       <StContentsBox>
         <div>
-          <StPhoneNumberIntutBox>
+          <StPhoneNumberInputBox>
             <PhoneNumberForm></PhoneNumberForm>
             <StButton>
               <button
@@ -32,32 +32,41 @@ function MembershipLogin() {
                 value={inputNumber}
                 class="btn btn-outline-secondary"
                 onChange={onChangeInput}
-                onClick={(onReset) => {
+                onClick={() => {
                   alert("적립이 완료되었습니다.");
+                  onReset();
                 }}
               >
                 적립하기
               </button>
               {/* <button onClick={onReset}>Reset</button> */}
             </StButton>
-          </StPhoneNumberIntutBox>
+          </StPhoneNumberInputBox>
         </div>
       </StContentsBox>
 
-      <StSignButton>
-        <div class="d-grid gap-2 col-10 mx-auto">
-          <button
-            type="button"
-            class="btn btn-outline-secondary btn-lg"
-            onClick={() => {
-              navigate(`/Menu/OrderChoice/MembershipSignUp/${param.takeOutId}`);
-            }}
-          >
-            {" "}
-            멤버십 가입하기
-          </button>
-        </div>
-      </StSignButton>
+      {/* 회원이 아니라면 ? 멤버십 가입하기 */}
+      <StContentsBox2>
+        <StSignUpInputBox>
+          아직 회원이 아니라면?
+          <StSignButton>
+            <div class="d-grid gap-2 col-10 mx-auto">
+              <button
+                type="button"
+                class="btn btn-outline-secondary btn-lg"
+                onClick={() => {
+                  navigate(
+                    `/Menu/OrderChoice/MembershipSignUp/${param.takeOutId}`
+                  );
+                }}
+              >
+                {" "}
+                멤버십 가입하기
+              </button>
+            </div>
+          </StSignButton>
+        </StSignUpInputBox>
+      </StContentsBox2>
     </div>
   );
 }
@@ -87,20 +96,41 @@ const StContentsBox = styled.div`
   margin: auto;
   justify-content: center;
   margin-top: 15%;
-  width: 70%;
+  width: 60%;
   height: 160px;
 `;
-const StPhoneNumberIntutBox = styled.div`
+
+const StContentsBox2 = styled.div`
+  border: 3px solid #5a5a5aa6;
+  border-radius: 12px;
+  /* display: flex; */
+  padding: 30px 30px;
+  margin: auto;
+  justify-content: center;
+  margin-top: 3%;
+  width: 60%;
+  height: 160px;
+`;
+
+const StPhoneNumberInputBox = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 25px;
+`;
+
+const StSignUpInputBox = styled.div`
+  justify-content: center;
+  text-align: center;
+  font-family: "NanumSquareRoundBold";
+  font-size: 16pt;
+  color: #636363;
 `;
 
 const StSignButton = styled.div`
   display: flex;
   margin: auto;
   justify-content: center;
-  margin-top: 5%;
+  margin-top: 2%;
   width: 25vw;
   height: 20px;
   font-family: "NanumSquareRoundBold";
