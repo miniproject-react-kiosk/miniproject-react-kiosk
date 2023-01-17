@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { RiDeleteBin5Line } from "react-icons/ri";
+import { BsTrash } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCart } from "../redux/modules/menuListSlice";
 import { upButton } from "../redux/modules/menuListSlice";
@@ -70,7 +70,7 @@ export default function CartList() {
                 handledDelete(menu.id);
               }}
             >
-              <RiDeleteBin5Line />
+              <BsTrash />
             </StCartListDelete>
           </StCartList>
         </div>
