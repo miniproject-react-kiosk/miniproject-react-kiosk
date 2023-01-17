@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import BackButton from "../components/BackButton";
 import PhoneNumberForm from "../components/PhoneNumberForm";
+import Checkbox from "../components/CheckBox";
+import { DataInfo } from "../data/DataInfo";
 
 function MembershipLogin() {
   const navigate = useNavigate();
@@ -24,9 +26,18 @@ function MembershipLogin() {
           <StPhoneNumberInputBox>
             <PhoneNumberForm
               handleAction={handleAction}
-              actionTitle=" 중복 체크하기 "
+              actionTitle=" 중복 확인하기 "
             ></PhoneNumberForm>
           </StPhoneNumberInputBox>
+        </div>
+        <div>
+          <form>
+            <SmsCheckBox>
+              {DataInfo.map((item) => (
+                <Checkbox key={item.id} text={item.text} />
+              ))}
+            </SmsCheckBox>
+          </form>
         </div>
       </StContentsBox>
 
@@ -76,7 +87,7 @@ const StContentsBox = styled.div`
   justify-content: center;
   margin-top: 15%;
   width: 60%;
-  height: 160px;
+  height: 200px;
 `;
 
 const StPhoneNumberInputBox = styled.div`
@@ -93,4 +104,19 @@ const StSignButton = styled.div`
   width: 25vw;
   height: 20px;
   font-family: "NanumSquareRoundBold";
+`;
+
+const SmsCheckBox = styled.div`
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* border: 2px solid gainsboro; */
+  width: 10rem;
+  margin: auto;
+  /* justify-content: center; */
+  /* align-items: center; */
+  text-align: center;
+  padding: 25px 0;
+  line-height: 5px;
+  font-family: "NanumSquareRoundBold";
+  color: #5a5a5af4;
 `;

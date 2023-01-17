@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import BackHomeButton from '../components/BackHomeButton';
+import React from "react";
+import styled from "styled-components";
+import BackHomeButton from "../components/BackHomeButton";
 // import { useNavigate } from 'react-router';
 // import { BiHome } from "react-icons/bi";
 
@@ -37,8 +37,8 @@ const StContainerBox = styled.div`
   border-radius: 10px;
   padding: 5vw;
   text-align: center;
-  font-family: 'NanumSquareRoundBold';
-  font-size: 2vw;
+  font-family: "NanumSquareRoundBold";
+  font-size: 14pt;
   margin-top: 10%;
   /* flex-basis: 50%; */
 `;
@@ -54,7 +54,7 @@ const StHeader = styled.div`
 
 const StTitle = styled.h1`
   text-align: center;
-  font-family: 'MorningBreezeBold';
+  font-family: "MorningBreezeBold";
   margin-top: 15px;
   color: #2a2a2a;
 `;

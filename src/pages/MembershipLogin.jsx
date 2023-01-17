@@ -10,6 +10,7 @@ function MembershipLogin() {
 
   const handleAction = () => {
     alert("적립이 완료되었습니다.");
+    // alert("멤버십 정보가 없습니다. 멤버십에 가입해주세요!")
     // console.log("Handle Action");
   };
 
