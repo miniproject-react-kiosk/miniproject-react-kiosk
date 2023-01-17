@@ -37,7 +37,7 @@ export default function CartList() {
         <div key={menu.id}>
           <StCartList>
             <StCartListMenu>
-              <h2>{menu.menu}</h2> <div>{menu.price * amount}</div>
+              <h2>{menu.menuName}</h2> <div>{menu.price * amount}</div>
             </StCartListMenu>
 
             <StCartListControl>
@@ -94,11 +94,12 @@ const StCartListMenu = styled.div`
   flex-basis: 60%;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   border: solid 2px #c0c0c0;
   border-radius: 10px;
   height: 60px;
   background-color: #c0c0c0;
+  padding: 20px;
 
   /* display: flex;
   flex-direction: row;

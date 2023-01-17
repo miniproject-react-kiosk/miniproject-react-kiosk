@@ -20,7 +20,8 @@ export default function MenuList() {
   };
 
   const fetchTodos = async () => {
-    const { data } = await axios.get('http://localhost:3001/MenuList');
+    const { data } = await axios.get('http://13.209.12.254/store/menus');
+    console.log(data);
     setMenuLists(data);
   };
 
@@ -46,7 +47,7 @@ export default function MenuList() {
                 <div class='card-body'>
                   <StCardTitle>
                     {/* <h5 class="card-title">맥크리스피 디럭스 버거</h5> */}
-                    <p>{menuList.menu}</p>
+                    <p>{menuList.menuName}</p>
                   </StCardTitle>
                   <StCardText>
                     <p class='card-text'>
