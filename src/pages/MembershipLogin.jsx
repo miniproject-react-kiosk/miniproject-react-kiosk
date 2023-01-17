@@ -24,7 +24,7 @@ function MembershipLogin() {
           <StPhoneNumberInputBox>
             <PhoneNumberForm
               handleAction={handleAction}
-              actionTitle="적립하기"
+              actionTitle=" 적립하기 "
             ></PhoneNumberForm>
           </StPhoneNumberInputBox>
         </div>
@@ -33,7 +33,7 @@ function MembershipLogin() {
       {/* 회원이 아니라면 ? 멤버십 가입하기 */}
       <StContentsBox2>
         <StSignUpInputBox>
-          아직 회원이 아니라면?
+          아직 회원이 아니신가요?
           <StSignButton>
             <div class="d-grid gap-2 col-10 mx-auto">
               <button
@@ -107,7 +107,7 @@ const StSignUpInputBox = styled.div`
   justify-content: center;
   text-align: center;
   font-family: "NanumSquareRoundBold";
-  font-size: 16pt;
+  font-size: 14pt;
   color: #636363;
 `;
 

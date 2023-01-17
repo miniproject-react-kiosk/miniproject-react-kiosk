@@ -7,6 +7,12 @@ import PhoneNumberForm from "../components/PhoneNumberForm";
 function MembershipLogin() {
   const navigate = useNavigate();
   const param = useParams();
+
+  const handleAction = () => {
+    alert("가입 가능한 전화번호입니다.");
+    // alert("이미 멤버십 회원입니다.");
+  };
+
   return (
     <div>
       <StHeader>
@@ -16,23 +22,15 @@ function MembershipLogin() {
       <StContentsBox>
         <div>
           <StPhoneNumberInputBox>
-            <PhoneNumberForm></PhoneNumberForm>
-            <StButton>
-              <button
-                type="button"
-                class="btn btn-outline-secondary"
-                onClick={() => {
-                  // 중복 체크 기능 넣기
-                  alert("가입 가능한 전화번호입니다.");
-                }}
-              >
-                중복 체크하기
-              </button>
-            </StButton>
+            <PhoneNumberForm
+              handleAction={handleAction}
+              actionTitle=" 중복 체크하기 "
+            ></PhoneNumberForm>
           </StPhoneNumberInputBox>
         </div>
       </StContentsBox>
 
+      {/* 멤버십 가입하기 */}
       <StSignButton>
         <div class="d-grid gap-2 col-10 mx-auto">
           <button
@@ -95,8 +93,4 @@ const StSignButton = styled.div`
   width: 25vw;
   height: 20px;
   font-family: "NanumSquareRoundBold";
-`;
-
-const StButton = styled.div`
-  margin-left: 10px;
 `;
