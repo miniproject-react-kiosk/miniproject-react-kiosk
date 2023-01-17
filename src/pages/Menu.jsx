@@ -1,15 +1,17 @@
-import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.css';
-import styled from 'styled-components';
-import { BsCartCheck } from 'react-icons/bs';
-import { BiUndo } from 'react-icons/bi';
+//2번페이지
+
+import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.css";
+import styled from "styled-components";
+import { BsCartCheck } from "react-icons/bs";
+import { BiUndo } from "react-icons/bi";
+// import AddCart from "../components/AddCart";
 
 // import BackButton from "../components/BackButton";
-import MenuList from '../components/MenuList';
-import CartList from '../components/CartList';
-import { useSelector } from 'react-redux';
-//2번페이지
+import MenuList from "../components/MenuList";
+import CartList from "../components/CartList";
+import { useSelector } from "react-redux";
 
 function Menu() {
   const navigate = useNavigate();
@@ -44,8 +46,8 @@ function Menu() {
 
         <StBuyOrResetBox>
           <StCartTotalPrice>
-            <div class='d-grid gap-2 col-10 mx-auto'>
-              <div class='btn btn-outline-light btn-lg'>
+            <div class="d-grid gap-2 col-10 mx-auto">
+              <div class="btn btn-outline-light btn-lg">
                 Total : {totalprice}
               </div>
             </div>
@@ -53,32 +55,32 @@ function Menu() {
 
           {/* 취소하기 버튼 */}
           <StResetButton>
-            <div class='d-grid gap-2 col-10 mx-auto'>
+            <div class="d-grid gap-2 col-10 mx-auto">
               <button
-                type='button'
-                class='btn btn-outline-light btn-lg'
+                type="button"
+                class="btn btn-outline-light btn-lg"
                 onClick={() => {
                   navigate(-1);
                 }}
               >
-                {' '}
-                <BiUndo className='Undo' /> 취소하기
+                {" "}
+                <BiUndo className="Undo" /> 취소하기
               </button>
             </div>
           </StResetButton>
 
           {/* 결제하기 버튼 */}
           <StBuyButton>
-            <div class='d-grid gap-2 col-10 mx-auto'>
+            <div class="d-grid gap-2 col-10 mx-auto">
               <button
-                type='button'
-                class='btn btn-outline-light btn-lg'
+                type="button"
+                class="btn btn-outline-light btn-lg"
                 onClick={() => {
                   navigate(`/Menu/OrderCheck/${param.takeOutId}`);
                 }}
               >
-                {' '}
-                <BsCartCheck className='Order' /> 주문하기
+                {" "}
+                <BsCartCheck className="Order" /> 주문하기
               </button>
             </div>
           </StBuyButton>
@@ -101,7 +103,7 @@ const StHeader = styled.div`
 
 const StTitle = styled.h1`
   text-align: center;
-  font-family: 'MorningBreezeBold';
+  font-family: "MorningBreezeBold";
   margin-top: 15px;
   color: #2a2a2a;
 `;
@@ -114,7 +116,7 @@ const StMenuContainer = styled.p`
 
 const StCartBox = styled.div`
   border-radius: 10px;
-  background-color: #3d3d3d97;
+  background-color: #23232399;
   position: fixed;
   bottom: 0;
   width: 100%;
