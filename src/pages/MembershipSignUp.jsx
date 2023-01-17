@@ -48,7 +48,9 @@ function MembershipLogin() {
             type="button"
             class="btn btn-outline-secondary btn-lg"
             onClick={() => {
-              alert("회원가입이 완료되었습니다.");
+              alert(
+                "회원가입이 완료되었습니다.\n()원이 적립이 완료되었습니다. "
+              );
               navigate(`/Menu/OrderChoice/OrderComplete/${param.takeOutId}`);
             }}
           >
