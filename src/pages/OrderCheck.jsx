@@ -14,14 +14,14 @@ import axios from 'axios';
 // import BackButton from "../components/BackButton";
 // import BackHomeButton from "../components/BackHomeButton";
 
-const StAll = styled.div`
-  display: flex;
-  text-align: center;
-  height: 90vh;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
+// const StAll = styled.div`
+//   display: flex;
+//   text-align: center;
+//   height: 90vh;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+// `;
 
 // const StBoxs = styled.div`
 //   height: 90vh;
