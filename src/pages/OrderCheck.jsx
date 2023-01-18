@@ -150,35 +150,6 @@ function OrderCheck() {
         </StBuyButton>
       </StBuyOrResetBox>
     </div>
-    // =======
-    //           <div>your order</div>
-    //           <StBox2 className='box2'>
-    //             <div>주문을 확인 해주세요.주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //             <div>주문을 확인 해주세요.</div>
-    //           </StBox2>
-
-    //           <StBox3>
-    //             <div> total price</div>
-
-    //             <div>
-    //               <BackHomeButton />
-    //               <button
-    //                 onClick={(e) => {
-    //                   navigate(
-    //                     `/Menu/OrderChoice/OrderComplete/${param.takeOutId}`
-    //                   );
-    //                 }}
-    //               >
-    //                 {' '}
-    //                 결제하기
-    //               </button>
-    //             </div>
-    //           </StBox3>
-    //         </StBoxs>
-    //       </StAll>
-    //     </>
   );
 }
 
