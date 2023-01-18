@@ -20,7 +20,7 @@ export default function CounterButton({ item }) {
         <StCartListMenu>
           <h2>{item.menuName}</h2>{' '}
           <h3>
-            {item.price} <FaWonSign />
+            {item.price * amount} <FaWonSign />
           </h3>
         </StCartListMenu>
         <StCartListControl>

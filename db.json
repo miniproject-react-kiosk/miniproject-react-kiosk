@@ -71,6 +71,17 @@
         "imageUrl": "https://www.mcdonalds.co.kr/upload/product/pcfile/1583727707216.png",
         "amount": 1
       }
-    ]
+    ],
+    [
+      {
+        "id": 7,
+        "menuName": "집에가고싶은버거",
+        "price": 2300,
+        "imageUrl": "https://www.mcdonalds.co.kr/upload/product/pcfile/1583728282358.png",
+        "amount": 1
+      }
+    ],
+    [],
+    []
   ]
 }
