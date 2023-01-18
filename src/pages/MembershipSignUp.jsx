@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
 import styled from "styled-components";
 import BackButton from "../components/BackButton";
 import PhoneNumberForm from "../components/PhoneNumberForm";
@@ -33,8 +34,31 @@ function MembershipLogin() {
   // 체크박스 useState 만들어서 변경할 함수 만들어 준 뒤, state값과 함술를 체크박스에 넘겨줘서 (props) 그 값과 함수(onClick에 연결) 사용
   // 넘겨준 값은 체크박스 UI를 state 값에 따라 바뀌게 구현
 
+  const [checkedInputs, setCheckedInputs] = useState([]);
+
+  const changeHandler = (checked, id) => {
+    if (checked) {
+      setCheckedInputs([...checkedInputs, id]);
+    } else {
+      // 체크 해제
+      setCheckedInputs(checkedInputs.filter((el) => el !== id));
+    }
+  };
+
   return (
     <div>
+      {/* SMS 수신동의 로직 추가 */}
+      <div>
+        <input
+          id={checkedInputs}
+          type="checkbox"
+          // onChange={() => {
+          //   changeHandler(e.currentTarget.checked, id값);
+          // }}
+          // checked={checkedInputs.includes(id값) ? true : false}
+        />
+      </div>
+
       <StHeader>
         <BackButton>이전으로</BackButton>
         <StTitle>JOIN US!</StTitle>
