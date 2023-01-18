@@ -39,7 +39,7 @@ export default function MenuList() {
 
   const fetchTodos = async () => {
     const { data } = await axios.get('http://13.209.12.254/store/menus');
-    console.log(data);
+    // console.log(data);s
     setMenuLists(data);
   };
 

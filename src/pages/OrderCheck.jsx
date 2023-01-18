@@ -1,19 +1,24 @@
-import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { BiHome } from "react-icons/bi";
-import { BsCreditCard } from "react-icons/bs";
-import BackButton from "../components/BackButton";
+import React from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { BiHome } from 'react-icons/bi';
+import { BsCreditCard } from 'react-icons/bs';
+import BackButton from '../components/BackButton';
 // import BackHomeButton from "../components/BackHomeButton";
-import styled from "styled-components";
+import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+import { FaWonSign } from 'react-icons/fa';
 
 // import BackButton from "../components/BackButton";
 // import BackHomeButton from "../components/BackHomeButton";
 
-// const StAll = styled.div`
-//   text-align: center;
-//   max-width: 1200px;
-//   z-index: 2;
-// `;
+const StAll = styled.div`
+  display: flex;
+  text-align: center;
+  height: 90vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
 // const StBoxs = styled.div`
 //   height: 90vh;
@@ -77,42 +82,69 @@ import styled from "styled-components";
 function OrderCheck() {
   const navigate = useNavigate();
   const param = useParams();
+  const globaladdCart = useSelector((state) => state.menuList.menuList);
+  let totalprice = 0;
+  for (let i = 0; i < globaladdCart.length; i++) {
+    totalprice = totalprice + globaladdCart[i].price;
+  }
+  console.log(globaladdCart);
   return (
     <div>
       <StHeader>
         <StTitle>✔️ Order Check ✔️</StTitle>
       </StHeader>
-      <BackButton>이전으로</BackButton>
 
+      <BackButton>이전으로</BackButton>
+      <StAll>
+        {globaladdCart?.map((cartMenu) => {
+          console.log(globaladdCart);
+          return (
+            <>
+              <div>{cartMenu.imageUrl}</div>
+              <div>{cartMenu.menuName}</div>
+              <div>{cartMenu.price}</div>
+              <div>{cartMenu.amount}</div>
+            </>
+          );
+        })}
+      </StAll>
       <StBuyOrResetBox>
+        <StCartTotalPrice>
+          <div class='d-grid gap-2 col-10 mx-auto'>
+            <div class='btn btn-outline-light btn-lg'>
+              Total : {totalprice} <FaWonSign />
+            </div>
+          </div>
+        </StCartTotalPrice>
+
         {/* 취소하기 버튼 */}
         <StResetButton>
-          <div class="d-grid gap-2 col-10 mx-auto">
+          <div class='d-grid gap-2 col-10 mx-auto'>
             <button
-              type="button"
-              class="btn btn-outline-light btn-lg"
+              type='button'
+              class='btn btn-outline-light btn-lg'
               onClick={() => {
-                navigate("/");
+                navigate('/');
               }}
             >
-              {" "}
-              <BiHome className="BackHomeButton" /> 홈으로 돌아가기
+              {' '}
+              <BiHome className='BackHomeButton' /> 홈으로 돌아가기
             </button>
           </div>
         </StResetButton>
 
         {/* 결제하기 버튼 */}
         <StBuyButton>
-          <div class="d-grid gap-2 col-10 mx-auto">
+          <div class='d-grid gap-2 col-10 mx-auto'>
             <button
-              type="button"
-              class="btn btn-outline-light btn-lg"
+              type='button'
+              class='btn btn-outline-light btn-lg'
               onClick={() => {
                 navigate(`/Menu/OrderCheck/OrderChoice/${param.takeOutId}`);
               }}
             >
-              {" "}
-              <BsCreditCard className="Buy" /> 주문하기
+              {' '}
+              <BsCreditCard className='Buy' /> 주문하기
             </button>
           </div>
         </StBuyButton>
@@ -162,7 +194,7 @@ const StHeader = styled.div`
 
 const StTitle = styled.h1`
   text-align: center;
-  font-family: "MorningBreezeBold";
+  font-family: 'MorningBreezeBold';
   margin-top: 15px;
   color: #2a2a2a;
 `;
@@ -174,25 +206,71 @@ const StBuyOrResetBox = styled.div`
   bottom: 0;
   width: 100%;
   height: 150px;
+  display: flex;
+  align-items: center;
+`;
+
+// const StBuyButton = styled.div`
+//   position: absolute;
+//   margin-top: 50px;
+//   right: 0%;
+//   width: 400px;
+//   height: 20px;
+//   justify-content: space-between;
+//   font-family: 'NanumSquareRoundBold';
+//   /* align-items: baseline; */
+// `;
+
+// const StResetButton = styled.div`
+//   position: absolute;
+//   margin-top: 50px;
+//   right: 30%;
+//   width: 400px;
+//   height: 20px;
+//   justify-content: space-between;
+//   font-family: 'NanumSquareRoundBold';
+// `;
+
+// const StBuyOrResetBox = styled.div`
+//   /* background-color: #3d3d3d61; */
+//   background-color: #0000005f;
+
+//   border-radius: 10px;
+//   position: fixed;
+//   bottom: 0;
+//   width: 100%;
+//   height: 100px;
+//   display: flex;
+//   align-items: center;
+// `;
+
+const StCartTotalPrice = styled.div`
+  flex-basis: 50%;
+  /* position: absolute;
+  right: 0%;
+  width: 25vw;
+  height: 20px;
+  justify-content: space-between;
+  font-family: 'NanumSquareRoundBold'; */
 `;
 
 const StBuyButton = styled.div`
-  position: absolute;
-  margin-top: 50px;
+  flex-basis: 25%;
+  /* position: absolute;
   right: 0%;
-  width: 400px;
+  width: 25vw;
   height: 20px;
   justify-content: space-between;
-  font-family: "NanumSquareRoundBold";
-  /* align-items: baseline; */
+  font-family: 'NanumSquareRoundBold'; */
 `;
 
 const StResetButton = styled.div`
-  position: absolute;
-  margin-top: 50px;
-  right: 30%;
-  width: 400px;
+  flex-basis: 25%;
+
+  /* position: absolute;
+  right: 23%;
+  width: 25vw;
   height: 20px;
   justify-content: space-between;
-  font-family: "NanumSquareRoundBold";
+  font-family: 'NanumSquareRoundBold'; */
 `;
