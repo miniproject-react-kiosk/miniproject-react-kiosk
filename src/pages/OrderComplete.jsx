@@ -12,7 +12,7 @@ function OrderComplete() {
         <StTitle>🍔 ENJOY YOUR MEAL! 🍟</StTitle>
       </StHeader>
 
-      <StBoxs>
+      <StBox>
         <StContainerBox>
           주문해주셔서 감사합니다. <br></br>
           고객님의 주문이 정상적으로 완료되었습니다. <br></br>
@@ -20,11 +20,10 @@ function OrderComplete() {
           소요시간은 약 15분입니다.<br></br>
           주문번호 호출 시 카운터로 방문해주세요.
         </StContainerBox>
-
         <StBackHomeButton>
           <BackHomeButton />
         </StBackHomeButton>
-      </StBoxs>
+      </StBox>
     </div>
   );
 }
@@ -58,13 +57,12 @@ const StTitle = styled.h1`
   color: #2a2a2a;
 `;
 
-const StBoxs = styled.div`
+const StBox = styled.div`
   height: 90vh;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 `;
 
 const StBackHomeButton = styled.div`

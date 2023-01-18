@@ -1,12 +1,14 @@
-import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { BiHome } from 'react-icons/bi';
-import { BsCreditCard } from 'react-icons/bs';
-import BackButton from '../components/BackButton';
+import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { BiHome } from "react-icons/bi";
+import { BsCreditCard } from "react-icons/bs";
+import BackButton from "../components/BackButton";
+import { FaWonSign } from "react-icons/fa";
+
 // import BackHomeButton from "../components/BackHomeButton";
-import styled from 'styled-components';
-import { useSelector } from 'react-redux';
-import { FaWonSign } from 'react-icons/fa';
+import styled from "styled-components";
+import { useSelector } from "react-redux";
+import { FaWonSign } from "react-icons/fa";
 
 // import BackButton from "../components/BackButton";
 // import BackHomeButton from "../components/BackHomeButton";
@@ -95,56 +97,72 @@ function OrderCheck() {
       </StHeader>
 
       <BackButton>이전으로</BackButton>
-      <StAll>
-        {globaladdCart?.map((cartMenu) => {
-          console.log(globaladdCart);
-          return (
-            <>
-              <div>{cartMenu.imageUrl}</div>
-              <div>{cartMenu.menuName}</div>
-              <div>{cartMenu.price}</div>
-              <div>{cartMenu.amount}</div>
-            </>
-          );
-        })}
-      </StAll>
+      <StBox>
+        <StContainerBox>
+          <div>주문을 확인해주세요!</div>
+          <div>
+            {globaladdCart?.map((cartMenu) => {
+              console.log(globaladdCart);
+              return (
+                <>
+                  <div>{cartMenu.imageUrl}</div>
+                  <div>{cartMenu.menuName}</div>
+                  <div>{cartMenu.price}</div>
+                  <div>{cartMenu.amount}</div>
+                </>
+              );
+            })}
+          </div>
+        </StContainerBox>
+      </StBox>
+
       <StBuyOrResetBox>
         <StCartTotalPrice>
-          <div class='d-grid gap-2 col-10 mx-auto'>
-            <div class='btn btn-outline-light btn-lg'>
+          <div class="d-grid gap-2 col-10 mx-auto">
+            <div class="btn btn-outline-light btn-lg">
               Total : {totalprice} <FaWonSign />
             </div>
           </div>
         </StCartTotalPrice>
 
         {/* 취소하기 버튼 */}
+
+        <StCartTotalPrice>
+          <div class="d-grid gap-2 col-10 mx-auto">
+            <div class="btn btn-outline-light btn-lg">
+              총 가격
+              {/* Total : {totalprice} <FaWonSign /> */}
+            </div>
+          </div>
+        </StCartTotalPrice>
+
         <StResetButton>
-          <div class='d-grid gap-2 col-10 mx-auto'>
+          <div class="d-grid gap-2 col-10 mx-auto">
             <button
-              type='button'
-              class='btn btn-outline-light btn-lg'
+              type="button"
+              class="btn btn-outline-light btn-lg"
               onClick={() => {
-                navigate('/');
+                navigate("/");
               }}
             >
-              {' '}
-              <BiHome className='BackHomeButton' /> 홈으로 돌아가기
+              {" "}
+              <BiHome className="BackHomeButton" /> 홈으로 돌아가기
             </button>
           </div>
         </StResetButton>
 
         {/* 결제하기 버튼 */}
         <StBuyButton>
-          <div class='d-grid gap-2 col-10 mx-auto'>
+          <div class="d-grid gap-2 col-10 mx-auto">
             <button
-              type='button'
-              class='btn btn-outline-light btn-lg'
+              type="button"
+              class="btn btn-outline-light btn-lg"
               onClick={() => {
                 navigate(`/Menu/OrderCheck/OrderChoice/${param.takeOutId}`);
               }}
             >
-              {' '}
-              <BsCreditCard className='Buy' /> 주문하기
+              {" "}
+              <BsCreditCard className="Buy" /> 주문하기
             </button>
           </div>
         </StBuyButton>
@@ -165,12 +183,35 @@ const StHeader = styled.div`
 
 const StTitle = styled.h1`
   text-align: center;
-  font-family: 'MorningBreezeBold';
+  font-family: "MorningBreezeBold";
   margin-top: 15px;
   color: #2a2a2a;
 `;
 
+const StBox = styled.div`
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const StContainerBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #3d3d3d97;
+  border-radius: 10px;
+  padding: 5vw;
+  width: 800px;
+  height: 400px;
+  text-align: center;
+  font-family: "NanumSquareRoundBold";
+  font-size: 14pt;
+`;
+
 const StBuyOrResetBox = styled.div`
+  display: flex;
   background-color: #3c3c3caf;
   border-radius: 10px;
   position: fixed;
@@ -217,31 +258,18 @@ const StBuyOrResetBox = styled.div`
 
 const StCartTotalPrice = styled.div`
   flex-basis: 50%;
-  /* position: absolute;
-  right: 0%;
-  width: 25vw;
-  height: 20px;
-  justify-content: space-between;
-  font-family: 'NanumSquareRoundBold'; */
+  margin-top: 50px;
+  font-family: "NanumSquareRoundBold";
 `;
 
 const StBuyButton = styled.div`
   flex-basis: 25%;
-  /* position: absolute;
-  right: 0%;
-  width: 25vw;
-  height: 20px;
-  justify-content: space-between;
-  font-family: 'NanumSquareRoundBold'; */
+  margin-top: 50px;
+  font-family: "NanumSquareRoundBold";
 `;
 
 const StResetButton = styled.div`
   flex-basis: 25%;
-
-  /* position: absolute;
-  right: 23%;
-  width: 25vw;
-  height: 20px;
-  justify-content: space-between;
-  font-family: 'NanumSquareRoundBold'; */
+  margin-top: 50px;
+  font-family: "NanumSquareRoundBold";
 `;
