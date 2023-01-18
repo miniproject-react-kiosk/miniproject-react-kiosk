@@ -1,17 +1,60 @@
-import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import styled from 'styled-components';
-import BackButton from '../components/BackButton';
-import PhoneNumberForm from '../components/PhoneNumberForm';
+import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import styled from "styled-components";
+import BackButton from "../components/BackButton";
+import PhoneNumberForm from "../components/PhoneNumberForm";
+import swal from "sweetalert";
 
 function MembershipLogin() {
   const navigate = useNavigate();
   const param = useParams();
 
   const handleAction = () => {
-    alert('()원 적립이 완료되었습니다. \n고객님의 잔여 포인트는 ()원입니다.');
+    // alert("()원 적립이 완료되었습니다. \n고객님의 잔여 포인트는 ()원입니다.");
     // alert("멤버십 정보가 없습니다. 멤버십에 가입해주세요!")
+
+    // swal('로그인 성공!',data.login.result.name+"님 로그인되었습니다.",'success')
+
+    swal(
+      "로그인 성공!",
+      // data.login.result.name + "님 로그인되었습니다.",
+      "\n()원 적립이 완료되었습니다. \n고객님의 잔여 포인트는 ()원입니다.",
+      "success"
+    );
+
+    swal(
+      "로그인 실패!",
+      "멤버십 정보가 없습니다.\n 멤버십에 가입해주세요!",
+      "error"
+    ).then(function () {
+      // location.href="${pageContext.request.contextPath}/main.do";
+      navigate(`/Menu/OrderChoice/MembershipSignup/${param.takeOutId}`);
+    });
+
     // console.log("Handle Action");
+
+    // 로그인 로직 추가
+    // const onClickLoginSuccess = (e) => {
+    //   e.preventDefault();
+    //   swal(
+    //     "로그인 성공! \n()원 적립이 완료되었습니다. \n고객님의 잔여 포인트는 ()원입니다."
+    //   );
+    // {
+    //   buttons: {
+    //     cancel: '아니요. 계속 작성할래요',
+    //     '네,나갈래요': true,
+    //   },
+    // }).then((value) => {
+    //   switch (value) {
+    //     case '네,나갈래요':
+    //       navigate('/meeting');
+    //       break;
+
+    //     default:
+    //       break;
+    //   }
+    // });
+    // };
   };
 
   return (
@@ -25,7 +68,7 @@ function MembershipLogin() {
           <StPhoneNumberInputBox>
             <PhoneNumberForm
               handleAction={handleAction}
-              actionTitle=' 적립하기 '
+              actionTitle=" 적립하기 "
             ></PhoneNumberForm>
           </StPhoneNumberInputBox>
         </div>
@@ -36,17 +79,17 @@ function MembershipLogin() {
         <StSignUpInputBox>
           아직 회원이 아니신가요?
           <StSignButton>
-            <div class='d-grid gap-2 col-10 mx-auto'>
+            <div class="d-grid gap-2 col-10 mx-auto">
               <button
-                type='button'
-                class='btn btn-outline-secondary btn-lg'
+                type="button"
+                class="btn btn-outline-secondary btn-lg"
                 onClick={() => {
                   navigate(
                     `/Menu/OrderChoice/MembershipSignUp/${param.takeOutId}`
                   );
                 }}
               >
-                {' '}
+                {" "}
                 멤버십 가입하기
               </button>
             </div>
@@ -69,7 +112,7 @@ const StHeader = styled.div`
 
 const StTitle = styled.h1`
   text-align: center;
-  font-family: 'MorningBreezeBold';
+  font-family: "MorningBreezeBold";
   margin-top: 15px;
   color: #2a2a2a;
 `;
@@ -107,7 +150,7 @@ const StPhoneNumberInputBox = styled.div`
 const StSignUpInputBox = styled.div`
   justify-content: center;
   text-align: center;
-  font-family: 'NanumSquareRoundBold';
+  font-family: "NanumSquareRoundBold";
   font-size: 14pt;
   color: #636363;
 `;
@@ -119,5 +162,5 @@ const StSignButton = styled.div`
   margin-top: 2%;
   width: 25vw;
   height: 20px;
-  font-family: 'NanumSquareRoundBold';
+  font-family: "NanumSquareRoundBold";
 `;
