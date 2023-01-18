@@ -108,7 +108,7 @@ const StCartListControlBox = styled.div`
   align-items: center;
   justify-content: center;
   flex-basis: 22%;
-  background-color: #23232399;
+  background-color: #232323c9;
   color: white;
   cursor: pointer;
   &:hover {
