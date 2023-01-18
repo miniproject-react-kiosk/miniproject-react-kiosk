@@ -28,19 +28,21 @@ function OrderCheck() {
       <StBox>
         <div>주문을 확인해주세요!</div>
         <StContainerBox>
-          <div>
-            {globaladdCart?.map((cartMenu) => {
-              console.log(globaladdCart);
-              return (
-                <>
-                  <div>{cartMenu.imageUrl}</div>
-                  <div>{cartMenu.menuName}</div>
-                  <div>{cartMenu.price}</div>
-                  <div>{cartMenu.amount}</div>
-                </>
-              );
-            })}
-          </div>
+          <StOrderContents>
+            <div>
+              {globaladdCart?.map((cartMenu) => {
+                console.log(globaladdCart);
+                return (
+                  <>
+                    <div>{cartMenu.imageUrl}</div>
+                    <div>{cartMenu.menuName}</div>
+                    <div>{cartMenu.price}</div>
+                    <div>{cartMenu.amount}</div>
+                  </>
+                );
+              })}
+            </div>
+          </StOrderContents>
         </StContainerBox>
       </StBox>
 
@@ -115,7 +117,7 @@ const StBox = styled.div`
   flex-direction: column;
   justify-content: center;
   font-family: "NanumSquareRoundBold";
-  font-size: 15pt;
+  font-size: 14pt;
 `;
 
 const StContainerBox = styled.div`
@@ -125,9 +127,21 @@ const StContainerBox = styled.div`
   border: 3px solid #3d3d3d97;
   border-radius: 10px;
   margin-top: 5pt;
-  padding: 4vw;
+  padding: 3vw;
   width: 1000px;
   height: 500px;
+  text-align: center;
+`;
+
+const StOrderContents = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 3px solid #3d3d3d97; */
+  margin-top: 5pt;
+  width: 1000px;
+  height: 450px;
+  overflow: scroll;
   text-align: center;
   font-family: "NanumSquareRoundBold";
   font-size: 12pt;
