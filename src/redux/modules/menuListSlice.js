@@ -16,10 +16,14 @@ const menuListSlice = createSlice({
   initialState,
   reducers: {
     addCart: (state, action) => {
-      return {
-        ...state,
-        menuList: [...state.menuList, action.payload],
-      };
+      const addedIdx = state.menuList.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (addedIdx === -1) {
+        state.menuList.push({ ...action.payload, amount: 1 });
+      } else {
+        state.menuList[addedIdx].amount += 1;
+      }
     },
     deleteCart: (state, action) => {
       return {

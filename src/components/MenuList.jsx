@@ -58,7 +58,7 @@ export default function MenuList() {
             <div class='col'>
               <div class='card h-40'>
                 <img
-                  src='https://www.mcdonalds.co.kr/upload/product/pcfile/1653436847042.png'
+                  src={menuList.imageUrl}
                   class='card-img-top'
                   alt='...'
                 ></img>
