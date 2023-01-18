@@ -21,10 +21,10 @@ export default function CounterButton({ item }) {
     <>
       <StCartList>
         <StCartListMenu>
-          <h2>{item.menuName}</h2>{" "}
-          <h3>
+          <div>{item.menuName}</div>{" "}
+          <div>
             {item.price * amount} <FaWonSign />
-          </h3>
+          </div>
         </StCartListMenu>
         <StCartListControl>
           <StCartListControlBox
@@ -72,9 +72,10 @@ const StCartListMenu = styled.div`
   justify-content: space-between;
   border-radius: 10px;
   height: 40px;
-  background-color: #c0c0c0;
-  padding: 20px;
+  background-color: #ffffffe0;
+  padding: 20px 60px 20px;
   font-family: "NanumSquareRoundBold";
+  font-size: 15pt;
 `;
 
 const StCartListControl = styled.div`
@@ -95,17 +96,20 @@ const StCartListControlBox2 = styled.div`
   align-items: center;
   justify-content: center;
   flex-basis: 22%;
-  background-color: #c0c0c0;
+  background-color: #ffffffe0;
 `;
 
 const StCartListControlBox = styled.div`
   border-radius: 10px;
+  border-style: solid;
+  border-color: white;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-basis: 22%;
-  background-color: white;
+  background-color: #23232399;
+  color: white;
   cursor: pointer;
   &:hover {
     border: solid 2px #ffe600e2;
