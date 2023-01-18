@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { RiDeleteBin5Line } from 'react-icons/ri';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { deleteCart } from '../redux/modules/menuListSlice';
 import { FaWonSign } from 'react-icons/fa';
 
