@@ -130,7 +130,6 @@ function OrderCheck() {
         </StCartTotalPrice>
 
         {/* 취소하기 버튼 */}
-
         <StResetButton>
           <div class="d-grid gap-2 col-10 mx-auto">
             <button
