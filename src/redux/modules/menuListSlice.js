@@ -34,26 +34,24 @@ const menuListSlice = createSlice({
       };
     },
 
-    // upButton: (state, action) => {
-    //   return {
-    //     ...state,
-    //     menuList: state.menuList.map((menu) => {
-    //       if (menu.id === action.payload) {
-    //         let a = 1;
-    //         console.log(menu.amount);
-    //         a = menu.amount + a;
-    //         console.log(a);
-    //         // console.log(menu);
-    //         return a;
-    //       }
-    //     }),
-    //   };
-    // },
+    updateCart: (state, action) => {
+      const newMenuList = [...state.menuList];
+      const targetMenuIdx = newMenuList.findIndex(
+        (menu) => menu.id === action.payload
+      );
+      if (targetMenuIdx !== -1) {
+        newMenuList[targetMenuIdx].amount += 1;
+      }
+      return {
+        ...state,
+        menuList: newMenuList,
+      };
+    },
   },
 });
 
 // #4. 익스포트하기
-export const { addCart, deleteCart, upButton } = menuListSlice.actions;
+export const { addCart, deleteCart, updateCart } = menuListSlice.actions;
 export default menuListSlice.reducer;
 
 // import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";

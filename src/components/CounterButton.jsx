@@ -5,13 +5,19 @@ import { BsPlusLg } from 'react-icons/bs';
 import { HiMinus } from 'react-icons/hi';
 
 import { useDispatch } from 'react-redux';
-import { deleteCart } from '../redux/modules/menuListSlice';
+import { deleteCart, updateCart } from '../redux/modules/menuListSlice';
 import { FaWonSign } from 'react-icons/fa';
 
 export default function CounterButton(props) {
   const [amount, setAmount] = useState(1);
   // console.log(item);
   const dispatch = useDispatch();
+  //
+  const handledup = (id) => {
+    setAmount(amount + 1);
+    dispatch(updateCart(id));
+  };
+
   //삭제 기능
   const handledDelete = (id) => {
     dispatch(deleteCart(id));
@@ -23,7 +29,8 @@ export default function CounterButton(props) {
         <StCartListMenu>
           <div>{props.item.menuName}</div>{' '}
           <div>
-            {props.item.price * amount} <FaWonSign />
+            <FaWonSign />
+            {props.item.price * amount}
           </div>
         </StCartListMenu>
         <StCartListControl>
@@ -31,6 +38,7 @@ export default function CounterButton(props) {
             onClick={() => {
               if (amount > 1) {
                 setAmount(amount - 1);
+                updateCart(props.item.id);
               } else {
                 handledDelete(props.item.id);
               }
@@ -39,7 +47,11 @@ export default function CounterButton(props) {
             <HiMinus />
           </StCartListControlBox>
           <StCartListControlBox2>{amount}</StCartListControlBox2>
-          <StCartListControlBox onClick={() => setAmount(amount + 1)}>
+          <StCartListControlBox
+            onClick={() => {
+              handledup(props.item.id);
+            }}
+          >
             <BsPlusLg />
           </StCartListControlBox>
         </StCartListControl>

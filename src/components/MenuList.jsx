@@ -69,8 +69,8 @@ export default function MenuList() {
                   </StCardTitle>
                   <StCardText>
                     <p class='card-text'>
-                      {menuList.price}
                       <BiWon />
+                      {menuList.price}
                     </p>
                     <StAddCartButton
                       onClick={() => {
