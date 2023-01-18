@@ -1,85 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import styled from "styled-components";
+import BackButton from "../components/BackButton";
 import { BiHome } from "react-icons/bi";
 import { BsCreditCard } from "react-icons/bs";
-import BackButton from "../components/BackButton";
 import { FaWonSign } from "react-icons/fa";
 
 // import BackHomeButton from "../components/BackHomeButton";
-import styled from "styled-components";
-import { useSelector } from "react-redux";
-import { FaWonSign } from "react-icons/fa";
-
-// import BackButton from "../components/BackButton";
-// import BackHomeButton from "../components/BackHomeButton";
-
-const StAll = styled.div`
-  display: flex;
-  text-align: center;
-  height: 90vh;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-// const StBoxs = styled.div`
-//   height: 90vh;
-//   display: flex;
-//   align-items: center;
-//   flex-direction: column;
-//   justify-content: space-evenly;
-// `;
-
-// const StBox1 = styled.div`
-//   flex-basis: 20%;
-//   background-color: #fde6e6;
-//   border: solid 2px white;
-//   border-radius: 5vw;
-//   width: 80vw;
-//   height: 45vh;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// `;
-
-// const StBox2 = styled.div`
-//   flex-basis: 50%;
-//   background-color: #fde6e6;
-//   border: solid 2px white;
-//   border-radius: 5vw;
-//   width: 80vw;
-//   height: 45vh;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: flex-start;
-//   /* overflow: scroll;
-//   -ms-overflow-style: none;
-//   scrollbar-width: none;  */
-//   overflow-y: auto;
-//   //뭔진모르겠는데 스크롤 숨기는 기능임...
-//   &::-webkit-scrollbar {
-//     width: 4px;
-//   }
-//   &::-webkit-scrollbar-thumb {
-//     background: transparent;
-//   }
-//   /* align-items: center; */
-// `;
-// const StBox3 = styled.div`
-//   flex-basis: 30%;
-
-//   background-color: #fde6e6;
-//   border: solid 2px white;
-//   border-radius: 5vw;
-//   width: 80vw;
-
-//   height: 45vh;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-evenly;
-//   align-items: center;
-// `;
-// >>>>>>> 0d051c8047212464da3b512e7a2e46110d4d6b83
 
 function OrderCheck() {
   const navigate = useNavigate();
@@ -98,8 +26,8 @@ function OrderCheck() {
 
       <BackButton>이전으로</BackButton>
       <StBox>
+        <div>주문을 확인해주세요!</div>
         <StContainerBox>
-          <div>주문을 확인해주세요!</div>
           <div>
             {globaladdCart?.map((cartMenu) => {
               console.log(globaladdCart);
@@ -126,15 +54,6 @@ function OrderCheck() {
         </StCartTotalPrice>
 
         {/* 취소하기 버튼 */}
-
-        <StCartTotalPrice>
-          <div class="d-grid gap-2 col-10 mx-auto">
-            <div class="btn btn-outline-light btn-lg">
-              총 가격
-              {/* Total : {totalprice} <FaWonSign /> */}
-            </div>
-          </div>
-        </StCartTotalPrice>
 
         <StResetButton>
           <div class="d-grid gap-2 col-10 mx-auto">
@@ -189,11 +108,14 @@ const StTitle = styled.h1`
 `;
 
 const StBox = styled.div`
-  height: 90vh;
   display: flex;
+  text-align: center;
+  height: 90vh;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  font-family: "NanumSquareRoundBold";
+  font-size: 14pt;
 `;
 
 const StContainerBox = styled.div`
@@ -203,16 +125,16 @@ const StContainerBox = styled.div`
   border: 3px solid #3d3d3d97;
   border-radius: 10px;
   padding: 5vw;
-  width: 800px;
-  height: 400px;
+  width: 1000px;
+  height: 500px;
   text-align: center;
   font-family: "NanumSquareRoundBold";
-  font-size: 14pt;
+  font-size: 12pt;
 `;
 
 const StBuyOrResetBox = styled.div`
   display: flex;
-  background-color: #3c3c3caf;
+  background-color: #232323d1;
   border-radius: 10px;
   position: fixed;
   bottom: 0;
@@ -222,54 +144,17 @@ const StBuyOrResetBox = styled.div`
   align-items: center;
 `;
 
-// const StBuyButton = styled.div`
-//   position: absolute;
-//   margin-top: 50px;
-//   right: 0%;
-//   width: 400px;
-//   height: 20px;
-//   justify-content: space-between;
-//   font-family: 'NanumSquareRoundBold';
-//   /* align-items: baseline; */
-// `;
-
-// const StResetButton = styled.div`
-//   position: absolute;
-//   margin-top: 50px;
-//   right: 30%;
-//   width: 400px;
-//   height: 20px;
-//   justify-content: space-between;
-//   font-family: 'NanumSquareRoundBold';
-// `;
-
-// const StBuyOrResetBox = styled.div`
-//   /* background-color: #3d3d3d61; */
-//   background-color: #0000005f;
-
-//   border-radius: 10px;
-//   position: fixed;
-//   bottom: 0;
-//   width: 100%;
-//   height: 100px;
-//   display: flex;
-//   align-items: center;
-// `;
-
 const StCartTotalPrice = styled.div`
   flex-basis: 50%;
-  margin-top: 50px;
   font-family: "NanumSquareRoundBold";
 `;
 
 const StBuyButton = styled.div`
   flex-basis: 25%;
-  margin-top: 50px;
   font-family: "NanumSquareRoundBold";
 `;
 
 const StResetButton = styled.div`
   flex-basis: 25%;
-  margin-top: 50px;
   font-family: "NanumSquareRoundBold";
 `;
