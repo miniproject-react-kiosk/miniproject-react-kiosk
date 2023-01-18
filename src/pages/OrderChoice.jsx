@@ -69,8 +69,6 @@ function OrderChoice() {
   const navigate = useNavigate();
   const param = useParams();
 
-  console.log(param);
-
   return (
     <div>
       <StHeader>

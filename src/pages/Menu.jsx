@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import styled from 'styled-components';
 import { BsCartCheck } from 'react-icons/bs';
 import { BiUndo } from 'react-icons/bi';
+import { FaWonSign } from 'react-icons/fa';
 // import AddCart from "../components/AddCart";
 
 // import BackButton from "../components/BackButton";
@@ -49,7 +50,7 @@ function Menu() {
           <StCartTotalPrice>
             <div class='d-grid gap-2 col-10 mx-auto'>
               <div class='btn btn-outline-light btn-lg'>
-                Total : {totalprice}
+                Total : {totalprice} <FaWonSign />
               </div>
             </div>
           </StCartTotalPrice>
