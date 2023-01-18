@@ -39,7 +39,6 @@ const StContainerBox = styled.div`
   text-align: center;
   font-family: "NanumSquareRoundBold";
   font-size: 14pt;
-  margin-top: 10%;
   /* flex-basis: 50%; */
 `;
 

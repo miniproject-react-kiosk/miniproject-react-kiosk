@@ -9,7 +9,7 @@ function MembershipLogin() {
   const param = useParams();
 
   const handleAction = () => {
-    alert("적립이 완료되었습니다.");
+    alert("()원 적립이 완료되었습니다. \n고객님의 잔여 포인트는 ()원입니다.");
     // alert("멤버십 정보가 없습니다. 멤버십에 가입해주세요!")
     // console.log("Handle Action");
   };
