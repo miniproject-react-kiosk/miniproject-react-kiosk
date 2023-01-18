@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { BiHome } from "react-icons/bi";
 import { BsCreditCard } from "react-icons/bs";
 import BackButton from "../components/BackButton";
+import { FaWonSign } from "react-icons/fa";
+
 // import BackHomeButton from "../components/BackHomeButton";
 import styled from "styled-components";
 
@@ -83,9 +85,21 @@ function OrderCheck() {
         <StTitle>✔️ Order Check ✔️</StTitle>
       </StHeader>
       <BackButton>이전으로</BackButton>
-
+      <StBox>
+        <StContainerBox>주문을 확인해주세요!</StContainerBox>
+      </StBox>
       <StBuyOrResetBox>
         {/* 취소하기 버튼 */}
+
+        <StCartTotalPrice>
+          <div class="d-grid gap-2 col-10 mx-auto">
+            <div class="btn btn-outline-light btn-lg">
+              총 가격
+              {/* Total : {totalprice} <FaWonSign /> */}
+            </div>
+          </div>
+        </StCartTotalPrice>
+
         <StResetButton>
           <div class="d-grid gap-2 col-10 mx-auto">
             <button
@@ -167,7 +181,30 @@ const StTitle = styled.h1`
   color: #2a2a2a;
 `;
 
+const StBox = styled.div`
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const StContainerBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #3d3d3d97;
+  border-radius: 10px;
+  padding: 5vw;
+  width: 800px;
+  height: 400px;
+  text-align: center;
+  font-family: "NanumSquareRoundBold";
+  font-size: 14pt;
+`;
+
 const StBuyOrResetBox = styled.div`
+  display: flex;
   background-color: #3c3c3caf;
   border-radius: 10px;
   position: fixed;
@@ -176,23 +213,20 @@ const StBuyOrResetBox = styled.div`
   height: 150px;
 `;
 
-const StBuyButton = styled.div`
-  position: absolute;
+const StCartTotalPrice = styled.div`
+  flex-basis: 50%;
   margin-top: 50px;
-  right: 0%;
-  width: 400px;
-  height: 20px;
-  justify-content: space-between;
   font-family: "NanumSquareRoundBold";
-  /* align-items: baseline; */
+`;
+
+const StBuyButton = styled.div`
+  flex-basis: 25%;
+  margin-top: 50px;
+  font-family: "NanumSquareRoundBold";
 `;
 
 const StResetButton = styled.div`
-  position: absolute;
+  flex-basis: 25%;
   margin-top: 50px;
-  right: 30%;
-  width: 400px;
-  height: 20px;
-  justify-content: space-between;
   font-family: "NanumSquareRoundBold";
 `;

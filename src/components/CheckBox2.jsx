@@ -39,11 +39,12 @@
 import React, { useState } from "react";
 
 export default function CheckBox2() {
-  const [IsChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   const onChange = ({ target }) => {
-    target.checked ? IsChecked(true) : IsChecked(false);
+    target.checked ? isChecked(true) : isChecked(false);
   };
+  setIsChecked(isChecked);
 
   return (
     <div className="CheckBox2">
@@ -51,7 +52,7 @@ export default function CheckBox2() {
         <input type="checkbox" onClick={onChange}></input>
         SMS 수신 동의
       </div>
-      {IsChecked === true ? "동의" : "비동의"}
+      {isChecked === true ? "동의" : "비동의"}
     </div>
   );
 }
