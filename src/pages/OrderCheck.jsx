@@ -115,7 +115,7 @@ const StBox = styled.div`
   flex-direction: column;
   justify-content: center;
   font-family: "NanumSquareRoundBold";
-  font-size: 16pt;
+  font-size: 15pt;
 `;
 
 const StContainerBox = styled.div`
@@ -124,7 +124,8 @@ const StContainerBox = styled.div`
   align-items: center;
   border: 3px solid #3d3d3d97;
   border-radius: 10px;
-  padding: 5vw;
+  margin-top: 5pt;
+  padding: 4vw;
   width: 1000px;
   height: 500px;
   text-align: center;
