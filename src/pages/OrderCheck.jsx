@@ -1,12 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import styled from 'styled-components';
+import BackButton from '../components/BackButton';
 import { BiHome } from 'react-icons/bi';
 import { BsCreditCard } from 'react-icons/bs';
-import BackButton from '../components/BackButton';
-// import BackHomeButton from "../components/BackHomeButton";
-import styled from 'styled-components';
-import { useSelector } from 'react-redux';
 import { FaWonSign } from 'react-icons/fa';
+
+// import BackHomeButton from "../components/BackHomeButton";
+
 import axios from 'axios';
 
 // import BackButton from "../components/BackButton";
@@ -96,21 +98,26 @@ function OrderCheck() {
       </StHeader>
 
       <BackButton>이전으로</BackButton>
-      <StAll>
-        {globaladdCart?.map((cartMenu) => {
-          console.log(globaladdCart);
-          return (
-            <>
-              <div key={cartMenu.id}>
-                <div>{cartMenu.imageUrl}</div>
-                <div>{cartMenu.menuName}</div>
-                <div>{cartMenu.price}</div>
-                <div>{cartMenu.amount}</div>
-              </div>
-            </>
-          );
-        })}
-      </StAll>
+
+      <StBox>
+        <div>주문을 확인해주세요!</div>
+        <StContainerBox>
+          <div>
+            {globaladdCart?.map((cartMenu) => {
+              console.log(globaladdCart);
+              return (
+                <>
+                  <div>{cartMenu.imageUrl}</div>
+                  <div>{cartMenu.menuName}</div>
+                  <div>{cartMenu.price}</div>
+                  <div>{cartMenu.amount}</div>
+                </>
+              );
+            })}
+          </div>
+        </StContainerBox>
+      </StBox>
+
       <StBuyOrResetBox>
         <StCartTotalPrice>
           <div class='d-grid gap-2 col-10 mx-auto'>
@@ -121,6 +128,7 @@ function OrderCheck() {
         </StCartTotalPrice>
 
         {/* 취소하기 버튼 */}
+
         <StResetButton>
           <div class='d-grid gap-2 col-10 mx-auto'>
             <button
@@ -174,8 +182,34 @@ const StTitle = styled.h1`
   color: #2a2a2a;
 `;
 
+const StBox = styled.div`
+  display: flex;
+  text-align: center;
+  height: 90vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'NanumSquareRoundBold';
+  font-size: 16pt;
+`;
+
+const StContainerBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #3d3d3d97;
+  border-radius: 10px;
+  padding: 5vw;
+  width: 1000px;
+  height: 500px;
+  text-align: center;
+  font-family: 'NanumSquareRoundBold';
+  font-size: 12pt;
+`;
+
 const StBuyOrResetBox = styled.div`
-  background-color: #3c3c3caf;
+  display: flex;
+  background-color: #232323d1;
   border-radius: 10px;
   position: fixed;
   bottom: 0;
@@ -185,67 +219,17 @@ const StBuyOrResetBox = styled.div`
   align-items: center;
 `;
 
-// const StBuyButton = styled.div`
-//   position: absolute;
-//   margin-top: 50px;
-//   right: 0%;
-//   width: 400px;
-//   height: 20px;
-//   justify-content: space-between;
-//   font-family: 'NanumSquareRoundBold';
-//   /* align-items: baseline; */
-// `;
-
-// const StResetButton = styled.div`
-//   position: absolute;
-//   margin-top: 50px;
-//   right: 30%;
-//   width: 400px;
-//   height: 20px;
-//   justify-content: space-between;
-//   font-family: 'NanumSquareRoundBold';
-// `;
-
-// const StBuyOrResetBox = styled.div`
-//   /* background-color: #3d3d3d61; */
-//   background-color: #0000005f;
-
-//   border-radius: 10px;
-//   position: fixed;
-//   bottom: 0;
-//   width: 100%;
-//   height: 100px;
-//   display: flex;
-//   align-items: center;
-// `;
-
 const StCartTotalPrice = styled.div`
   flex-basis: 50%;
-  /* position: absolute;
-  right: 0%;
-  width: 25vw;
-  height: 20px;
-  justify-content: space-between;
-  font-family: 'NanumSquareRoundBold'; */
+  font-family: 'NanumSquareRoundBold';
 `;
 
 const StBuyButton = styled.div`
   flex-basis: 25%;
-  /* position: absolute;
-  right: 0%;
-  width: 25vw;
-  height: 20px;
-  justify-content: space-between;
-  font-family: 'NanumSquareRoundBold'; */
+  font-family: 'NanumSquareRoundBold';
 `;
 
 const StResetButton = styled.div`
   flex-basis: 25%;
-
-  /* position: absolute;
-  right: 23%;
-  width: 25vw;
-  height: 20px;
-  justify-content: space-between;
-  font-family: 'NanumSquareRoundBold'; */
+  font-family: 'NanumSquareRoundBold';
 `;

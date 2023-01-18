@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { RiDeleteBin5Line } from 'react-icons/ri';
-import { useDispatch } from 'react-redux';
+import { BsTrash } from 'react-icons/bs';
+import { BsPlusLg } from 'react-icons/bs';
+import { HiMinus } from 'react-icons/hi';
+
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteCart } from '../redux/modules/menuListSlice';
 import { FaWonSign } from 'react-icons/fa';
 
@@ -18,10 +21,10 @@ export default function CounterButton({ item }) {
     <>
       <StCartList>
         <StCartListMenu>
-          <h2>{item.menuName}</h2>{' '}
-          <h3>
+          <div>{item.menuName}</div>{' '}
+          <div>
             {item.price * amount} <FaWonSign />
-          </h3>
+          </div>
         </StCartListMenu>
         <StCartListControl>
           <StCartListControlBox
@@ -33,11 +36,11 @@ export default function CounterButton({ item }) {
               }
             }}
           >
-            ---
+            <HiMinus />
           </StCartListControlBox>
           <StCartListControlBox2>{item.amount}</StCartListControlBox2>
           <StCartListControlBox onClick={() => setAmount(amount + 1)}>
-            +++
+            <BsPlusLg />
           </StCartListControlBox>
         </StCartListControl>
         <StCartListDelete
@@ -45,7 +48,7 @@ export default function CounterButton({ item }) {
             handledDelete(item.id);
           }}
         >
-          <RiDeleteBin5Line />
+          <BsTrash />
         </StCartListDelete>
       </StCartList>
     </>
@@ -56,10 +59,10 @@ const StCartList = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-
+  margin-top: 10pt;
   align-items: center;
-  padding: 10px;
-  height: 80px;
+  padding: 20px;
+  height: 40px;
 `;
 
 const StCartListMenu = styled.div`
@@ -67,52 +70,49 @@ const StCartListMenu = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: solid 2px #c0c0c0;
   border-radius: 10px;
-  height: 60px;
-  background-color: #c0c0c0;
-  padding: 20px;
+  height: 40px;
+  background-color: #ffffffe0;
+  padding: 20px 60px 20px;
+  font-family: 'NanumSquareRoundBold';
+  font-size: 15pt;
 `;
 
 const StCartListControl = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  /* border: solid 2px gray; */
-
   align-items: center;
   flex-basis: 30%;
-  height: 60px;
+  font-weight: bold;
+  /* height: 40px; */
   /* margin: 0 20px 0 20px; */
 `;
 
 const StCartListControlBox2 = styled.div`
-  margin: 5px;
-  border: solid 2px #c0c0c0;
   border-radius: 10px;
-  height: 60px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-basis: 22%;
-
-  background-color: #c0c0c0;
+  background-color: #ffffffe0;
 `;
 
 const StCartListControlBox = styled.div`
-  margin: 5px;
-  border: solid 2px white;
   border-radius: 10px;
-  height: 60px;
+  border-style: solid;
+  border-color: white;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-basis: 22%;
-  background-color: white;
+  background-color: #232323c9;
+  color: white;
   cursor: pointer;
   &:hover {
     border: solid 2px #ffe600e2;
-
     background-color: #ffe600e2;
     transition: all 300ms ease;
     /* transform: rotate(-30deg) scale(1.2); */
@@ -124,15 +124,13 @@ const StCartListDelete = styled.div`
   align-items: center;
   justify-content: center;
   flex-basis: 10%;
-  border: solid 2px white;
   border-radius: 10px;
-  height: 60px;
+  height: 40px;
   background-color: white;
-  font-size: 40px;
+  font-size: 25px;
   cursor: pointer;
   &:hover {
     border: solid 2px #ffe600e2;
-
     background-color: #ffe600e2;
     transition: all 300ms ease;
     /* transform: rotate(-30deg) scale(1.2); */

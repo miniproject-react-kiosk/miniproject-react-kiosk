@@ -82,6 +82,15 @@
       }
     ],
     [],
-    []
+    [],
+    [
+      {
+        "id": 12,
+        "menuName": "야채잔뜩 버거3",
+        "price": 4500,
+        "imageUrl": "https://www.mcdonalds.co.kr/upload/product/pcfile/1583727707216.png",
+        "amount": 1
+      }
+    ]
   ]
 }
