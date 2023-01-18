@@ -35,7 +35,7 @@ export default function CounterButton({ item }) {
           >
             ---
           </StCartListControlBox>
-          <StCartListControlBox2>{amount}</StCartListControlBox2>
+          <StCartListControlBox2>{item.amount}</StCartListControlBox2>
           <StCartListControlBox onClick={() => setAmount(amount + 1)}>
             +++
           </StCartListControlBox>

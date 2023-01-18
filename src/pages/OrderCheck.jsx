@@ -7,6 +7,7 @@ import BackButton from '../components/BackButton';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { FaWonSign } from 'react-icons/fa';
+import axios from 'axios';
 
 // import BackButton from "../components/BackButton";
 // import BackHomeButton from "../components/BackHomeButton";
@@ -100,10 +101,12 @@ function OrderCheck() {
           console.log(globaladdCart);
           return (
             <>
-              <div>{cartMenu.imageUrl}</div>
-              <div>{cartMenu.menuName}</div>
-              <div>{cartMenu.price}</div>
-              <div>{cartMenu.amount}</div>
+              <div key={cartMenu.id}>
+                <div>{cartMenu.imageUrl}</div>
+                <div>{cartMenu.menuName}</div>
+                <div>{cartMenu.price}</div>
+                <div>{cartMenu.amount}</div>
+              </div>
             </>
           );
         })}
@@ -141,6 +144,7 @@ function OrderCheck() {
               class='btn btn-outline-light btn-lg'
               onClick={() => {
                 navigate(`/Menu/OrderCheck/OrderChoice/${param.takeOutId}`);
+                axios.post('http://localhost:3001/todos', globaladdCart);
               }}
             >
               {' '}
