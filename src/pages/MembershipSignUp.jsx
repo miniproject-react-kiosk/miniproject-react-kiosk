@@ -17,10 +17,10 @@ function MembershipLogin() {
 
     // // 회원가입 로직 추가
 
-    swal("멤버십가입 성공!", "가입 가능한 전화번호입니다.", "success");
+    swal("멤버십 가입 성공!", "가입 가능한 전화번호입니다.", "success");
 
     swal(
-      "멤버십가입 실패!",
+      "멤버십 가입 실패!",
       "이미 멤버십 회원입니다.\n 등록한 번호로 로그인 해주세요.",
       "warning"
     ).then(function () {
@@ -82,7 +82,7 @@ function MembershipLogin() {
             class="btn btn-outline-secondary btn-lg"
             onClick={() => {
               swal(
-                "멤버십가입이 완료되었습니다.",
+                "멤버십 가입이 완료되었습니다.",
                 "\n()원이 적립이 완료되었습니다.",
                 "success"
               ).then(function () {
