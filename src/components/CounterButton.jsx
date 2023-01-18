@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { RiDeleteBin5Line } from 'react-icons/ri';
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteCart } from '../redux/modules/menuListSlice';
-import { FaWonSign } from 'react-icons/fa';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { BsTrash } from "react-icons/bs";
+import { BsPlusLg } from "react-icons/bs";
+import { HiMinus } from "react-icons/hi";
+
+import { useDispatch, useSelector } from "react-redux";
+import { deleteCart } from "../redux/modules/menuListSlice";
+import { FaWonSign } from "react-icons/fa";
 
 export default function CounterButton({ item }) {
   const [amount, setAmount] = useState(1);
@@ -18,7 +21,7 @@ export default function CounterButton({ item }) {
     <>
       <StCartList>
         <StCartListMenu>
-          <h2>{item.menuName}</h2>{' '}
+          <h2>{item.menuName}</h2>{" "}
           <h3>
             {item.price * amount} <FaWonSign />
           </h3>
@@ -33,11 +36,11 @@ export default function CounterButton({ item }) {
               }
             }}
           >
-            ---
+            <HiMinus />
           </StCartListControlBox>
           <StCartListControlBox2>{amount}</StCartListControlBox2>
           <StCartListControlBox onClick={() => setAmount(amount + 1)}>
-            +++
+            <BsPlusLg />
           </StCartListControlBox>
         </StCartListControl>
         <StCartListDelete
@@ -45,7 +48,7 @@ export default function CounterButton({ item }) {
             handledDelete(item.id);
           }}
         >
-          <RiDeleteBin5Line />
+          <BsTrash />
         </StCartListDelete>
       </StCartList>
     </>
