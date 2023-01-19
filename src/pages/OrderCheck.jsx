@@ -10,6 +10,7 @@ import { FaWonSign } from "react-icons/fa";
 // import BackHomeButton from "../components/BackHomeButton";
 
 import axios from "axios";
+import OrderMenuTable from "../components/OrderMenuTable";
 
 function OrderCheck() {
   const navigate = useNavigate();
@@ -32,6 +33,7 @@ function OrderCheck() {
         <div>주문을 확인해주세요!</div>
         <StContainerBox>
           <StOrderContents>
+            <OrderMenuTable></OrderMenuTable>
             <div>
               {globaladdCart?.map((cartMenu) => {
                 console.log(globaladdCart);
