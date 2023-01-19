@@ -34,8 +34,7 @@ export default function MenuList() {
   const fetchTodos = async () => {
     // const { data } = await axios.get('http://localhost:3001/MenuList');
     const { data } = await axios.get('http://13.209.12.254/store/menus');
-
-    // console.log(data);s
+    // console.log(data);
     setMenuLists(data);
   };
 
@@ -43,44 +42,10 @@ export default function MenuList() {
     setMenuLists();
     fetchTodos();
   }, []);
-  // console.log(menuLists);
+  console.log(menuLists);
+  console.log('메뉴페이지~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`');
 
   return (
-    //TODO: map함수, 각각 속성값 접근 방법.
-    // <<<<<<< HEAD
-    //     <div class='row row-cols-1 row-cols-md-3 g-4'>
-    //       {menuLists?.map((menuList) => {
-    //         // console.log(menuList);
-    //         return (
-    //           <div key={menuList.id}>
-    //             <div class='col'>
-    //               <div class='card h-40'>
-    //                 <img
-    //                   src={menuList.imageUrl}
-    //                   class='card-img-top'
-    //                   alt='...'
-    //                 ></img>
-    //                 <div class='card-body'>
-    //                   <StCardTitle>
-    //                     {/* <h5 class="card-title">맥크리스피 디럭스 버거</h5> */}
-    //                     <p>{menuList.menuName}</p>
-    //                   </StCardTitle>
-    //                   <StCardText>
-    //                     <p class='card-text'>
-    //                       <BiWon />
-    //                       {menuList.price}
-    //                     </p>
-    //                     <StAddCartButton
-    //                       onClick={() => {
-    //                         handleAdd(menuList);
-    //                       }}
-    //                     >
-    //                       {' '}
-    //                       <AddCart />
-    //                     </StAddCartButton>
-    //                   </StCardText>
-    // =======
-
     <div>
       {/*가로 스크롤 그거....어떻게 하는건데... (feat.bootstrap*/}
       {/* <StScrollHorizontal> */}

@@ -1,45 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import BackHomeButton from '../components/BackHomeButton';
-import OrderNumber from '../components/OrderNumber';
 
 import swal from 'sweetalert';
 import axios from 'axios';
 
 function OrderComplete() {
-  const [menuLists, setMenuLists] = useState(null);
-
-  const fetchTodos = async () => {
-    // const { data } = await axios.get('http://localhost:3001/MenuList');
-    const { data } = await axios.get('13.209.12.254/order/bill');
-    console.log(menuLists);
-    // console.log(data);s
-    setMenuLists(data);
-  };
+  const [orderNum, setOrderNum] = useState();
 
   useEffect(() => {
-    setMenuLists();
-    fetchTodos();
-  }, []);
+    axios
+      .post(
+        'http://13.209.12.254/order/bill',
+        { authorization: localStorage.getItem('Authorization') },
+        console.log(localStorage.getItem('Authorization')),
+        {},
+        {
+          withCredentials: true,
+        }
+      )
+      .then((res) => {
+        setOrderNum(res.data.totalAmount);
+      });
+  }, []); // 함수 실행시 한번만 실행
 
-  // import { useNavigate } from 'react-router';
-  // import { BiHome } from "react-icons/bi";
+  console.log(orderNum);
 
-  // function OrderComplete() {
-  // const fetchTodos = async () => {
-  //   const { data } = await axios.get("http://13.209.12.254/store/menus");
-  //   const [menuLists, setMenuLists] = useState(null);
-
-  //   // console.log(data);s
-  //   setMenuLists(data);
-  // };
-
-  // useEffect(() => {
-  //   setMenuLists();
-  //   fetchTodos();
-  // }, []);
-
-  // const navigate = useNavigate();
+  console.log('주문 완료페이지~~~~~~~~~~~~~~~~~~~~~`');
 
   swal('주문 완료!', '고객님의 주문이 성공적으로 완료되었습니다.', 'success');
 
@@ -53,8 +40,9 @@ function OrderComplete() {
         <StContainerBox>
           주문해주셔서 감사합니다. <br></br>
           고객님의 주문이 정상적으로 완료되었습니다. <br></br>
-          고객님의 주문 번호는 <OrderNumber>주문번호 컴포넌트</OrderNumber>번
-          입니다. <br></br>
+          고객님의 주문 번호는
+          <p>{orderNum}번 입니다.</p>
+          <br></br>
           소요시간은 약 15분입니다.<br></br>
           주문번호 호출 시 카운터로 방문해주세요.
         </StContainerBox>

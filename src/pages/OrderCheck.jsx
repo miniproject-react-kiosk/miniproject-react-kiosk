@@ -8,6 +8,7 @@ import { BsCreditCard } from 'react-icons/bs';
 import { FaWonSign } from 'react-icons/fa';
 import OrderMenuTable from '../components/OrderMenuTable';
 import { useCookies } from 'react-cookie'; // useCookies import
+import Cookies from 'js-cookie';
 // import BackHomeButton from "../components/BackHomeButton";
 import axios from 'axios';
 // import BackButton from "../components/BackButton";
@@ -15,6 +16,20 @@ import axios from 'axios';
 
 function OrderCheck() {
   const [cookies, setCookie] = useCookies(['Authorization']); // 쿠키 훅
+  //FIXME:
+  // axios
+  //   .post('http://13.209.12.254/order', {
+  //     key1: 'value1',
+  //     key2: 'value2',
+  //   })
+  //   .then((response) => {
+  //     console.log(response.data);
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+
+  //TODO:
 
   console.log(cookies);
   const navigate = useNavigate();
@@ -26,6 +41,11 @@ function OrderCheck() {
     totalprice = totalprice + globaladdCart[i].price * globaladdCart[i].amount;
   }
   console.log(globaladdCart);
+  console.log('오더체크 페이지~~~~~~~~~~~~~~~~~~~~~`');
+
+  axios.defaults.withCredentials = true;
+  // axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+
   return (
     <div>
       <StHeader>
@@ -91,17 +111,51 @@ function OrderCheck() {
               class='btn btn-outline-light btn-lg'
               onClick={() => {
                 navigate(`/Menu/OrderCheck/OrderChoice/${param.takeOutId}`);
-
                 // axios.post('http://13.209.12.254/order', globaladdCart);
+
+                //TODO: CORS정책 확인용.
+                // axios({
+                //   method: 'options',
+                //   url: 'http://13.209.12.254/order',
+                //   headers: {
+                //     'Access-Control-Request-Method': 'POST',
+                //     'Access-Control-Request-Headers': 'Content-Type',
+                //   },
+                // }).then((response) => {
+                //   if (response.headers['access-control-allow-origin']) {
+                //     console.log('CORS allowed');
+                //   } else {
+                //     console.log('CORS not allowed');
+                //   }
+                // });
+                //TODO:
+
                 axios
                   .post(
                     'http://13.209.12.254/order',
-
-                    globaladdCart
+                    globaladdCart,
+                    {},
+                    {
+                      withCredentials: true,
+                    }
                   )
                   .then((res) => {
                     console.log(res);
-                    setCookie('Authorization', res.data.token); // 쿠키에 토큰 저장
+                    console.log(res.data.authorization);
+                    console.log(
+                      'Authorization: ' + localStorage.getItem('Authorization')
+                    );
+                    console.log('Token: ' + localStorage.getItem('token'));
+
+                    console.log('오더체크 페이지~~~~~~~~~~~~쿠키');
+
+                    // const accessToken = res?.data?.accessToken;
+                    // console.log(accessToken);
+
+                    localStorage.setItem(
+                      'Authorization',
+                      res.data.authorization
+                    ); // 쿠키에 토큰 저lo장
                   });
               }}
             >
