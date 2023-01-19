@@ -1,20 +1,20 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
-import styled from 'styled-components';
-import BackButton from '../components/BackButton';
-import { BiHome } from 'react-icons/bi';
-import { BsCreditCard } from 'react-icons/bs';
-import { FaWonSign } from 'react-icons/fa';
-import OrderMenuTable from '../components/OrderMenuTable';
-import { useCookies } from 'react-cookie'; // useCookies import
+import React from "react";
+import { useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import styled from "styled-components";
+import BackButton from "../components/BackButton";
+import { BiHome } from "react-icons/bi";
+import { BsCreditCard } from "react-icons/bs";
+import { FaWonSign } from "react-icons/fa";
+import OrderMenuTable from "../components/OrderMenuTable";
+// import { useCookies } from 'react-cookie'; // useCookies import
 // import BackHomeButton from "../components/BackHomeButton";
-import axios from 'axios';
+import axios from "axios";
 // import BackButton from "../components/BackButton";
 // import BackHomeButton from "../components/BackHomeButton";
 
 function OrderCheck() {
-  const [cookies, setCookie] = useCookies(['id']); // 쿠키 훅
+  // const [cookies, setCookie] = useCookies(['id']); // 쿠키 훅
   const navigate = useNavigate();
   const param = useParams();
   const globaladdCart = useSelector((state) => state.menuList.menuList);
@@ -58,8 +58,8 @@ function OrderCheck() {
 
       <StBuyOrResetBox>
         <StCartTotalPrice>
-          <div class='d-grid gap-2 col-10 mx-auto'>
-            <div class='btn btn-outline-light btn-lg'>
+          <div class="d-grid gap-2 col-10 mx-auto">
+            <div class="btn btn-outline-light btn-lg">
               Total : {totalprice} <FaWonSign />
             </div>
           </div>
@@ -67,43 +67,42 @@ function OrderCheck() {
 
         {/* 취소하기 버튼 */}
         <StResetButton>
-          <div class='d-grid gap-2 col-10 mx-auto'>
+          <div class="d-grid gap-2 col-10 mx-auto">
             <button
-              type='button'
-              class='btn btn-outline-light btn-lg'
+              type="button"
+              class="btn btn-outline-light btn-lg"
               onClick={() => {
-                navigate('/');
+                navigate("/");
               }}
             >
-              {' '}
-              <BiHome className='BackHomeButton' /> 홈으로 돌아가기
+              {" "}
+              <BiHome className="BackHomeButton" /> 홈으로 돌아가기
             </button>
           </div>
         </StResetButton>
 
         {/* 결제하기 버튼 */}
         <StBuyButton>
-          <div class='d-grid gap-2 col-10 mx-auto'>
+          <div class="d-grid gap-2 col-10 mx-auto">
             <button
-              type='button'
-              class='btn btn-outline-light btn-lg'
+              type="button"
+              class="btn btn-outline-light btn-lg"
               onClick={() => {
                 navigate(`/Menu/OrderCheck/OrderChoice/${param.takeOutId}`);
 
                 // axios.post('http://13.209.12.254/order', globaladdCart);
-                axios
-                  .post(
-                    'http://13.209.12.254/order',
+                axios.post(
+                  "http://13.209.12.254/order",
 
-                    globaladdCart
-                  )
-                  .then((res) => {
-                    setCookie('id', res.data.token); // 쿠키에 토큰 저장
-                  });
+                  globaladdCart
+                );
+                // .then((res) => {
+                //   setCookie('id', res.data.token); // 쿠키에 토큰 저장
+                // });
               }}
             >
-              {' '}
-              <BsCreditCard className='Buy' /> 주문하기
+              {" "}
+              <BsCreditCard className="Buy" /> 주문하기
             </button>
           </div>
         </StBuyButton>
@@ -124,7 +123,7 @@ const StHeader = styled.div`
 
 const StTitle = styled.h1`
   text-align: center;
-  font-family: 'MorningBreezeBold';
+  font-family: "MorningBreezeBold";
   margin-top: 15px;
   color: #2a2a2a;
 `;
@@ -136,7 +135,7 @@ const StBox = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  font-family: 'NanumSquareRoundBold';
+  font-family: "NanumSquareRoundBold";
   font-size: 14pt;
 `;
 
@@ -162,7 +161,7 @@ const StOrderContents = styled.div`
   height: 450px;
   overflow: scroll;
   text-align: center;
-  font-family: 'NanumSquareRoundBold';
+  font-family: "NanumSquareRoundBold";
   font-size: 12pt;
 `;
 
@@ -184,15 +183,15 @@ const StBuyOrResetBox = styled.div`
 
 const StCartTotalPrice = styled.div`
   flex-basis: 50%;
-  font-family: 'NanumSquareRoundBold';
+  font-family: "NanumSquareRoundBold";
 `;
 
 const StBuyButton = styled.div`
   flex-basis: 25%;
-  font-family: 'NanumSquareRoundBold';
+  font-family: "NanumSquareRoundBold";
 `;
 
 const StResetButton = styled.div`
   flex-basis: 25%;
-  font-family: 'NanumSquareRoundBold';
+  font-family: "NanumSquareRoundBold";
 `;
