@@ -14,7 +14,9 @@ import axios from 'axios';
 // import BackHomeButton from "../components/BackHomeButton";
 
 function OrderCheck() {
-  const [cookies, setCookie] = useCookies(['id']); // 쿠키 훅
+  const [cookies, setCookie] = useCookies(['Authorization']); // 쿠키 훅
+
+  console.log(cookies);
   const navigate = useNavigate();
   const param = useParams();
   const globaladdCart = useSelector((state) => state.menuList.menuList);
@@ -98,7 +100,8 @@ function OrderCheck() {
                     globaladdCart
                   )
                   .then((res) => {
-                    setCookie('id', res.data.token); // 쿠키에 토큰 저장
+                    console.log(res);
+                    setCookie('Authorization', res.data.token); // 쿠키에 토큰 저장
                   });
               }}
             >
