@@ -13,6 +13,10 @@ import OrderChoice from './pages/OrderChoice';
 import OrderComplete from './pages/OrderComplete';
 import MembershipSignUp from './pages/MembershipSignUp';
 import MembershipLogin from './pages/MembershipLogin';
+import { BrowserRouter } from 'react-router-dom';
+import { CookiesProvider } from 'react-cookie';
+import { Provider } from 'react-redux';
+import store from './redux/config/configStore';
 
 const router = createBrowserRouter([
   {
@@ -21,20 +25,37 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { index: true, element: <Home /> },
-      { path: 'Menu', element: <Menu /> },
-      { path: 'OrderCheck', element: <OrderCheck /> },
-      { path: 'OrderChoice', element: <OrderChoice /> },
-      { path: 'OrderComplete', element: <OrderComplete /> },
-      { path: 'MembershipSignUp', element: <MembershipSignUp /> },
-      { path: 'MembershipLogin', element: <MembershipLogin /> },
+      { path: 'Menu/:takeOutId', element: <Menu /> },
+
+      { path: 'Menu/OrderCheck/:takeOutId', element: <OrderCheck /> },
+      {
+        path: 'Menu/OrderCheck/OrderChoice/:takeOutId',
+        element: <OrderChoice />,
+      },
+      {
+        path: 'Menu/OrderChoice/OrderComplete/:takeOutId',
+        element: <OrderComplete />,
+      },
+      {
+        path: 'Menu/OrderChoice/MembershipSignUp/:takeOutId',
+        element: <MembershipSignUp />,
+      },
+      {
+        path: 'Menu/OrderChoice/MembershipLogin/:takeOutId',
+        element: <MembershipLogin />,
+      },
     ],
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <Provider store={store}>
+    <React.StrictMode>
+    <CookiesProvider>
+      <RouterProvider router={router} />
+    </CookiesProvider>
+    </React.StrictMode>{' '}
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

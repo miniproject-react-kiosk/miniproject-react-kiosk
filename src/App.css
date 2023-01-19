@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+@font-face {
+  font-family: "NanumSquareRoundBold";
+  src: url("./styles/fonts/NanumSquareRoundB.ttf ");
+}
+
+@font-face {
+  font-family: "MorningBreezeBold";
+  src: url(./styles/fonts/MorningBreezeBold.otf);
+}
+
+@font-face {
+  font-family: "FriendlyComics";
+  src: url(./styles/fonts/FriendlyComics.otf);
+}
+
+@font-face {
+  font-family: "ArushShiny";
+  src: url(./styles/fonts/ArushShiny.otf);
+}
