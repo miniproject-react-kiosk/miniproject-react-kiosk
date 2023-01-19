@@ -11,7 +11,6 @@ import {
   downCountCart,
 } from '../redux/modules/menuListSlice';
 import { FaWonSign } from 'react-icons/fa';
-import { useSelector } from '@mui/base';
 
 export default function CounterButton(props) {
   // const globaladdCart = useSelector((state) => state.menuList.menuList);
