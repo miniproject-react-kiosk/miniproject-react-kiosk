@@ -1,23 +1,10 @@
-import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import BackHomeButton from '../components/BackHomeButton';
-import axios from 'axios';
+
 // import { useNavigate } from 'react-router';
 // import { BiHome } from "react-icons/bi";
 
 function OrderComplete() {
-  const fetchTodos = async () => {
-    const { data } = await axios.get('http://13.209.12.254/store/menus');
-    const [menuLists, setMenuLists] = useState(null);
-
-    // console.log(data);s
-    setMenuLists(data);
-  };
-
-  useEffect(() => {
-    setMenuLists();
-    fetchTodos();
-  }, []);
   // const navigate = useNavigate();
   return (
     <div>
