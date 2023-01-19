@@ -7,8 +7,11 @@ import { HiMinus } from 'react-icons/hi';
 import { useDispatch } from 'react-redux';
 import { deleteCart, updateCart } from '../redux/modules/menuListSlice';
 import { FaWonSign } from 'react-icons/fa';
+import { useSelector } from '@mui/base';
 
 export default function CounterButton(props) {
+  // const globaladdCart = useSelector((state) => state.menuList.menuList);
+  // console.log(globaladdCart);
   const [amount, setAmount] = useState(1);
   // console.log(item);
   const dispatch = useDispatch();
@@ -17,7 +20,7 @@ export default function CounterButton(props) {
     setAmount(amount + 1);
 
     dispatch(updateCart(id));
-    console.log(dispatch(updateCart(id)));
+    // console.log(globaladdCart);
   };
 
   //삭제 기능
