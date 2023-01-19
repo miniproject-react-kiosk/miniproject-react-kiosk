@@ -53,21 +53,38 @@ function OrderCheck() {
       <BackButton>이전으로</BackButton>
 
       <StBox>
+        <div>주문을 확인해주세요!</div>
         <StContainerBox>
           <StOrderContents>
-            <div>주문을 확인해주세요!</div>
-            <StMenuTable>
-              <OrderMenuTable></OrderMenuTable>
-            </StMenuTable>
+            <StMenuTable></StMenuTable>
             <div>
               {globaladdCart?.map((cartMenu) => {
                 console.log(globaladdCart);
                 return (
                   <>
-                    <div>{cartMenu.imageUrl}</div>
-                    <div>{cartMenu.menuName}</div>
-                    <div>{cartMenu.price}</div>
-                    <div>{cartMenu.amount}</div>
+                    <StOrderCheckList>
+                      {/* <img
+                        src={cartMenu.imageUrl}
+                        class='card-img-top'
+                        alt='...'
+                        width='10px'
+                        height='500px'
+                      ></img> */}
+
+                      <StOrderCheckListBox1>
+                        <h2> {cartMenu.menuName}</h2>
+                      </StOrderCheckListBox1>
+
+                      <StOrderCheckListBox2>
+                        <h3>{cartMenu.amount}</h3>
+                      </StOrderCheckListBox2>
+
+                      <StOrderCheckListBox3>
+                        <h3>
+                          <FaWonSign /> {cartMenu.price}
+                        </h3>
+                      </StOrderCheckListBox3>
+                    </StOrderCheckList>
                   </>
                 );
               })}
@@ -80,7 +97,7 @@ function OrderCheck() {
         <StCartTotalPrice>
           <div class='d-grid gap-2 col-10 mx-auto'>
             <div class='btn btn-outline-light btn-lg'>
-              Total : {totalprice} <FaWonSign />
+              Total : <FaWonSign /> {totalprice}
             </div>
           </div>
         </StCartTotalPrice>
@@ -251,4 +268,27 @@ const StBuyButton = styled.div`
 const StResetButton = styled.div`
   flex-basis: 25%;
   font-family: 'NanumSquareRoundBold';
+`;
+
+const StOrderCheckList = styled.div`
+  background-color: #666464f1;
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  margin-top: 20px;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  align-items: center;
+`;
+const StOrderCheckListBox1 = styled.div`
+  flex-basis: 60%;
+`;
+
+const StOrderCheckListBox2 = styled.div`
+  flex-basis: 20%;
+`;
+
+const StOrderCheckListBox3 = styled.div`
+  flex-basis: 20%;
 `;

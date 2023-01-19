@@ -5,8 +5,8 @@ import BackButton from "../components/BackButton";
 import PhoneNumberForm from "../components/PhoneNumberForm";
 import axios from "axios";
 import swal from "sweetalert";
-import { useDispatch } from "react-redux";
-import { useState } from "react";
+// import { useDispatch } from "react-redux";
+// import { useState } from "react";
 
 function MembershipLogin() {
   const navigate = useNavigate();
@@ -21,60 +21,42 @@ function MembershipLogin() {
   // }, []);
 
   const handleAction = async (numberValue) => {
-    if (numberValue.split("-")[0] !== "010") {
+    if (numberValue.length < 13) {
       swal(" ", "유효한 전화번호를 입력해주세요.", "error");
+      return;
+    }
+    if (numberValue.split("-")[0] !== "010") {
+      swal(
+        "유효한 전화번호가 아닙니다.",
+        "전화번호를 다시 입력해주세요.",
+        "error"
+      );
       return;
     }
 
     console.log(numberValue);
     const body = { phoneNumber: numberValue };
-    const result = await axios.post("http://13.209.12.254/member/login", body, {
-      withCredentials: true,
-    });
+    const response = await axios.post(
+      "http://13.209.12.254/member/login",
+      body,
+      {
+        withCredentials: true,
+      }
+    );
 
-    console.log(result);
+    console.log(response);
 
-    if (result.statusCode === 200) {
-      swal(
-        "로그인 성공!",
-        "\n()원 적립이 완료되었습니다. \n고객님의 잔여 포인트는 ()원입니다.",
-        "success"
-      );
+    if (response.data.httpStatus === 200) {
+      swal("로그인 성공!", "\n()원 적립이 완료되었습니다.", "success");
     } else {
       swal(
         "로그인 실패!",
         "멤버십 정보가 없습니다.\n 멤버십에 가입해주세요!",
         "error"
       ).then(function () {
-        // location.href="${pageContext.request.contextPath}/main.do";
         navigate(`/Menu/OrderChoice/MembershipSignup/${param.takeOutId}`);
       });
     }
-
-    // console.log("Handle Action");
-
-    // 로그인 로직 추가
-    // const onClickLoginSuccess = (e) => {
-    //   e.preventDefault();
-    //   swal(
-    //     "로그인 성공! \n()원 적립이 완료되었습니다. \n고객님의 잔여 포인트는 ()원입니다."
-    //   );
-    // {
-    //   buttons: {
-    //     cancel: '아니요. 계속 작성할래요',
-    //     '네,나갈래요': true,
-    //   },
-    // }).then((value) => {
-    //   switch (value) {
-    //     case '네,나갈래요':
-    //       navigate('/meeting');
-    //       break;
-
-    //     default:
-    //       break;
-    //   }
-    // });
-    // };
   };
 
   return (
@@ -89,6 +71,11 @@ function MembershipLogin() {
             <PhoneNumberForm
               handleAction={handleAction}
               actionTitle=" 적립하기 "
+              // 네비게이터
+
+              // navigate(
+              //   `/Menu/OrderChoice/OrderComplete/${param.takeOutId}`
+              // );
             ></PhoneNumberForm>
           </StPhoneNumberInputBox>
         </div>
@@ -180,7 +167,7 @@ const StSignButton = styled.div`
   margin: auto;
   justify-content: center;
   margin-top: 2%;
-  width: 25vw;
-  height: 20px;
+  width: 50%;
+  height: 20%;
   font-family: "NanumSquareRoundBold";
 `;
