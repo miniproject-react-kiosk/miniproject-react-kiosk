@@ -30,10 +30,12 @@ function OrderCheck() {
       <BackButton>이전으로</BackButton>
 
       <StBox>
-        <div>주문을 확인해주세요!</div>
         <StContainerBox>
           <StOrderContents>
-            <OrderMenuTable></OrderMenuTable>
+            <div>주문을 확인해주세요!</div>
+            <StMenuTable>
+              <OrderMenuTable></OrderMenuTable>
+            </StMenuTable>
             <div>
               {globaladdCart?.map((cartMenu) => {
                 console.log(globaladdCart);
@@ -139,17 +141,20 @@ const StContainerBox = styled.div`
 `;
 
 const StOrderContents = styled.div`
-  display: flex;
   justify-content: center;
   align-items: center;
   /* border: 3px solid #3d3d3d97; */
-  margin-top: 5pt;
-  width: 1000px;
+  padding: 15pt;
+  width: 900px;
   height: 450px;
   overflow: scroll;
   text-align: center;
   font-family: "NanumSquareRoundBold";
   font-size: 12pt;
+`;
+
+const StMenuTable = styled.div`
+  margin-top: 20pt;
 `;
 
 const StBuyOrResetBox = styled.div`
