@@ -26,16 +26,21 @@ function MembershipLogin() {
 
     console.log(numberValue);
     const body = { phoneNumber: numberValue, smsAgreement: smsChecked };
-    const result = await axios.post("http://13.209.12.254/member/join", body, {
-      withCredentials: true,
-    });
+    const response = await axios.post(
+      "http://13.209.12.254/member/join",
+      body,
+      {
+        withCredentials: true,
+      }
+    );
 
-    console.log(result);
+    console.log(response);
+    console.log(numberValue);
 
     // // 회원가입 로직 추가
     // 중복확인 alert
 
-    if (result.statusCode === 200) {
+    if (response.data.httpStatus === 200) {
       swal("멤버십 가입 가능!", "가입 가능한 전화번호입니다.", "info");
     } else {
       swal(
@@ -45,15 +50,16 @@ function MembershipLogin() {
       ).then(function () {
         navigate(`/Menu/OrderChoice/MembershipLogin/${param.takeOutId}`);
       });
+      // console.log(response.data.httpStatus);
     }
 
     // 회원가입 alert
 
-    swal(
-      "멤버십 가입 성공!",
-      "멤버십 회원이 되신 것을 환영합니다~!",
-      "success"
-    );
+    // swal(
+    //   "멤버십 가입 성공!",
+    //   "멤버십 회원이 되신 것을 환영합니다~!",
+    //   "success"
+    // );
   };
 
   // 체크박스 로직 추가
@@ -62,15 +68,8 @@ function MembershipLogin() {
   // 넘겨준 값은 체크박스 UI를 state 값에 따라 바뀌게 구현
 
   const changeHandler = (e) => {
-    // console.log(e.target.checked);
+    console.log(e.target.checked);
     setSmsChecked(e.target.checked);
-
-    // if (checked) {
-    //   setCheckedInputs([...checkedInputs, id]);
-    // } else {
-    //   // 체크 해제
-    //   setCheckedInputs(checkedInputs.filter((el) => el !== id));
-    // }
   };
 
   return (
