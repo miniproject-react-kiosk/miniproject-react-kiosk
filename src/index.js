@@ -13,7 +13,8 @@ import OrderChoice from './pages/OrderChoice';
 import OrderComplete from './pages/OrderComplete';
 import MembershipSignUp from './pages/MembershipSignUp';
 import MembershipLogin from './pages/MembershipLogin';
-
+import { BrowserRouter } from 'react-router-dom';
+import { CookiesProvider } from 'react-cookie';
 import { Provider } from 'react-redux';
 import store from './redux/config/configStore';
 
@@ -50,7 +51,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <React.StrictMode>
+    <CookiesProvider>
       <RouterProvider router={router} />
+    </CookiesProvider>
     </React.StrictMode>{' '}
   </Provider>
 );

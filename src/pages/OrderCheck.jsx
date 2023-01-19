@@ -7,82 +7,13 @@ import { BiHome } from 'react-icons/bi';
 import { BsCreditCard } from 'react-icons/bs';
 import { FaWonSign } from 'react-icons/fa';
 import OrderMenuTable from '../components/OrderMenuTable';
+import { useCookies } from 'react-cookie'; // useCookies import
 // import BackHomeButton from "../components/BackHomeButton";
 
 import axios from 'axios';
 
-// import BackButton from "../components/BackButton";
-// import BackHomeButton from "../components/BackHomeButton";
-
-// const StAll = styled.div`
-//   display: flex;
-//   text-align: center;
-//   height: 90vh;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-// `;
-
-// const StBoxs = styled.div`
-//   height: 90vh;
-//   display: flex;
-//   align-items: center;
-//   flex-direction: column;
-//   justify-content: space-evenly;
-// `;
-
-// const StBox1 = styled.div`
-//   flex-basis: 20%;
-//   background-color: #fde6e6;
-//   border: solid 2px white;
-//   border-radius: 5vw;
-//   width: 80vw;
-//   height: 45vh;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// `;
-
-// const StBox2 = styled.div`
-//   flex-basis: 50%;
-//   background-color: #fde6e6;
-//   border: solid 2px white;
-//   border-radius: 5vw;
-//   width: 80vw;
-//   height: 45vh;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: flex-start;
-//   /* overflow: scroll;
-//   -ms-overflow-style: none;
-//   scrollbar-width: none;  */
-//   overflow-y: auto;
-//   //뭔진모르겠는데 스크롤 숨기는 기능임...
-//   &::-webkit-scrollbar {
-//     width: 4px;
-//   }
-//   &::-webkit-scrollbar-thumb {
-//     background: transparent;
-//   }
-//   /* align-items: center; */
-// `;
-// const StBox3 = styled.div`
-//   flex-basis: 30%;
-
-//   background-color: #fde6e6;
-//   border: solid 2px white;
-//   border-radius: 5vw;
-//   width: 80vw;
-
-//   height: 45vh;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-evenly;
-//   align-items: center;
-// `;
-// >>>>>>> 0d051c8047212464da3b512e7a2e46110d4d6b83
-
 function OrderCheck() {
+  const [cookies, setCookie] = useCookies(['id']); // 쿠키 훅
   const navigate = useNavigate();
   const param = useParams();
   const globaladdCart = useSelector((state) => state.menuList.menuList);
@@ -156,7 +87,16 @@ function OrderCheck() {
               class='btn btn-outline-light btn-lg'
               onClick={() => {
                 navigate(`/Menu/OrderCheck/OrderChoice/${param.takeOutId}`);
-                axios.post('http://13.209.12.254/order', globaladdCart);
+                // axios.post('http://13.209.12.254/order', globaladdCart);
+                axios
+                  .post(
+                    'http://13.209.12.254/order',
+
+                    globaladdCart
+                  )
+                  .then((res) => {
+                    setCookie('id', res.data.token); // 쿠키에 토큰 저장
+                  });
               }}
             >
               {' '}

@@ -8,11 +8,6 @@ const StAll = styled.div`
 `;
 
 const StBoxs = styled.div`
-  /* position: absolute;
-  top: 50px;
-  left: 0;
-  right: 0;
-  bottom: 0; */
   height: 90vh;
   display: flex;
   align-items: center;
@@ -28,8 +23,6 @@ const StBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* line-height: 10vh; */
 
   cursor: pointer;
   &:hover {

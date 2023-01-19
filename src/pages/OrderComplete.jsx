@@ -1,11 +1,24 @@
 import styled from 'styled-components';
 import BackHomeButton from '../components/BackHomeButton';
-
-// import { useNavigate } from 'react-router';
-// import { BiHome } from "react-icons/bi";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 function OrderComplete() {
-  // const navigate = useNavigate();
+  const [menuLists, setMenuLists] = useState(null);
+
+  const fetchTodos = async () => {
+    // const { data } = await axios.get('http://localhost:3001/MenuList');
+    const { data } = await axios.get('13.209.12.254/order/bill');
+    console.log(menuLists);
+    // console.log(data);s
+    setMenuLists(data);
+  };
+
+  useEffect(() => {
+    setMenuLists();
+    fetchTodos();
+  }, []);
+
   return (
     <div>
       <StHeader>
@@ -16,7 +29,7 @@ function OrderComplete() {
         <StContainerBox>
           주문해주셔서 감사합니다. <br></br>
           고객님의 주문이 정상적으로 완료되었습니다. <br></br>
-          고객님의 주문 번호는 ${123}번 입니다. <br></br>
+          고객님의 주문 번호는 {menuLists}번 입니다. <br></br>
           소요시간은 약 15분입니다.<br></br>
           주문번호 호출 시 카운터로 방문해주세요.
         </StContainerBox>
