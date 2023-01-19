@@ -34,24 +34,34 @@ const menuListSlice = createSlice({
       };
     },
 
-    updateCart: (state, action) => {
-      const newMenuList = [...state.menuList];
-      const targetMenuIdx = newMenuList.findIndex(
-        (menu) => menu.id === action.payload
-      );
-      if (targetMenuIdx !== -1) {
-        newMenuList[targetMenuIdx].amount += 1;
-      }
+    upCountCart: (state, action) => {
       return {
         ...state,
-        menuList: newMenuList,
+        menuList: state.menuList.map((menu) => {
+          if (menu.id === action.payload) {
+            return { ...menu, amount: menu.amount + 1 };
+          }
+          return menu;
+        }),
+      };
+    },
+    downCountCart: (state, action) => {
+      return {
+        ...state,
+        menuList: state.menuList.map((menu) => {
+          if (menu.id === action.payload) {
+            return { ...menu, amount: menu.amount - 1 };
+          }
+          return menu;
+        }),
       };
     },
   },
 });
 
 // #4. 익스포트하기
-export const { addCart, deleteCart, updateCart } = menuListSlice.actions;
+export const { addCart, deleteCart, upCountCart, downCountCart } =
+  menuListSlice.actions;
 export default menuListSlice.reducer;
 
 // import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";

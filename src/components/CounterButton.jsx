@@ -5,7 +5,11 @@ import { BsPlusLg } from 'react-icons/bs';
 import { HiMinus } from 'react-icons/hi';
 
 import { useDispatch } from 'react-redux';
-import { deleteCart, updateCart } from '../redux/modules/menuListSlice';
+import {
+  deleteCart,
+  upCountCart,
+  downCountCart,
+} from '../redux/modules/menuListSlice';
 import { FaWonSign } from 'react-icons/fa';
 import { useSelector } from '@mui/base';
 
@@ -16,10 +20,19 @@ export default function CounterButton(props) {
   // console.log(item);
   const dispatch = useDispatch();
   // console.log(props);
+
+  //+버튼
   const handledup = (id) => {
     setAmount(amount + 1);
 
-    dispatch(updateCart(id));
+    dispatch(upCountCart(id));
+    // console.log(globaladdCart);
+  };
+
+  const handledDown = (id) => {
+    // setAmount(amount + 1);
+
+    dispatch(downCountCart(id));
     // console.log(globaladdCart);
   };
 
@@ -35,7 +48,7 @@ export default function CounterButton(props) {
           <div>{props.item.menuName}</div>{' '}
           <div>
             <FaWonSign />
-            {props.item.price * amount}
+            {props.item.price * props.item.amount}
           </div>
         </StCartListMenu>
         <StCartListControl>
@@ -43,7 +56,7 @@ export default function CounterButton(props) {
             onClick={() => {
               if (amount > 1) {
                 setAmount(amount - 1);
-                updateCart(props.item.id);
+                handledDown(props.item.id);
               } else {
                 handledDelete(props.item.id);
               }
