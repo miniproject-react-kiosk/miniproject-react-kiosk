@@ -3,33 +3,53 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import BackButton from "../components/BackButton";
 import PhoneNumberForm from "../components/PhoneNumberForm";
+import axios from "axios";
 import swal from "sweetalert";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 function MembershipLogin() {
   const navigate = useNavigate();
   const param = useParams();
 
-  const handleAction = () => {
-    // alert("()원 적립이 완료되었습니다. \n고객님의 잔여 포인트는 ()원입니다.");
-    // alert("멤버십 정보가 없습니다. 멤버십에 가입해주세요!")
+  // const dispatch = useDispatch;
+  // const [memberInfo, setMemberInfo] = useState(null);
 
-    // swal('로그인 성공!',data.login.result.name+"님 로그인되었습니다.",'success')
+  // useEffect(() => {
+  //   setMenuLists();
+  //   fetchTodos();
+  // }, []);
 
-    swal(
-      "로그인 성공!",
-      // data.login.result.name + "님 로그인되었습니다.",
-      "\n()원 적립이 완료되었습니다. \n고객님의 잔여 포인트는 ()원입니다.",
-      "success"
-    );
+  const handleAction = async (numberValue) => {
+    if (numberValue.split("-")[0] !== "010") {
+      swal(" ", "유효한 전화번호를 입력해주세요.", "error");
+      return;
+    }
 
-    swal(
-      "로그인 실패!",
-      "멤버십 정보가 없습니다.\n 멤버십에 가입해주세요!",
-      "error"
-    ).then(function () {
-      // location.href="${pageContext.request.contextPath}/main.do";
-      navigate(`/Menu/OrderChoice/MembershipSignup/${param.takeOutId}`);
+    console.log(numberValue);
+    const body = { phoneNumber: numberValue };
+    const result = await axios.post("http://13.209.12.254/member/login", body, {
+      withCredentials: true,
     });
+
+    console.log(result);
+
+    if (result.data.success) {
+      swal(
+        "로그인 성공!",
+        "\n()원 적립이 완료되었습니다. \n고객님의 잔여 포인트는 ()원입니다.",
+        "success"
+      );
+    } else {
+      swal(
+        "로그인 실패!",
+        "멤버십 정보가 없습니다.\n 멤버십에 가입해주세요!",
+        "error"
+      ).then(function () {
+        // location.href="${pageContext.request.contextPath}/main.do";
+        navigate(`/Menu/OrderChoice/MembershipSignup/${param.takeOutId}`);
+      });
+    }
 
     // console.log("Handle Action");
 

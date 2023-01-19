@@ -7,15 +7,14 @@ import { BiHome } from 'react-icons/bi';
 import { BsCreditCard } from 'react-icons/bs';
 import { FaWonSign } from 'react-icons/fa';
 import OrderMenuTable from '../components/OrderMenuTable';
-import { useCookies } from 'react-cookie'; // useCookies import
-import Cookies from 'js-cookie';
+
 // import BackHomeButton from "../components/BackHomeButton";
 import axios from 'axios';
+// import { useCookies } from "react-cookie"; // useCookies import
 // import BackButton from "../components/BackButton";
 // import BackHomeButton from "../components/BackHomeButton";
 
 function OrderCheck() {
-  const [cookies, setCookie] = useCookies(['Authorization']); // 쿠키 훅
   //FIXME:
   // axios
   //   .post('http://13.209.12.254/order', {
@@ -31,7 +30,6 @@ function OrderCheck() {
 
   //TODO:
 
-  console.log(cookies);
   const navigate = useNavigate();
   const param = useParams();
   const globaladdCart = useSelector((state) => state.menuList.menuList);
@@ -111,6 +109,7 @@ function OrderCheck() {
               class='btn btn-outline-light btn-lg'
               onClick={() => {
                 navigate(`/Menu/OrderCheck/OrderChoice/${param.takeOutId}`);
+
                 // axios.post('http://13.209.12.254/order', globaladdCart);
 
                 //TODO: CORS정책 확인용.
