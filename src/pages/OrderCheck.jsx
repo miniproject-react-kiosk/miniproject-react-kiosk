@@ -7,14 +7,14 @@ import { BiHome } from "react-icons/bi";
 import { BsCreditCard } from "react-icons/bs";
 import { FaWonSign } from "react-icons/fa";
 import OrderMenuTable from "../components/OrderMenuTable";
-// import { useCookies } from 'react-cookie'; // useCookies import
-// import BackHomeButton from "../components/BackHomeButton";
+// import { useCookies } from "react-cookie"; // useCookies import
+
 import axios from "axios";
 // import BackButton from "../components/BackButton";
 // import BackHomeButton from "../components/BackHomeButton";
 
 function OrderCheck() {
-  // const [cookies, setCookie] = useCookies(['id']); // 쿠키 훅
+  // const [cookies, setCookie] = useCookies(["id"]); // 쿠키 훅
   const navigate = useNavigate();
   const param = useParams();
   const globaladdCart = useSelector((state) => state.menuList.menuList);
@@ -90,15 +90,17 @@ function OrderCheck() {
               onClick={() => {
                 navigate(`/Menu/OrderCheck/OrderChoice/${param.takeOutId}`);
 
-                // axios.post('http://13.209.12.254/order', globaladdCart);
-                axios.post(
-                  "http://13.209.12.254/order",
+                axios.post("http://13.209.12.254/order", globaladdCart);
+                axios
+                  .post(
+                    "http://13.209.12.254/order",
 
-                  globaladdCart
-                );
-                // .then((res) => {
-                //   setCookie('id', res.data.token); // 쿠키에 토큰 저장
-                // });
+                    globaladdCart
+                  )
+                  .then((res) => {
+                    console.log(res);
+                    // setCookie("id", res.data.token); // 쿠키에 토큰 저장
+                  });
               }}
             >
               {" "}
