@@ -12,10 +12,12 @@ export default function CounterButton(props) {
   const [amount, setAmount] = useState(1);
   // console.log(item);
   const dispatch = useDispatch();
-  //
+  // console.log(props);
   const handledup = (id) => {
     setAmount(amount + 1);
+
     dispatch(updateCart(id));
+    console.log(dispatch(updateCart(id)));
   };
 
   //삭제 기능
