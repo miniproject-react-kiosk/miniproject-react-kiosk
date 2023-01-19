@@ -18,7 +18,7 @@ function MembershipLogin() {
 
     // // 회원가입 로직 추가
 
-    swal("멤버십 가입 성공!", "가입 가능한 전화번호입니다.", "success");
+    swal("멤버십 가입 성공!", "가입 가능한 전화번호입니다.", "info");
 
     swal(
       "멤버십 가입 실패!",
@@ -78,11 +78,11 @@ function MembershipLogin() {
             <SmsCheckBox>
               <input
                 type="checkbox"
-                id="SMSAgreement"
-                name="SMS"
+                id="smsAgreement"
+                name="sms"
                 value="true"
               />
-              {/* <label for="SMSAgreement"></label> */}
+              {/* <label for="smsAgreement"></label> */}
               <StText>
                 <span> SMS 수신 동의</span>
               </StText>
@@ -108,7 +108,7 @@ function MembershipLogin() {
               swal(
                 "멤버십 가입이 완료되었습니다.",
                 "\n()원이 적립이 완료되었습니다.",
-                "success"
+                "info"
               ).then(function () {
                 navigate(`/Menu/OrderChoice/OrderComplete/${param.takeOutId}`);
               });

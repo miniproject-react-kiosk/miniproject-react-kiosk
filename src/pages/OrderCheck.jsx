@@ -9,8 +9,9 @@ import { FaWonSign } from 'react-icons/fa';
 import OrderMenuTable from '../components/OrderMenuTable';
 import { useCookies } from 'react-cookie'; // useCookies import
 // import BackHomeButton from "../components/BackHomeButton";
-
 import axios from 'axios';
+// import BackButton from "../components/BackButton";
+// import BackHomeButton from "../components/BackHomeButton";
 
 function OrderCheck() {
   const [cookies, setCookie] = useCookies(['id']); // 쿠키 훅
@@ -87,6 +88,7 @@ function OrderCheck() {
               class='btn btn-outline-light btn-lg'
               onClick={() => {
                 navigate(`/Menu/OrderCheck/OrderChoice/${param.takeOutId}`);
+
                 // axios.post('http://13.209.12.254/order', globaladdCart);
                 axios
                   .post(
