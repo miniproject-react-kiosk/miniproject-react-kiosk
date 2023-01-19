@@ -34,7 +34,7 @@ function MembershipLogin() {
 
     console.log(result);
 
-    if (result.data.success) {
+    if (result.statusCode === 200) {
       swal(
         "로그인 성공!",
         "\n()원 적립이 완료되었습니다. \n고객님의 잔여 포인트는 ()원입니다.",

@@ -6,7 +6,6 @@ import BackButton from "../components/BackButton";
 import PhoneNumberForm from "../components/PhoneNumberForm";
 import axios from "axios";
 import swal from "sweetalert";
-// import CheckBox3 from "../components/CheckBox3";
 
 function MembershipLogin() {
   const navigate = useNavigate();
@@ -36,7 +35,7 @@ function MembershipLogin() {
     // // 회원가입 로직 추가
     // 중복확인 alert
 
-    if (result.data.success) {
+    if (result.statusCode === 200) {
       swal("멤버십 가입 가능!", "가입 가능한 전화번호입니다.", "info");
     } else {
       swal(
