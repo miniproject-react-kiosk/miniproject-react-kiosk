@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import BackHomeButton from '../components/BackHomeButton';
 import OrderNumber from '../components/OrderNumber';
-import MenuList from '../components/MenuList';
+
 import swal from 'sweetalert';
 import axios from 'axios';
 
