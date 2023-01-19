@@ -4,29 +4,57 @@ import { useState } from "react";
 import styled from "styled-components";
 import BackButton from "../components/BackButton";
 import PhoneNumberForm from "../components/PhoneNumberForm";
+import axios from "axios";
 import swal from "sweetalert";
 // import CheckBox3 from "../components/CheckBox3";
-// import { DataInfo } from "../data/DataInfo";
 
 function MembershipLogin() {
   const navigate = useNavigate();
   const param = useParams();
 
-  const handleAction = () => {
-    // alert("가입 가능한 전화번호입니다.");
-    // alert("이미 멤버십 회원입니다.");
+  const [smsChecked, setSmsChecked] = useState(false);
+
+  const handleAction = async (numberValue) => {
+    // 중복확인 번호 alert
+    if (numberValue.split("-")[0] !== "010") {
+      swal(" ", "010 으로 시작하는 번호를 입력해주세요.", "error");
+      return;
+    }
+    if (numberValue.length < 13) {
+      swal(" ", "전화번호는 11자리만 입력이 가능합니다.", "error");
+      return;
+    }
+
+    console.log(numberValue);
+    const body = { phoneNumber: numberValue, smsAgreement: smsChecked };
+    const result = await axios.post("http://13.209.12.254/member/join", body, {
+      withCredentials: true,
+    });
+
+    console.log(result);
 
     // // 회원가입 로직 추가
+    // 중복확인 alert
 
-    swal("멤버십 가입 성공!", "가입 가능한 전화번호입니다.", "info");
+    if (result.data.success) {
+      swal("멤버십 가입 가능!", "가입 가능한 전화번호입니다.", "info");
+    } else {
+      swal(
+        "멤버십 가입 실패!",
+        "이미 멤버십 회원입니다.\n 등록한 번호로 로그인 해주세요.",
+        "warning"
+      ).then(function () {
+        navigate(`/Menu/OrderChoice/MembershipLogin/${param.takeOutId}`);
+      });
+    }
+
+    // 회원가입 alert
 
     swal(
-      "멤버십 가입 실패!",
-      "이미 멤버십 회원입니다.\n 등록한 번호로 로그인 해주세요.",
-      "warning"
-    ).then(function () {
-      navigate(`/Menu/OrderChoice/MembershipLogin/${param.takeOutId}`);
-    });
+      "멤버십 가입 성공!",
+      "멤버십 회원이 되신 것을 환영합니다~!",
+      "success"
+    );
   };
 
   // 체크박스 로직 추가
@@ -34,31 +62,21 @@ function MembershipLogin() {
   // 체크박스 useState 만들어서 변경할 함수 만들어 준 뒤, state값과 함술를 체크박스에 넘겨줘서 (props) 그 값과 함수(onClick에 연결) 사용
   // 넘겨준 값은 체크박스 UI를 state 값에 따라 바뀌게 구현
 
-  const [checkedInputs, setCheckedInputs] = useState([]);
+  const changeHandler = (e) => {
+    // console.log(e.target.checked);
+    setSmsChecked(e.target.checked);
 
-  const changeHandler = (checked, id) => {
-    if (checked) {
-      setCheckedInputs([...checkedInputs, id]);
-    } else {
-      // 체크 해제
-      setCheckedInputs(checkedInputs.filter((el) => el !== id));
-    }
+    // if (checked) {
+    //   setCheckedInputs([...checkedInputs, id]);
+    // } else {
+    //   // 체크 해제
+    //   setCheckedInputs(checkedInputs.filter((el) => el !== id));
+    // }
   };
 
   return (
     <div>
       {/* SMS 수신동의 로직 추가 */}
-      <div>
-        <input
-          id={checkedInputs}
-          type="checkbox"
-          // onChange={() => {
-          //   changeHandler(e.currentTarget.checked, id값);
-          // }}
-          // checked={checkedInputs.includes(id값) ? true : false}
-        />
-      </div>
-
       <StHeader>
         <BackButton>이전으로</BackButton>
         <StTitle>JOIN US!</StTitle>
@@ -81,19 +99,12 @@ function MembershipLogin() {
                 id="smsAgreement"
                 name="sms"
                 value="true"
+                onChange={changeHandler}
               />
-              {/* <label for="smsAgreement"></label> */}
               <StText>
                 <span> SMS 수신 동의</span>
               </StText>
             </SmsCheckBox>
-
-            {/* 체크박스 로직 수정 */}
-            {/* <SmsCheckBox>
-              {DataInfo.map((item) => (
-                <Checkbox key={item.id} text={item.text} />
-              ))}
-            </SmsCheckBox> */}
           </form>
         </div>
       </StContentsBox>
