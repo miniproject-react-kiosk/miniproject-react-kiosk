@@ -7,8 +7,8 @@ function CheckBox3() {
       <form>
         {/* SMS 수신 동의 체크박스 */}
         <SmsCheckBox>
-          <input type="checkbox" id="SMSAgreement" name="SMS" value="true" />
-          {/* <label for="SMSAgreement"></label> */}
+          <input type="checkbox" id="smsAgreement" name="sms" value="true" />
+          {/* <label for="smsAgreement"></label> */}
           <StText>
             <span> SMS 수신 동의</span>
           </StText>
