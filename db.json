@@ -103,6 +103,15 @@
         "imageUrl": "https://www.mcdonalds.co.kr/upload/product/pcfile/1583728282358.png",
         "amount": 2
       }
+    ],
+    [
+      {
+        "id": 11,
+        "menuName": "야채잔뜩 버거2",
+        "price": 4500,
+        "imageUrl": "https://www.mcdonalds.co.kr/upload/product/pcfile/1583727707216.png",
+        "amount": 1
+      }
     ]
   ]
 }

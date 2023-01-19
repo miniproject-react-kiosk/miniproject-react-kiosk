@@ -83,7 +83,7 @@ function OrderCheck() {
               class='btn btn-outline-light btn-lg'
               onClick={() => {
                 navigate(`/Menu/OrderCheck/OrderChoice/${param.takeOutId}`);
-                axios.post('http://localhost:3001/todos', globaladdCart);
+                axios.post('http://13.209.12.254/order', globaladdCart);
               }}
             >
               {' '}
