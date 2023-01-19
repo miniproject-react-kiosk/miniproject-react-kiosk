@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import BackHomeButton from "../components/BackHomeButton";
 import OrderNumber from "../components/OrderNumber";
+import MenuList from "../components/MenuList";
 import swal from "sweetalert";
+import axios from "axios";
 
 // import { useNavigate } from 'react-router';
 // import { BiHome } from "react-icons/bi";
 
 function OrderComplete() {
+  // const fetchTodos = async () => {
+  //   const { data } = await axios.get("http://13.209.12.254/store/menus");
+  //   const [menuLists, setMenuLists] = useState(null);
+
+  //   // console.log(data);s
+  //   setMenuLists(data);
+  // };
+
+  // useEffect(() => {
+  //   setMenuLists();
+  //   fetchTodos();
+  // }, []);
+
   // const navigate = useNavigate();
 
   swal("주문 완료!", "고객님의 주문이 성공적으로 완료되었습니다.", "success");

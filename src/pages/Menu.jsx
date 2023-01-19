@@ -50,7 +50,7 @@ function Menu() {
         <StCartTotalPrice>
           <div class='d-grid gap-2 col-10 mx-auto'>
             <div class='btn btn-outline-light btn-lg'>
-              Total : {totalprice} <FaWonSign />
+              Total : <FaWonSign /> {totalprice}
             </div>
           </div>
         </StCartTotalPrice>
