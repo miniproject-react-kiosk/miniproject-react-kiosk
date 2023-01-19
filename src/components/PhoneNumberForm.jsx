@@ -1,14 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useState, useEffect } from 'react';
+import React from "react";
+import styled from "styled-components";
+import { useState, useEffect } from "react";
 
 function PhoneNumberForm({ handleAction, actionTitle }) {
-  const [numberValue, setNumberValue] = useState('');
+  const [numberValue, setNumberValue] = useState("");
   const [title, setTitle] = useState(actionTitle);
 
   const regPhone = (data) => {
-    data = data.replace(/[^0-9]/g, '');
-    data = data.replace(/(\d{3})(\d{4})(\d)/, '$1-$2-$3');
+    data = data.replace(/[^0-9]/g, "");
+    data = data.replace(/(\d{3})(\d{4})(\d)/, "$1-$2-$3");
     return data.slice(0, 13);
   };
 
@@ -18,7 +18,7 @@ function PhoneNumberForm({ handleAction, actionTitle }) {
   };
 
   const onReset = () => {
-    setNumberValue('');
+    setNumberValue("");
   };
 
   useEffect(() => {
@@ -29,18 +29,18 @@ function PhoneNumberForm({ handleAction, actionTitle }) {
     <div>
       <ContentBox>
         <ContentInput
-          name='numberValue'
-          value={numberValue || ''}
-          placeholder='전화번호를 입력해주세요.'
+          name="numberValue"
+          value={numberValue || ""}
+          placeholder="전화번호를 입력해주세요."
           onChange={handleNumber}
         />
         <StButton>
           <button
-            type='button'
-            class='btn btn-outline-secondary'
+            type="button"
+            class="btn btn-outline-secondary"
             onClick={() => {
+              handleAction(numberValue);
               onReset();
-              handleAction();
             }}
           >
             {title}
@@ -57,7 +57,7 @@ const ContentBox = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
-  font-family: 'NanumSquareRoundBold';
+  font-family: "NanumSquareRoundBold";
   font-size: 16px;
 `;
 const ContentInput = styled.input`
