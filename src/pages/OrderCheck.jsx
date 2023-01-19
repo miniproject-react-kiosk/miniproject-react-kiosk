@@ -6,7 +6,7 @@ import BackButton from '../components/BackButton';
 import { BiHome } from 'react-icons/bi';
 import { BsCreditCard } from 'react-icons/bs';
 import { FaWonSign } from 'react-icons/fa';
-
+import OrderMenuTable from '../components/OrderMenuTable';
 // import BackHomeButton from "../components/BackHomeButton";
 
 import axios from 'axios';
