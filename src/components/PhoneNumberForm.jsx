@@ -18,7 +18,6 @@ function PhoneNumberForm({ handleAction, actionTitle }) {
     setNumberValue(regPhone(value));
   };
 
-  // 전화번호 input이 없을 떄 버튼 비활성화
   const inputError = (numberValue) => {
     if (numberValue === "") {
       // btn.disabled;
@@ -47,13 +46,12 @@ function PhoneNumberForm({ handleAction, actionTitle }) {
         />
         <StButton>
           <button
-            // name="btn"
             type="button"
             class="btn btn-outline-secondary"
             onClick={() => {
               handleAction(numberValue);
               inputError();
-              onReset();
+              // onReset();
             }}
           >
             {title}

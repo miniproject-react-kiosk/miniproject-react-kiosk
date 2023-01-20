@@ -165,7 +165,7 @@ function OrderCheck() {
                     localStorage.setItem(
                       "Authorization",
                       res.data.authorization
-                    ); // 쿠키에 토큰 저lo장
+                    ); // 쿠키에 토큰 저장
                   });
               }}
             >

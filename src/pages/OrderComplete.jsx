@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import BackHomeButton from "../components/BackHomeButton";
-
 import swal from "sweetalert";
 import axios from "axios";
 
 function OrderComplete() {
   const [orderNum, setOrderNum] = useState();
+
+  // 주문번호 (OrderNumber)
 
   useEffect(() => {
     axios
@@ -22,9 +23,7 @@ function OrderComplete() {
       });
   }, []); // 함수 실행시 한 번만 실행
 
-  console.log("************", orderNum);
-
-  console.log("주문 완료페이지~~~~~~~~~~~~~~~~~~~~~`");
+  // console.log("******", orderNum);
 
   swal("주문 완료!", "고객님의 주문이 성공적으로 완료되었습니다.", "success");
 
