@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import BackHomeButton from "../components/BackHomeButton";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import BackHomeButton from '../components/BackHomeButton';
 
-import swal from "sweetalert";
-import axios from "axios";
+import swal from 'sweetalert';
+import axios from 'axios';
 
 function OrderComplete() {
   const [orderNum, setOrderNum] = useState();
@@ -11,23 +11,23 @@ function OrderComplete() {
   useEffect(() => {
     axios
       .get(
-        "http://13.209.12.254/order/orderNumber",
+        'http://13.209.12.254/order/orderNumber',
         {},
         {
           withCredentials: true,
         }
       )
       .then((response) => {
-        console.log("#########", response.data.orderCnt);
+        console.log('#########', response.data.orderCnt);
         setOrderNum(response.data.orderCnt);
       });
   }, []); // 함수 실행시 한번만 실행
 
-  console.log("************", orderNum);
+  console.log('************', orderNum);
 
-  console.log("주문 완료페이지~~~~~~~~~~~~~~~~~~~~~`");
+  console.log('주문 완료페이지~~~~~~~~~~~~~~~~~~~~~`');
 
-  swal("주문 완료!", "고객님의 주문이 성공적으로 완료되었습니다.", "success");
+  swal('주문 완료!', '고객님의 주문이 성공적으로 완료되었습니다.', 'success');
 
   return (
     <div>
@@ -61,7 +61,7 @@ const StContainerBox = styled.div`
   padding: 5vw;
   margin-top: 80px;
   text-align: center;
-  font-family: "NanumSquareRoundBold";
+  font-family: 'NanumSquareRoundBold';
   font-size: 14pt;
   /* flex-basis: 50%; */
 `;
@@ -77,7 +77,7 @@ const StHeader = styled.div`
 
 const StTitle = styled.h1`
   text-align: center;
-  font-family: "MorningBreezeBold";
+  font-family: 'MorningBreezeBold';
   margin-top: 15px;
   color: #2a2a2a;
 `;

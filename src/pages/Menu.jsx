@@ -49,7 +49,7 @@ function Menu() {
       <StBuyOrResetBox>
         <StCartTotalPrice>
           <div class='d-grid gap-2 col-10 mx-auto'>
-            <div class='btn btn-outline-light btn-lg'>
+            <div class='btn btn-outline-light btn-lg hover-disable'>
               Total : <FaWonSign /> {totalprice}
             </div>
           </div>
