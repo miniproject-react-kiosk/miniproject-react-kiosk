@@ -62,4 +62,15 @@ ___7. OrderComplete___
 1. 주문완료 alert기능
 2. 주문을 계속 할때마다 주문번호가 올라가는 기능..
 ```
+__________________
+# overview
+![image](https://user-images.githubusercontent.com/86154028/213645304-44874450-beb8-491f-8d07-ea40881623b2.png)
+![image](https://user-images.githubusercontent.com/86154028/213645401-2e6cfbfd-a53e-4844-a0a8-b1b56848c376.png)
+
+
+![image](https://user-images.githubusercontent.com/86154028/213645632-ab8cc75c-3ee3-4052-8720-005b8abe270c.png)
+![image](https://user-images.githubusercontent.com/86154028/213645670-5a9fbeb4-b5cd-4698-998b-efbf39dada62.png)
+![image](https://user-images.githubusercontent.com/86154028/213645565-5e136579-8d00-4f1d-a3d9-015a58513d0b.png)
+
+
 
