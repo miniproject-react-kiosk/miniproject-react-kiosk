@@ -43,7 +43,7 @@ function MembershipLogin() {
     // 로그인 로직 추가
 
     if (response.data.httpStatus === 200) {
-      swal("로그인 성공!", "\n()원 적립이 완료되었습니다.", "success").then(
+      swal("로그인 성공!", "\n 적립이 완료되었습니다.", "success").then(
         function () {
           navigate(`/Menu/OrderChoice/OrderComplete/${param.takeOutId}`);
         }
