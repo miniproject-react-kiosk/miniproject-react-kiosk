@@ -44,7 +44,11 @@ function OrderComplete() {
           소요시간은 약 15분입니다.<br></br>
           주문번호 호출 시 카운터로 방문해주세요.
         </StContainerBox>
-        <StBackHomeButton>
+        <StBackHomeButton
+          onClick={() => {
+            window.location.reload();
+          }}
+        >
           <BackHomeButton />
         </StBackHomeButton>
       </StBox>
