@@ -18,10 +18,9 @@ function OrderComplete() {
         }
       )
       .then((response) => {
-        console.log("#########", response.data.orderCnt);
         setOrderNum(response.data.orderCnt);
       });
-  }, []); // 함수 실행시 한번만 실행
+  }, []); // 함수 실행시 한 번만 실행
 
   console.log("************", orderNum);
 

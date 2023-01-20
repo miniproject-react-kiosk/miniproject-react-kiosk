@@ -125,7 +125,7 @@ function OrderCheck() {
 
                 // axios.post('http://13.209.12.254/order', globaladdCart);
 
-                //TODO: CORS정책 확인용.
+                // TODO: CORS정책 확인용.
                 // axios({
                 //   method: 'options',
                 //   url: 'http://13.209.12.254/order',
@@ -140,7 +140,7 @@ function OrderCheck() {
                 //     console.log('CORS not allowed');
                 //   }
                 // });
-                //TODO:
+                // TODO:
 
                 axios
                   .post(
