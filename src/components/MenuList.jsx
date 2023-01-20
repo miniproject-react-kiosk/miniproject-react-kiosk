@@ -42,12 +42,10 @@ export default function MenuList() {
     setMenuLists();
     fetchTodos();
   }, []);
-  console.log(menuLists);
-  console.log("메뉴페이지~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`");
+  // console.log(menuLists);
 
   return (
     <div>
-      {/*가로 스크롤 그거....어떻게 하는건데... (feat.bootstrap*/}
       {/* <StScrollHorizontal> */}
       <div class="row row-cols-1 row-cols-md-4 g-4">
         {/* <div class="row row-cols-auto"> */}
@@ -64,7 +62,6 @@ export default function MenuList() {
                   ></img>
                   <div class="card-body">
                     <StCardTitle>
-                      {/* <h5 class="card-title">맥크리스피 디럭스 버거</h5> */}
                       <p>{menuList.menuName}</p>
                     </StCardTitle>
                     <StCardText>
@@ -99,11 +96,6 @@ export default function MenuList() {
 const StAddCartButton = styled.div`
   display: flex;
   justify-content: center;
-  /* position: relative; */
-  /* width: fit-content; */
-  /* margin: auto; */
-  /* width: 20vw; */
-  /* align-items: center; */
 `;
 
 const StCardTitle = styled.p`
@@ -124,6 +116,7 @@ const StEmptyBox = styled.div`
   height: 400px;
 `;
 
+// 가로 스크롤
 // const StScrollHorizontal = styled.div`
 //   display: flex;
 //   /* width: 500px; */
