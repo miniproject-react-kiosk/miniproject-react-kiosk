@@ -5,20 +5,10 @@ import BackButton from "../components/BackButton";
 import PhoneNumberForm from "../components/PhoneNumberForm";
 import axios from "axios";
 import swal from "sweetalert";
-// import { useDispatch } from "react-redux";
-// import { useState } from "react";
 
 function MembershipLogin() {
   const navigate = useNavigate();
   const param = useParams();
-
-  // const dispatch = useDispatch;
-  // const [memberInfo, setMemberInfo] = useState(null);
-
-  // useEffect(() => {
-  //   setMenuLists();
-  //   fetchTodos();
-  // }, []);
 
   const handleAction = async (numberValue) => {
     if (numberValue.length < 13) {
@@ -33,8 +23,12 @@ function MembershipLogin() {
       );
       return;
     }
-
     console.log(numberValue);
+
+    // if (numberValue === "") {
+    //   swal("가입 실패!", "전화번호를 입력해주세요.", "error");
+    // }
+
     const body = { phoneNumber: numberValue };
     const response = await axios.post(
       "http://13.209.12.254/member/login",
@@ -45,6 +39,8 @@ function MembershipLogin() {
     );
 
     console.log(response);
+
+    // 로그인 로직 추가
 
     if (response.data.httpStatus === 200) {
       swal("로그인 성공!", "\n()원 적립이 완료되었습니다.", "success");
@@ -71,11 +67,6 @@ function MembershipLogin() {
             <PhoneNumberForm
               handleAction={handleAction}
               actionTitle=" 적립하기 "
-              // 네비게이터
-
-              // navigate(
-              //   `/Menu/OrderChoice/OrderComplete/${param.takeOutId}`
-              // );
             ></PhoneNumberForm>
           </StPhoneNumberInputBox>
         </div>

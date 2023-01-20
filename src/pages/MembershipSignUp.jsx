@@ -14,7 +14,8 @@ function MembershipLogin() {
   const [smsChecked, setSmsChecked] = useState(false);
 
   const handleAction = async (numberValue) => {
-    // 중복확인 번호 alert
+    // 중복확인 case 별 alert
+
     if (numberValue.split("-")[0] !== "010") {
       swal(" ", "010 으로 시작하는 번호를 입력해주세요.", "error");
       return;
@@ -23,8 +24,8 @@ function MembershipLogin() {
       swal(" ", "전화번호는 11자리만 입력이 가능합니다.", "error");
       return;
     }
-
     console.log(numberValue);
+
     const body = { phoneNumber: numberValue, smsAgreement: smsChecked };
     const response = await axios.post(
       "http://13.209.12.254/member/join",
@@ -33,12 +34,9 @@ function MembershipLogin() {
         withCredentials: true,
       }
     );
-
     console.log(response);
-    console.log(numberValue);
 
-    // // 회원가입 로직 추가
-    // 중복확인 alert
+    // 회원가입 로직 추가
 
     if (response.data.httpStatus === 200) {
       swal("멤버십 가입 가능!", "가입 가능한 전화번호입니다.", "info");
@@ -52,25 +50,27 @@ function MembershipLogin() {
       });
       // console.log(response.data.httpStatus);
     }
-
-    // 회원가입 alert
-
-    // swal(
-    //   "멤버십 가입 성공!",
-    //   "멤버십 회원이 되신 것을 환영합니다~!",
-    //   "success"
-    // );
   };
 
   // 체크박스 로직 추가
 
-  // 체크박스 useState 만들어서 변경할 함수 만들어 준 뒤, state값과 함술를 체크박스에 넘겨줘서 (props) 그 값과 함수(onClick에 연결) 사용
+  // 체크박스 useState 만들어서 변경할 함수 만들어 준 뒤,
+  // state값과 함술를 체크박스에 넘겨줘서 (props) 그 값과 함수(onClick에 연결)를 사용
   // 넘겨준 값은 체크박스 UI를 state 값에 따라 바뀌게 구현
 
   const changeHandler = (e) => {
     console.log(e.target.checked);
     setSmsChecked(e.target.checked);
   };
+
+  // const checkHandler = (numberValue) => {
+  //   if (numberValue === " ") {
+  //     // btn.disabled;
+  //     console.log("^^^^^^", checkHandler);
+  //     swal("가입 실패!", "전화번호를 입력해주세요.", "error");
+  //   }
+  //   return;
+  // };
 
   return (
     <div>
@@ -113,11 +113,13 @@ function MembershipLogin() {
           <button
             type="button"
             class="btn btn-outline-secondary btn-lg"
+            // onChange={checkHandler}
             onClick={() => {
+              // 전화번호 input이 없을 때 버튼 비활성화
               swal(
                 "멤버십 가입이 완료되었습니다.",
                 "\n()원이 적립이 완료되었습니다.",
-                "info"
+                "success"
               ).then(function () {
                 navigate(`/Menu/OrderChoice/OrderComplete/${param.takeOutId}`);
               });
