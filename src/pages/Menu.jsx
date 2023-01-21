@@ -29,7 +29,6 @@ function Menu() {
       <StHeader>
         <StTitle>MENU</StTitle>
         {/* <BackButton>이전으로</BackButton> */}
-        {/* <img src="/img/logo.png"></img> */}
       </StHeader>
 
       {/* 메뉴추가 */}
