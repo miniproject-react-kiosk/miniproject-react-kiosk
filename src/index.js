@@ -1,49 +1,49 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import reportWebVitals from "./reportWebVitals";
-import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import reportWebVitals from './reportWebVitals';
+import './index.css';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 // import { BrowserRouter as Router, Route } from "react-router-dom";
-import App from "./App";
+import App from './App';
 
-import NotFound from "./pages/NotFound";
-import Home from "./pages/Home";
-import Menu from "./pages/Menu";
-import OrderCheck from "./pages/OrderCheck";
-import OrderChoice from "./pages/OrderChoice";
-import OrderComplete from "./pages/OrderComplete";
-import MembershipSignUp from "./pages/MembershipSignUp";
-import MembershipLogin from "./pages/MembershipLogin";
-import { CookiesProvider } from "react-cookie";
-import { Provider } from "react-redux";
-import store from "./redux/config/configStore";
-import Admin from "./pages/Admin";
+import NotFound from './pages/NotFound';
+import Home from './pages/Home';
+import Menu from './pages/Menu';
+import OrderCheck from './pages/OrderCheck';
+import OrderChoice from './pages/OrderChoice';
+import OrderComplete from './pages/OrderComplete';
+import MembershipSignUp from './pages/MembershipSignUp';
+import MembershipLogin from './pages/MembershipLogin';
+import { CookiesProvider } from 'react-cookie';
+import { Provider } from 'react-redux';
+import store from './redux/config/configStore';
+import Admin from './pages/Admin';
 // import PasswordProtectedPage from "./components/PasswordProtectedPage";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     errorElement: <NotFound />,
     children: [
       { index: true, element: <Home /> },
-      { path: "Menu/:takeOutId", element: <Menu /> },
+      { path: 'Menu/:takeOutId', element: <Menu /> },
 
-      { path: "Menu/OrderCheck/:takeOutId", element: <OrderCheck /> },
+      { path: 'Menu/OrderCheck/:takeOutId', element: <OrderCheck /> },
       {
-        path: "Menu/OrderCheck/OrderChoice/:takeOutId",
+        path: 'Menu/OrderCheck/OrderChoice/:takeOutId',
         element: <OrderChoice />,
       },
       {
-        path: "Menu/OrderChoice/OrderComplete/:takeOutId",
+        path: 'Menu/OrderChoice/OrderComplete/:takeOutId',
         element: <OrderComplete />,
       },
       {
-        path: "Menu/OrderChoice/MembershipSignUp/:takeOutId",
+        path: 'Menu/OrderChoice/MembershipSignUp/:takeOutId',
         element: <MembershipSignUp />,
       },
       {
-        path: "Menu/OrderChoice/MembershipLogin/:takeOutId",
+        path: 'Menu/OrderChoice/MembershipLogin/:takeOutId',
         element: <MembershipLogin />,
       },
 
@@ -53,21 +53,21 @@ const router = createBrowserRouter([
       // },
 
       {
-        path: "Admin/",
+        path: 'Admin/',
         element: <Admin />,
       },
     ],
   },
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <React.StrictMode>
       <CookiesProvider>
         <RouterProvider router={router} />
       </CookiesProvider>
-    </React.StrictMode>{" "}
+    </React.StrictMode>{' '}
   </Provider>
 );
 

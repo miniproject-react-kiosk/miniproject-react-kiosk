@@ -1,7 +1,7 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { MdOutlineManageAccounts } from "react-icons/md";
-import styled from "styled-components";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { MdOutlineManageAccounts } from 'react-icons/md';
+import styled from 'styled-components';
 
 function AdminButton() {
   const navigate = useNavigate();
@@ -9,10 +9,10 @@ function AdminButton() {
   return (
     <div>
       <StAdminButtonContainer>
-        <div class="d-grid gap-2 col-1 mx-auto">
+        <div class='d-grid gap-2 col-1 mx-auto'>
           <button
-            type="button"
-            class="btn btn-outline-secondary btn-lg"
+            type='button'
+            class='btn btn-outline-secondary btn-lg'
             onClick={() => {
               navigate(`/Admin`);
               // navigate(`/PasswordProtectedPage/Admin`);

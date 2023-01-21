@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 // import { useNavigate } from "react-router-dom";
-import BackHomeButton from "../components/BackHomeButton";
-import styled from "styled-components";
-import PasswordProtectedPage from "../components/PasswordProtectedPage";
+import BackHomeButton from '../components/BackHomeButton';
+import styled from 'styled-components';
+import PasswordProtectedPage from '../components/PasswordProtectedPage';
 // import axios from "axios";
 
 function Admin() {
@@ -15,7 +15,9 @@ function Admin() {
 
       <StBox>
         <StContainerBox>
-          <br></br>
+          <div>
+            <PasswordProtectedPage />
+          </div>
           {/* <StHighlight>{orderNum}</StHighlight> */}
         </StContainerBox>
         <StBackHomeButton
@@ -39,7 +41,7 @@ const StContainerBox = styled.div`
   padding: 5vw;
   margin-top: 80px;
   text-align: center;
-  font-family: "NanumSquareRoundBold";
+  font-family: 'NanumSquareRoundBold';
   font-size: 14pt;
   /* flex-basis: 50%; */
 `;
@@ -55,7 +57,7 @@ const StHeader = styled.div`
 
 const StTitle = styled.h1`
   text-align: center;
-  font-family: "MorningBreezeBold";
+  font-family: 'MorningBreezeBold';
   margin-top: 15px;
   color: #2a2a2a;
 `;
