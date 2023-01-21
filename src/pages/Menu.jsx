@@ -1,19 +1,20 @@
 //2번페이지
 
-import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.css";
-import styled from "styled-components";
-import { BsCartCheck } from "react-icons/bs";
-import { BiUndo } from "react-icons/bi";
-import { FaWonSign } from "react-icons/fa";
+import React, { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.css';
+import styled from 'styled-components';
+import { BsCartCheck } from 'react-icons/bs';
+import { BiUndo } from 'react-icons/bi';
+import { FaWonSign } from 'react-icons/fa';
 // import AddCart from "../components/AddCart";
-
-import MenuList from "../components/MenuList";
-import CartList from "../components/CartList";
-import { useSelector } from "react-redux";
-
+import MenuList from '../components/MenuList';
+import CartList from '../components/CartList';
+import { useSelector } from 'react-redux';
+import DrinKMenu from '../components/DrinKMenu';
 function Menu() {
+  const [showDrinKMenu, setShowDrinKMenu] = useState(false);
+
   const navigate = useNavigate();
   const param = useParams();
 
@@ -34,7 +35,24 @@ function Menu() {
       {/* 메뉴추가 */}
       <StMenuContainer>
         <div>
-          <MenuList />
+          <button
+            onClick={() => {
+              setShowDrinKMenu(!showDrinKMenu);
+            }}
+          >
+            코딩대장 킹유래
+          </button>
+          {showDrinKMenu && <DrinKMenu />}
+
+          <button
+            onClick={() => {
+              setShowDrinKMenu(!showDrinKMenu);
+            }}
+          >
+            dmafy
+          </button>
+          {showDrinKMenu && <DrinKMenu />}
+          {/* <MenuList /> */}
         </div>
       </StMenuContainer>
 
@@ -46,8 +64,8 @@ function Menu() {
       </StCartBox>
       <StBuyOrResetBox>
         <StCartTotalPrice>
-          <div class="d-grid gap-2 col-10 mx-auto">
-            <div class="btn btn-outline-light btn-lg">
+          <div class='d-grid gap-2 col-10 mx-auto'>
+            <div class='btn btn-outline-light btn-lg'>
               Total : <FaWonSign /> {totalprice}
             </div>
           </div>
@@ -55,32 +73,32 @@ function Menu() {
 
         {/* 취소하기 버튼 */}
         <StResetButton>
-          <div class="d-grid gap-2 col-10 mx-auto">
+          <div class='d-grid gap-2 col-10 mx-auto'>
             <button
-              type="button"
-              class="btn btn-outline-light btn-lg"
+              type='button'
+              class='btn btn-outline-light btn-lg'
               onClick={() => {
                 navigate(-1);
               }}
             >
-              {" "}
-              <BiUndo className="Undo" /> 취소하기
+              {' '}
+              <BiUndo className='Undo' /> 취소하기
             </button>
           </div>
         </StResetButton>
 
         {/* 결제하기 버튼 */}
         <StBuyButton>
-          <div class="d-grid gap-2 col-10 mx-auto">
+          <div class='d-grid gap-2 col-10 mx-auto'>
             <button
-              type="button"
-              class="btn btn-outline-light btn-lg"
+              type='button'
+              class='btn btn-outline-light btn-lg'
               onClick={() => {
                 navigate(`/Menu/OrderCheck/${param.takeOutId}`);
               }}
             >
-              {" "}
-              <BsCartCheck className="Order" /> 주문하기
+              {' '}
+              <BsCartCheck className='Order' /> 주문하기
             </button>
           </div>
         </StBuyButton>
@@ -102,7 +120,7 @@ const StHeader = styled.div`
 
 const StTitle = styled.h1`
   text-align: center;
-  font-family: "MorningBreezeBold";
+  font-family: 'MorningBreezeBold';
   margin-top: 15px;
   color: #2a2a2a;
 `;
@@ -146,15 +164,15 @@ const StBuyOrResetBox = styled.div`
 
 const StCartTotalPrice = styled.div`
   flex-basis: 50%;
-  font-family: "NanumSquareRoundBold";
+  font-family: 'NanumSquareRoundBold';
 `;
 
 const StBuyButton = styled.div`
   flex-basis: 25%;
-  font-family: "NanumSquareRoundBold";
+  font-family: 'NanumSquareRoundBold';
 `;
 
 const StResetButton = styled.div`
   flex-basis: 25%;
-  font-family: "NanumSquareRoundBold";
+  font-family: 'NanumSquareRoundBold';
 `;
