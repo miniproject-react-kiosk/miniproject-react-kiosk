@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { addCart } from '../redux/modules/menuListSlice';
 // import menuListReducer from '../redux/modules/menuListReducer';
 
-export default function DrinKMenu() {
+export default function DrinkMenu() {
   //조회...
   const dispatch = useDispatch();
   const [menuLists, setMenuLists] = useState(null);

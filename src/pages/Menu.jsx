@@ -11,9 +11,9 @@ import { FaWonSign } from 'react-icons/fa';
 import MenuList from '../components/MenuList';
 import CartList from '../components/CartList';
 import { useSelector } from 'react-redux';
-import DrinKMenu from '../components/DrinKMenu';
+import DrinkMenu from '../components/DrinkMenu';
 function Menu() {
-  const [showDrinKMenu, setShowDrinKMenu] = useState(false);
+  const [showDrinkMenu, setShowDrinkMenu] = useState(false);
 
   const navigate = useNavigate();
   const param = useParams();
@@ -37,21 +37,22 @@ function Menu() {
         <div>
           <button
             onClick={() => {
-              setShowDrinKMenu(!showDrinKMenu);
+              setShowDrinkMenu(!showDrinkMenu);
             }}
           >
-            코딩대장 킹유래
+            burger
           </button>
-          {showDrinKMenu && <DrinKMenu />}
+          {showDrinkMenu && <DrinkMenu />}
 
           <button
             onClick={() => {
-              setShowDrinKMenu(!showDrinKMenu);
+              setShowDrinkMenu(!showDrinkMenu);
             }}
           >
-            dmafy
+            drink
           </button>
-          {showDrinKMenu && <DrinKMenu />}
+          {showDrinkMenu && <DrinkMenu />}
+
           {/* <MenuList /> */}
         </div>
       </StMenuContainer>
