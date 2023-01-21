@@ -18,7 +18,7 @@ export default function CounterButton(props) {
   const [amount, setAmount] = useState(1);
   // console.log(item);
   const dispatch = useDispatch();
-  // console.log(props);
+  console.log(props);
 
   //+버튼
   const handledup = (id) => {
@@ -53,8 +53,8 @@ export default function CounterButton(props) {
         <StCartListControl>
           <StCartListControlBox
             onClick={() => {
-              if (amount > 1) {
-                setAmount(amount - 1);
+              if (props.item.amount > 1) {
+                setAmount(props.item.amount - 1);
                 handledDown(props.item.id);
               } else {
                 handledDelete(props.item.id);
@@ -63,7 +63,7 @@ export default function CounterButton(props) {
           >
             <HiMinus />
           </StCartListControlBox>
-          <StCartListControlBox2>{amount}</StCartListControlBox2>
+          <StCartListControlBox2>{props.item.amount}</StCartListControlBox2>
           <StCartListControlBox
             onClick={() => {
               handledup(props.item.id);
