@@ -18,7 +18,7 @@ import { CookiesProvider } from "react-cookie";
 import { Provider } from "react-redux";
 import store from "./redux/config/configStore";
 import Admin from "./pages/Admin";
-import PasswordProtectedPage from "./components/PasswordProtectedPage";
+// import PasswordProtectedPage from "./components/PasswordProtectedPage";
 
 const router = createBrowserRouter([
   {
