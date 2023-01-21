@@ -1,8 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import AdminButton from "../components/AdminButton";
 import styled from "styled-components";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { BiRestaurant } from "react-icons/bi";
+import PasswordProtectedPage from "../components/PasswordProtectedPage";
 
 // 1번페이지
 
@@ -22,29 +24,29 @@ function Home() {
     },
   ];
   return (
-    <StAll>
-      {/* <div>Logo</div> */}
-      <StHeader>
-        <StTitle>MY KIOSK!</StTitle>
-        {/* <BackButton>이전으로</BackButton> */}
-        {/* <img src="/img/logo.png"></img> */}
-      </StHeader>
-      <StBoxs>
-        {place.map((e) => {
-          return (
-            <StBox
-              onClick={() => {
-                navigate(`/Menu/${e.takeOutId}`);
-              }}
-            >
-              <StBoxImg className="img">{e.img}</StBoxImg>
-              <StBoxText>{e.takeOut}</StBoxText>
-              {/* 포장 or 매장 */}
-            </StBox>
-          );
-        })}
-      </StBoxs>
-    </StAll>
+    <div>
+      <StAll>
+        <StHeader>
+          <StTitle>MY KIOSK!</StTitle>
+        </StHeader>
+        <AdminButton></AdminButton>
+        <StBoxs>
+          {place.map((e) => {
+            return (
+              <StBox
+                onClick={() => {
+                  navigate(`/Menu/${e.takeOutId}`);
+                }}
+              >
+                <StBoxImg className="img">{e.img}</StBoxImg>
+                <StBoxText>{e.takeOut}</StBoxText>
+                {/* 포장 or 매장 */}
+              </StBox>
+            );
+          })}
+        </StBoxs>
+      </StAll>
+    </div>
   );
 }
 

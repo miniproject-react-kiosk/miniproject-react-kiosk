@@ -50,8 +50,8 @@ function PhoneNumberForm({ handleAction, actionTitle }) {
             class="btn btn-outline-secondary"
             onClick={() => {
               handleAction(numberValue);
-              inputError();
-              // onReset();
+              // inputError();
+              onReset();
             }}
           >
             {title}

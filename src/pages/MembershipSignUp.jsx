@@ -119,7 +119,7 @@ function MembershipLogin() {
               // 전화번호 input이 없을 때 버튼 비활성화
               swal(
                 "멤버십 가입이 완료되었습니다.",
-                "\n()원이 적립이 완료되었습니다.",
+                "적립이 완료되었습니다.",
                 "success"
               ).then(function () {
                 navigate(`/Menu/OrderChoice/OrderComplete/${param.takeOutId}`);
