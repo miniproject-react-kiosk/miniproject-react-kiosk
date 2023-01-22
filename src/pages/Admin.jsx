@@ -3,6 +3,7 @@ import axios from "axios";
 import BackHomeButton from "../components/BackHomeButton";
 import styled from "styled-components";
 import PasswordProtectedPage from "../components/PasswordProtectedPage";
+
 // import axios from "axios";
 
 function Admin() {
@@ -15,7 +16,9 @@ function Admin() {
 
       <StBox>
         <StContainerBox>
-          <br></br>
+          <div>
+            <PasswordProtectedPage />
+          </div>
           {/* <StHighlight>{orderNum}</StHighlight> */}
         </StContainerBox>
         <StBackHomeButton
