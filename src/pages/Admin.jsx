@@ -1,20 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
 import BackHomeButton from "../components/BackHomeButton";
+import { BiWon } from "react-icons/bi";
 import styled from "styled-components";
-import PasswordProtectedPage from "../components/PasswordProtectedPage";
-
-// import axios from "axios";
+// import { useNavigate } from "react-router-dom";
 
 function Admin() {
-  const [dailySales, setDailySales] = useState();
+  const [dailySales, setDailySales] = useState(0);
+  const [date, setDate] = useState("");
 
-  useEffect(() => {
-    axios
-      .get(
+  const handleSelectDate = (e) => {
+    const selectedDate = e.target.value;
+    const formattedDate = selectedDate.replace(/-/gi, "/");
+    setDate(formattedDate);
+  };
+
+  // useEffect(() => {
+  //   console.log("##", date, dailySales);
+  //   getDailySales();
+  // }, []);
+
+  const getDailySales = async () => {
+    await axios
+      .post(
         "http://13.209.12.254/order/dailySales",
-        {},
+        { date: date },
         {
           withCredentials: true,
         }
@@ -22,7 +32,8 @@ function Admin() {
       .then((response) => {
         setDailySales(response.data);
       });
-  }, []);
+  };
+  getDailySales();
 
   return (
     <div>
@@ -33,10 +44,18 @@ function Admin() {
       <StBox>
         <StContainerBox>
           <div>
-            <PasswordProtectedPage />
+            <p>
+              <div>당일 매출 조회</div>
+              <input type="date" onChange={handleSelectDate}></input>
+              {/* <input type="submit" value="Submit"></input> */}
+            </p>
           </div>
-          <div>당일 매출 조회</div>
-          <StHighlight>{dailySales}</StHighlight>
+
+          <StHighlight>
+            {" "}
+            <BiWon />
+            {dailySales}
+          </StHighlight>
         </StContainerBox>
         <StBackHomeButton
           onClick={() => {
@@ -94,6 +113,6 @@ const StBackHomeButton = styled.div`
 
 const StHighlight = styled.div`
   color: #1c1c1ca9;
-  font-size: 32pt;
+  font-size: 28pt;
   font-weight: bolder;
 `;
