@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 // import { useNavigate } from "react-router-dom";
 import BackHomeButton from "../components/BackHomeButton";
@@ -7,7 +8,22 @@ import PasswordProtectedPage from "../components/PasswordProtectedPage";
 // import axios from "axios";
 
 function Admin() {
-  // const navigate = useNavigate();
+  const [dailySales, setDailySales] = useState();
+
+  useEffect(() => {
+    axios
+      .get(
+        "http://13.209.12.254/order/dailySales",
+        {},
+        {
+          withCredentials: true,
+        }
+      )
+      .then((response) => {
+        setDailySales(response.data);
+      });
+  }, []);
+
   return (
     <div>
       <StHeader>
@@ -19,7 +35,8 @@ function Admin() {
           <div>
             <PasswordProtectedPage />
           </div>
-          {/* <StHighlight>{orderNum}</StHighlight> */}
+          <div>당일 매출 조회</div>
+          <StHighlight>{dailySales}</StHighlight>
         </StContainerBox>
         <StBackHomeButton
           onClick={() => {
@@ -76,7 +93,7 @@ const StBackHomeButton = styled.div`
 `;
 
 const StHighlight = styled.div`
-  color: #ff9900;
-  font-size: 45pt;
+  color: #1c1c1ca9;
+  font-size: 32pt;
   font-weight: bolder;
 `;
