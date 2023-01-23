@@ -4,7 +4,6 @@ import AdminButton from "../components/AdminButton";
 import styled from "styled-components";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { BiRestaurant } from "react-icons/bi";
-import PasswordProtectedPage from "../components/PasswordProtectedPage";
 
 // 1번페이지
 
