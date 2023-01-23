@@ -43,11 +43,11 @@ function MembershipLogin() {
     // 로그인 로직 추가
 
     if (response.data.httpStatus === 200) {
-      swal("로그인 성공!", "\n()원 적립이 완료되었습니다.", "success");
+      swal("로그인 성공!", "()원 적립이 완료되었습니다.", "success");
     } else {
       swal(
         "로그인 실패!",
-        "멤버십 정보가 없습니다.\n 멤버십에 가입해주세요!",
+        "멤버십 정보가 없습니다. 멤버십에 가입해주세요!",
         "error"
       ).then(function () {
         navigate(`/Menu/OrderChoice/MembershipSignup/${param.takeOutId}`);
