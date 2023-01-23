@@ -18,7 +18,7 @@ import { CookiesProvider } from "react-cookie";
 import { Provider } from "react-redux";
 import store from "./redux/config/configStore";
 import Admin from "./pages/Admin";
-// import PasswordProtectedPage from "./components/PasswordProtectedPage";
+import PasswordProtectedPage from "./pages/PasswordProtectedPage";
 
 const router = createBrowserRouter([
   {
@@ -46,15 +46,13 @@ const router = createBrowserRouter([
         path: "Menu/OrderChoice/MembershipLogin/:takeOutId",
         element: <MembershipLogin />,
       },
-
-      // {
-      //   path: "/PasswordProtectedPage/",
-      //   element: <PasswordProtectedPage />,
-      // },
-
       {
         path: "Admin/",
         element: <Admin />,
+      },
+      {
+        path: "PasswordProtectedPage/",
+        element: <PasswordProtectedPage />,
       },
     ],
   },
