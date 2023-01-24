@@ -93,7 +93,7 @@ const StContainer = styled.div`
   border: 3px solid #3d3d3d97;
   border-radius: 10px;
   padding: 3vw;
-  margin-top: 25%;
+  margin-top: 15%;
   width: 500px;
   height: 200px;
   text-align: center;

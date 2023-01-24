@@ -4,6 +4,8 @@ import { BiWon } from "react-icons/bi";
 import styled from "styled-components";
 // import { useNavigate } from "react-router-dom";
 
+// 당일 매출 조회
+
 function DailySales() {
   const [dailySales, setDailySales] = useState(0);
   const [date, setDate] = useState("");
