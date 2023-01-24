@@ -23,7 +23,7 @@ function OrderComplete() {
       });
   }, []); // 함수 실행시 한 번만 실행
 
-  // console.log("******", orderNum);
+  console.log("******", orderNum);
 
   swal("주문 완료!", "고객님의 주문이 성공적으로 완료되었습니다.", "success");
 
