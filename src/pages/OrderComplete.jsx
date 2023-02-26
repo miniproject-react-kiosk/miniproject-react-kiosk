@@ -12,7 +12,8 @@ function OrderComplete() {
   useEffect(() => {
     axios
       .get(
-        "http://13.209.12.254/order/orderNumber",
+        // "http://13.209.12.254/order/orderNumber",
+        "http://3.39.222.229/order/orderNumber",
         {},
         {
           withCredentials: true,
@@ -23,7 +24,7 @@ function OrderComplete() {
       });
   }, []); // 함수 실행시 한 번만 실행
 
-  // console.log("******", orderNum);
+  console.log("******", orderNum);
 
   swal("주문 완료!", "고객님의 주문이 성공적으로 완료되었습니다.", "success");
 

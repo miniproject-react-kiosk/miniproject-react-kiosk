@@ -31,7 +31,8 @@ function MembershipLogin() {
 
     const body = { phoneNumber: numberValue };
     const response = await axios.post(
-      'http://13.209.12.254/member/login',
+      // 'http://13.209.12.254/member/login',
+      'http://3.39.222.229/member/login',
       body,
       {
         withCredentials: true,
@@ -43,6 +44,7 @@ function MembershipLogin() {
     // 로그인 로직 추가
 
     if (response.data.httpStatus === 200) {
+
       swal('로그인 성공!', '\n 적립이 완료되었습니다.', 'success').then(
         function () {
           navigate(`/Menu/OrderChoice/OrderComplete/${param.takeOutId}`);
@@ -53,6 +55,7 @@ function MembershipLogin() {
         '로그인 실패!',
         '멤버십 정보가 없습니다.\n 멤버십에 가입해주세요!',
         'error'
+
       ).then(function () {
         navigate(`/Menu/OrderChoice/MembershipSignup/${param.takeOutId}`);
       });

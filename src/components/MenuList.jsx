@@ -33,7 +33,8 @@ export default function MenuList() {
 
   const fetchTodos = async () => {
     // const { data } = await axios.get('http://localhost:3001/MenuList');
-    const { data } = await axios.get("http://13.209.12.254/store/menus");
+    // const { data } = await axios.get("http://13.209.12.254/store/menus");
+    const { data } = await axios.get("http://3.39.222.229/store/food");
     // console.log(data);
     setMenuLists(data);
   };

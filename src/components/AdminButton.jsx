@@ -14,7 +14,7 @@ function AdminButton() {
             type='button'
             class='btn btn-outline-secondary btn-lg'
             onClick={() => {
-              navigate(`/Admin`);
+              navigate(`/PasswordProtectedPage`);
               // navigate(`/PasswordProtectedPage/Admin`);
             }}
           >
