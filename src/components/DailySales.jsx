@@ -24,7 +24,8 @@ function DailySales() {
   const getDailySales = async () => {
     await axios
       .post(
-        "http://13.209.12.254/order/dailySales",
+        // "http://13.209.12.254/order/dailySales",
+        "http://3.39.222.229/order/dailySales",
         { date: date },
         {
           withCredentials: true,

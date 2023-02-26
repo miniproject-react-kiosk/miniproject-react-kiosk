@@ -23,7 +23,7 @@ function Point() {
   const getDailySales = async () => {
     const body = { phoneNumber: numberValue, token: tokenValue };
     await axios
-      .post("http://13.209.12.254/order/points", body, {
+      .post("http://3.39.222.229/order/points", body, {
         withCredentials: true,
       })
       .then((response) => {

@@ -31,7 +31,8 @@ function MembershipLogin() {
 
     const body = { phoneNumber: numberValue };
     const response = await axios.post(
-      'http://13.209.12.254/member/login',
+      // 'http://13.209.12.254/member/login',
+      'http://3.39.222.229/member/login',
       body,
       {
         withCredentials: true,

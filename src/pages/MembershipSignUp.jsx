@@ -29,7 +29,8 @@ function MembershipLogin() {
 
     const body = { phoneNumber: numberValue, smsAgreement: smsChecked };
     const response = await axios.post(
-      "http://13.209.12.254/member/join",
+      // "http://13.209.12.254/member/join",
+      "http://3.39.222.229/member/join",
       body,
       {
         withCredentials: true,

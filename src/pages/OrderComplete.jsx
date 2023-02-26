@@ -12,7 +12,8 @@ function OrderComplete() {
   useEffect(() => {
     axios
       .get(
-        "http://13.209.12.254/order/orderNumber",
+        // "http://13.209.12.254/order/orderNumber",
+        "http://3.39.222.229/order/orderNumber",
         {},
         {
           withCredentials: true,
